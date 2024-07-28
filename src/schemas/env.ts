@@ -10,7 +10,6 @@ const envVars = z.object({
 envVars.parse(process.env);
 
 declare global {
-  namespace NodeJS {
-    interface ProcessEnv extends z.infer<typeof envVars> {}
-  }
+  interface ProcessEnv extends z.infer<typeof envVars> {}
 }
+export {};

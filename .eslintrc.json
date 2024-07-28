@@ -1,9 +1,21 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+
+  "parserOptions": {
+    "project": true
+  },
 
   "rules": {
     // Additional, per-project rules...
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "prettier/prettier": "error",
     "quotes": ["error", "double"],
     "semi": ["error", "always"]
   }
