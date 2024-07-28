@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex justify-center min-h w-full gap-8">
       XD
       <Button
         variant="default"
@@ -10,6 +11,12 @@ export default function Home() {
       >
         Click me
       </Button>
+      <Image
+        src="" // ? Add your image path here
+        alt="Testing"
+        width={200}
+        height={200}
+      />
     </div>
   );
 }
