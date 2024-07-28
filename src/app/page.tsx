@@ -1,11 +1,10 @@
-export default function Home() {
-  const blogName = "Tech Blog"; //* Delete me later
+import Dashboard from "@/auth/Dashboard";
 
+export default function Home() {
+  //? Example to test the authentication
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-center font-mono text-sm lg:flex">
-        <p className="text-lg">Welcome to {blogName} </p>
-      </div>
+    <main className="mx-auto my-12 max-w-7xl space-y-5">
+      <Dashboard />
     </main>
   );
 }

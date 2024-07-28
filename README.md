@@ -20,6 +20,26 @@ pnpm install
 bun install
 ```
 
+## Husky and Lint-staged setup
+
+```bash
+npm run prepare
+# or
+yarn prepare
+# or
+pnpm prepare
+# or
+bun run prepare
+```
+
+## Environment Variables setup
+
+```bash
+cp .env.local.example .env.local
+```
+
+- Fill in the environment variables in the `.env.local` file
+
 ## Getting Started
 
 First, run the development server:
