@@ -1,4 +1,4 @@
-import Dashboard from "@/auth/Dashboard";
+import Dashboard from "@/components/auth/Dashboard";
 
 export default function Home() {
   //? Example to test the authentication

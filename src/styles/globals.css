@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white leading-loose text-black dark:bg-dark dark:text-white;
+  }
+  .h1 {
+    @apply text-[36px] font-semibold leading-[1.1] xl:text-[80px];
+  }
+  .h2 {
+    @apply text-[48px] font-semibold leading-[1.1] xl:text-[48px];
+  }
+  .h3 {
+    @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
+  }
+}
+
+.Hola {
+  text-align: center;
+}
+
+.navbar {
+  justify-content: center;
+  padding: 1rem;
+}

@@ -6,7 +6,11 @@ import "@/styles/globals.css";
 import "@/schemas/env";
 
 // Providers
-import SessionWrapper from "@/auth/SessionWrapper";
+import SessionWrapper from "@/components/provider/SessionWrapper";
+
+// Layout components
+// ? import Header from "@/components/layout/Header";
+// ? import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
