@@ -13,8 +13,7 @@ export default function TestHero() {
         </p>
         <p className="text-center text-xl">
           <a
-            href="
-            "
+            href="https://github.com/Yuzu02/tech-blog"
             className="text-blue-500"
           >
             Learn more
@@ -22,8 +21,7 @@ export default function TestHero() {
         </p>
         <p className="text-center text-xl">
           <a
-            href=" 
-            "
+            href="https://github.com/Yuzu02/tech-blog/tree/dev"
             className="text-blue-500"
           >
             View the source code
