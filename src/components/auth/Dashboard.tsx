@@ -10,6 +10,7 @@ import Image from "next/image";
 
 // Components
 import { Button } from "../ui/button";
+import { FaAmazon } from "react-icons/fa";
 
 // Dashboard component Example to test the authentication
 export default function Dashboard() {
@@ -31,6 +32,7 @@ export default function Dashboard() {
             width={80}
             height={80}
           ></Image>
+          <FaAmazon className="text-5xl text-yellow-500" />
           <h1 className="text-3xl font-bold text-green-500">
             Bienvenido, {name}
           </h1>
