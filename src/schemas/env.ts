@@ -4,7 +4,7 @@ import { z } from "zod";
 const envVars = z.object({
   // NextAuth
   NEXTAUTH_SECRET: z.string(),
-  NEXT_AUTH_URL: z.string().default("http://localhost:3000"),
+  NEXTAUTH_URL: z.string().default("http://localhost:3000"),
 
   //* Providers
 

@@ -2,17 +2,24 @@ import type { Metadata } from "next";
 // Todo : Change default font
 
 /* 
-  Para cambiar fuentes primero quita la fuente en medio de import { } from "next/font/google";
-  Luego puedes hacer control + espacio para ver las fuentes disponibles
+  Para cambiar las fuentes, primero elimina la fuente en la declaración de importación: 
+  import { Elsie } from "next/font/google";
+  Luego puedes usar control + espacio para ver las fuentes disponibles.
 
-  Para cambiar la fuente tienes que fijarte enn lo que pide la fuente, en este caso pide subsets y weight
-  Haciendo hover sobre la fuente puedes ver que pide subsets y weight, en este caso pide subsets: ["latin"], weight: ["400", "900"]
+  Para cambiar la fuente, debes revisar los requisitos de la fuente. En este caso, requiere subsets y weight.
+  Al pasar el cursor sobre la fuente, puedes ver que requiere subsets: ["latin"], weight: ["400", "900"].
 
-  Luego debes cambiar la variable con los parámetros que pide la fuente, en este caso la variable es elsie
+  A continuación, debes cambiar la variable con los parámetros requeridos por la fuente. En este caso, la variable es elsie.
+  Cambia la variable a la fuente que deseas utilizar.
+  
+  ? Nota : En el body tag, debes cambiar la variable de la fuente por la variable que has definido.
+  * En este caso, la variable es elsie.variable.
+ 
+  Es recomendable agregar la fuente como CSS variable , asi se tiene la fuente tanto en el css como en tailwind.config.ts.
 
-  Finalmente debes cambiar la clase de la fuente en el body, en este caso la clase es {elsie.className}
+  Por último, debes cambiar la propiedad font-family en el archivo tailwind.config.ts.
 
-  @Yuzu02 Default font: Elsie
+  @Yuzu02 Fuente predeterminada: Elsie
 */
 
 import { Elsie } from "next/font/google";
@@ -22,7 +29,7 @@ import "@/schemas/env";
 
 // Providers
 import SessionWrapper from "@/components/provider/SessionWrapper";
-import { ThemeProvider } from "@/components/provider/ThemeProvider";
+import { ThemeProvider } from "@/components/provider/theme-provider";
 
 // Layout components
 // ? import Header from "@/components/layout/Header";
@@ -31,6 +38,7 @@ import { ThemeProvider } from "@/components/provider/ThemeProvider";
 const elsie = Elsie({
   subsets: ["latin"],
   weight: ["400", "900"],
+  variable: "--font-elsie", // CSS variable para la fuente //? Cambiar si se cambia la fuente
 });
 
 export const metadata: Metadata = {
@@ -46,12 +54,12 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="en" suppressHydrationWarning>
-        <body className={elsie.className}>
+        <body className={`${elsie.variable}`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
-            // disableTransitionOnChange //? Disable theme transition on page load to prevent a flash of the default theme
+            disableTransitionOnChange
           >
             {children}
           </ThemeProvider>

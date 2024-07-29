@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white leading-loose text-black dark:bg-dark dark:text-white;
+    @apply bg-lightMode font-primary leading-loose text-darkMode dark:bg-darkMode dark:text-lightMode;
   }
   .h1 {
     @apply text-[36px] font-semibold leading-[1.1] xl:text-[80px];
@@ -16,6 +16,23 @@
     @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
   }
 }
+
+/* Transiciones : Modo Claro & Modo Oscuro */
+
+.transition-theme-dark {
+  transition-property: all;
+  transition-timing-function: ease-in;
+  transition-duration: 500ms;
+  transition-delay: 20ms;
+}
+.transition-theme-light {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+  transition-delay: 20ms;
+}
+
+/* Julio Classes */
 
 .Hola {
   text-align: center;
