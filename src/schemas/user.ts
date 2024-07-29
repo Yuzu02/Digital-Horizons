@@ -1,11 +1,12 @@
+// src/schemas/userSchema.ts
 import { z } from "zod";
 
-const userSchema = z.object({
+export const UserSchema = z.object({
   name: z.string(),
-  email: z.string(),
-  image: z.string(),
-  // ? createdAt: z.string(),
-  // ? updatedAt: z.string(),
+  email: z.string().email(),
+  image: z.string().url(),
+  // createdAt: z.string(),
+  // updatedAt: z.string(),
 });
 
-export type User = z.infer<typeof userSchema>;
+export type User = z.infer<typeof UserSchema>;

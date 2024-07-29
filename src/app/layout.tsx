@@ -54,12 +54,14 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${elsie.variable}`}>
+        <body
+          className={`${elsie.variable} dark:transition-theme-light transition-theme-dark`}
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange
+            // disableTransitionOnChange //? Para deshabilitar la transición al cambiar de tema
           >
             {children}
           </ThemeProvider>

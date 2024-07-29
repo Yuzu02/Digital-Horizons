@@ -1,46 +1,60 @@
 "use client";
 
 // Required
-// ? import type { User } from "src/schemas/user";
 import React from "react";
 
 // Utils
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 // Components
 import { Button } from "../ui/button";
-import { FaAmazon } from "react-icons/fa";
-import { redirect } from "next/navigation";
+import ErrorPage from "./error/ErrorPage";
 
-// Dashboard component Example to test the authentication
+// Schemas
+import { UserSchema } from "@/schemas/user";
+
 export default function Dashboard() {
   const { data: session } = useSession();
-
-  // Variables to simplify the code
-  const name = session?.user?.name;
-  const email = session?.user?.email;
-  const image = session?.user?.image;
 
   if (!session) {
     return redirect("/auth/");
   }
 
+  // Validar que los datos del usuario sean correctos
+  const validation = UserSchema.safeParse(session.user);
+
+  // Si los datos del usuario no son correctos, mostrar un mensaje de error
+  if (!validation.success) {
+    console.error("Invalid user data:", validation.error.errors);
+    return (
+      // Show error message
+      <ErrorPage
+        error="Error al cargar los datos del usuario"
+        errorMessage="Información del usuario no válida o incompleta"
+        buttonText="Volver a iniciar sesión"
+        redirectTo="/auth/"
+      />
+    );
+  }
+
+  const { name, email, image } = validation.data;
+
   return (
     <div className="flex h-screen flex-col items-center justify-center">
       <Image
-        src={image as string}
+        src={image}
         className="h-20 w-20 rounded-full"
         alt="user image"
         width={80}
         height={80}
-      ></Image>
-      <FaAmazon className="text-5xl text-yellow-500" />
-      <h1 className="text-3xl font-bold text-green-500">Bienvenido, {name}</h1>
+      />
+      <h1 className="0 text-3xl font-bold">Bienvenido, {name}</h1>
       <p className="text-2xl font-semibold">{email}</p>
       <Button
         onClick={() => signOut()}
-        className="rounded-lg border border-black bg-red-400 px-5 py-1"
+        className="rounded-lg border border-black px-5 py-1"
       >
         Cerrar Session
       </Button>
