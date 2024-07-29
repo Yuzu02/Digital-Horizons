@@ -1,37 +1,34 @@
 // Component: Home
-import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
+//? import Hero from "@/components/home/hero/Hero";
+//? import Banner from "@/components/common/Banner";
+import TestHero from "@/components/home/hero/TestHero";
 
 export default function Home() {
   //? Example to test the authentication
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <main className="mx-auto my-12 max-w-7xl space-y-5">
-        <ThemeModeToggle />
-        <h1 className="text-center text-5xl font-bold">
-          Welcome to the Tech Blog
-        </h1>
-        <p className="text-center text-xl">
-          A tech blog using Next.js, TypeScript, and Tailwind CSS
-        </p>
-        <p className="text-center text-xl">
-          <a
-            href=" 
-            "
-            className="text-blue-500"
-          >
-            Learn more
-          </a>
-        </p>
-        <p className="text-center text-xl">
-          <a
-            href=" 
-            "
-            className="text-blue-500"
-          >
-            View the source code
-          </a>
-        </p>
-      </main>
-    </div>
+    <section className="h-full">
+      <TestHero />
+      <div className="container h-full">
+        <div className="flex h-full flex-col items-center justify-center"></div>
+      </div>
+    </section>
   );
 }
+
+/* 
+  <Hero
+       title="El Impacto de la Tecnología en el Lugar de Trabajo: Cómo la Tecnología está Cambiando"
+       author="Yuzu Kaufman"
+       authorAvatar="/assets/Hero/Avatar_Yuzu.png"
+       date="August 10, 2024"
+       imageSrc="/assets/Hero/Hero.png"
+      />   
+
+
+       <Banner
+        title="Welcome to the Blog"
+        subtitle="The best place to read amazing articles"
+        logoColor="text-yellow-400"
+        backgroundColor="bg-gray-900"
+      />
+*/
