@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+// Todo : Change default font
 import { Inter } from "next/font/google";
 
 // Required for the entire app
@@ -7,6 +8,7 @@ import "@/schemas/env";
 
 // Providers
 import SessionWrapper from "@/components/provider/SessionWrapper";
+import { ThemeProvider } from "@/components/provider/ThemeProvider";
 
 // Layout components
 // ? import Header from "@/components/layout/Header";
@@ -26,8 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <SessionWrapper>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            // disableTransitionOnChange //? Disable theme transition on page load to prevent a flash of the default theme
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </SessionWrapper>
   );
