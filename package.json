@@ -9,6 +9,7 @@
     "lint": "next lint --fix",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
+    "pre-push": "npm run lint && npm run format || true && npm run format:fix && npm run build",
     "prepare": "husky"
   },
   "dependencies": {
