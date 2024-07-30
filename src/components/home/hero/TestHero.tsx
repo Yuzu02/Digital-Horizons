@@ -1,3 +1,7 @@
+// Data
+import HomePageData from "../data";
+
+// Components
 import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
 
 export default function TestHero() {
@@ -6,17 +10,15 @@ export default function TestHero() {
       <main className="mx-auto my-12 max-w-7xl space-y-5">
         <ThemeModeToggle />
         <h1 className="text-center text-5xl font-bold">
-          Welcome to the Tech Blog
+          {HomePageData.welcomeMessage}
         </h1>
-        <p className="text-center text-xl">
-          A tech blog using Next.js, TypeScript, and Tailwind CSS
-        </p>
+        <p className="text-center text-xl">{HomePageData.description}</p>
         <p className="text-center text-xl">
           <a
             href="https://github.com/Yuzu02/tech-blog"
             className="text-blue-500"
           >
-            Learn more
+            {HomePageData.learnMoreLabel}
           </a>
         </p>
         <p className="text-center text-xl">
@@ -24,7 +26,7 @@ export default function TestHero() {
             href="https://github.com/Yuzu02/tech-blog/tree/dev"
             className="text-blue-500"
           >
-            View the source code
+            {HomePageData.viewSourceLabel}
           </a>
         </p>
       </main>

@@ -27,7 +27,8 @@
       "@/services/*": ["./src/services/*"],
       "@/schemas/*": ["./src/schemas/*"],
       "@/auth/*": ["./src/auth/*"],
-      "@/types": ["./src/types"]
+      "@/types": ["./src/types"],
+      "@/data": ["./src/data"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
