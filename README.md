@@ -1,4 +1,4 @@
-# Tech Blog 📚
+# Digital Horizons 📚
 
 ## Description
 

@@ -42,7 +42,7 @@ const elsie = Elsie({
 });
 
 export const metadata: Metadata = {
-  title: "Tech Blog",
+  title: "Digital Horizons",
   description: "A tech blog using Next.js , TypeScript, and Tailwind CSS",
 };
 

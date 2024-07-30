@@ -1,6 +1,6 @@
 // index.ts
 const HomePageData = {
-  welcomeMessage: "Welcome to the Tech Blog",
+  welcomeMessage: "Welcome to Digital Horizons",
   description: "A tech blog using Next.js, TypeScript, and Tailwind CSS",
   learnMoreLabel: "Learn more",
   learnMoreLink: "https://github.com/Yuzu02/tech-blog",
