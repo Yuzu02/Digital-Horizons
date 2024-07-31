@@ -31,7 +31,7 @@ const config = {
       xl: "1200px",
     },
     fontFamily: {
-      primary: "var(--font-elsie)", // Todo:  Cambiar si se cambia la fuente
+      primary: "var(--font-poppins)",
     },
     extend: {
       colors: {
