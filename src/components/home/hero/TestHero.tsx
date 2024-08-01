@@ -1,4 +1,6 @@
 // Data
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import HomePageData from "../data";
 
 // Components
@@ -29,6 +31,9 @@ export default function TestHero() {
             {HomePageData.viewSourceLabel}
           </a>
         </p>
+        <Button className="w-full">
+          <Link href="/blog"> Blogs </Link>
+        </Button>
       </main>
     </div>
   );

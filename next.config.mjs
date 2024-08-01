@@ -1,3 +1,15 @@
+import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import rehypeShiki from "@shikijs/rehype";
+
+const withMDX = createMDX({
+  //? Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeShiki],
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -23,4 +35,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);
