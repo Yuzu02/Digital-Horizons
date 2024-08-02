@@ -1,12 +1,11 @@
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
-import rehypeShiki from "@shikijs/rehype";
 
 const withMDX = createMDX({
   //? Add markdown plugins here, as desired
   options: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeShiki],
+    rehypePlugins: [],
   },
 });
 
