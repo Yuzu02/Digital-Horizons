@@ -1,3 +1,6 @@
+import { MDXComponents } from "mdx/types";
+import { ReactNode } from "react";
+import { Key } from "readline";
 import { z } from "zod";
 // ? import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
@@ -25,16 +28,15 @@ interface CategoryPageProps {
   blogs: z.infer<typeof BlogSchema>[];
 }
 
-/* 
-  Interface para el contenido de un blog post
-
-  interface Blog {
-  content: MDXRemoteSerializeResult;
+interface Blog {
+  slug: Key | null | undefined;
+  title: ReactNode;
+  author: ReactNode;
+  content: MDXComponents;
 }
-*/
 
 export { BlogSchema };
 export type { CategoryPageProps };
-//? export type { Blog };
+export type { Blog };
 export { BlogSchemaExtended };
 export type BlogType = z.infer<typeof BlogSchemaExtended>;

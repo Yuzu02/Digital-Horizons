@@ -1,20 +1,25 @@
 // Component: Home
 //? import Hero from "@/components/home/hero/Hero";
 //? import Banner from "@/components/common/Banner";
+import SearchBar from "@/components/blog/SearchBar";
 import TestHero from "@/components/home/hero/TestHero";
 
 export default function Home() {
-  //? Example to test the authentication
   return (
-    <section className="h-full">
-      <TestHero />
-      <div className="container h-full">
-        <div className="flex h-full flex-col items-center justify-center"></div>
-      </div>
+    <section className="h-screen overflow-hidden">
+      <header className="fixed right-0 top-0 z-10 w-full p-4">
+        <div className="container mx-auto flex justify-end">
+          <div className="w-72">
+            <SearchBar />
+          </div>
+        </div>
+      </header>
+      <main className="flex h-full items-center justify-center">
+        <TestHero />
+      </main>
     </section>
   );
 }
-
 /* 
   <Hero
        title="El Impacto de la Tecnología en el Lugar de Trabajo: Cómo la Tecnología está Cambiando"
