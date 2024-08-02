@@ -6,6 +6,7 @@ const HomePageData = {
   learnMoreLink: "https://github.com/Yuzu02/tech-blog",
   viewSourceLabel: "View the source code",
   viewSourceLink: "https://github.com/Yuzu02/tech-blog/tree/dev",
+  viewBlogLabel: "View Blog",
 };
 
 export default HomePageData;
