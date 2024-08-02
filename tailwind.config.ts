@@ -69,8 +69,14 @@ const config = {
         slide: "slide var(--speed) ease-in-out infinite alternate",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        backgroundPositionSpin:
+          "background-position-spin 3000ms infinite alternate",
       },
       keyframes: {
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
+        },
         "spin-around": {
           "0%": {
             transform: "translateZ(0) rotate(0)",

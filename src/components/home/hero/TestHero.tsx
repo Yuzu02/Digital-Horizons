@@ -5,42 +5,54 @@ import HomePageData from "../data";
 // Components
 import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
 import ShimmerButton from "@/components/magicui/shimmer-button";
+import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
 
 export default function TestHero() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <main className="mx-auto my-12 max-w-7xl space-y-5">
-        <ThemeModeToggle />
-        <h1 className="text-center text-5xl font-bold">
-          {HomePageData.welcomeMessage}
-        </h1>
-        <p className="text-center text-xl">{HomePageData.description}</p>
-        <p className="text-center text-xl">
-          <a
-            href="https://github.com/Yuzu02/tech-blog"
-            className="text-blue-500"
-          >
-            {HomePageData.learnMoreLabel}
-          </a>
-        </p>
-        <p className="text-center text-xl">
-          <a
-            href="https://github.com/Yuzu02/tech-blog/tree/dev"
-            className="text-blue-500"
-          >
-            {HomePageData.viewSourceLabel}
-          </a>
-        </p>
-        <Link href="/blog">
-          <div className="z-10 flex min-h-[16rem] items-center justify-center">
-            <ShimmerButton className="shadow-2xl">
+    <div className="flex min-h-screen items-center justify-center">
+      <NeonGradientCard className="w-full max-w-md">
+        <div className="flex flex-col items-center justify-center space-y-6 p-8">
+          <ThemeModeToggle />
+          <h1 className="text-center text-4xl font-bold">
+            {HomePageData.welcomeMessage}
+          </h1>
+          <p className="text-center text-lg">{HomePageData.description}</p>
+          <p className="text-center text-lg">
+            <a
+              href="https://github.com/Yuzu02/tech-blog"
+              className="text-blue-500 hover:underline"
+            >
+              {HomePageData.learnMoreLabel}
+            </a>
+          </p>
+          <p className="text-center text-lg">
+            <a
+              href="https://github.com/Yuzu02/tech-blog/tree/dev"
+              className="text-blue-500 hover:underline"
+            >
+              {HomePageData.viewSourceLabel}
+            </a>
+          </p>
+          <Link href={HomePageData.viewBlogLink} className="w-full">
+            <ShimmerButton className="w-full shadow-2xl">
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                 {HomePageData.viewBlogLabel}
               </span>
             </ShimmerButton>
-          </div>
-        </Link>
-      </main>
+          </Link>
+          <Link href={HomePageData.viewCategoriesLabel} className="w-full">
+            <ShimmerButton
+              className="w-full"
+              background="#ffffff"
+              shimmerColor="#000000"
+            >
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-black dark:from-slate-900/10 dark:to-white lg:text-lg">
+                {HomePageData.viewCategoriesLabel}
+              </span>
+            </ShimmerButton>
+          </Link>
+        </div>
+      </NeonGradientCard>
     </div>
   );
 }
