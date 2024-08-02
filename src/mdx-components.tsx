@@ -1,5 +1,9 @@
 import type { MDXComponents } from "mdx/types";
 
+// ? Aca se pueden agregar los componentes que se quieran usar en los archivos MDX (Markdown)
+
+// TODO : Añadir los estilos y componentes que se quieran usar en los archivos MDX
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,

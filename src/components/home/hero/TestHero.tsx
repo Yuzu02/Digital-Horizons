@@ -31,9 +31,9 @@ export default function TestHero() {
             {HomePageData.viewSourceLabel}
           </a>
         </p>
-        <Button className="w-full">
-          <Link href="/blog"> Blogs </Link>
-        </Button>
+        <Link href="/blog">
+          <Button className="mt-4 w-full">Blogs</Button>
+        </Link>
       </main>
     </div>
   );

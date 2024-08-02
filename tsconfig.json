@@ -26,7 +26,7 @@
       "@/utils/*": ["./src/utils/*"],
       "@/services/*": ["./src/services/*"],
       "@/schemas/*": ["./src/schemas/*"],
-      "@/lib/*": ["./src/lib*"],
+      "@/lib/*": ["./src/lib/*"],
       "@/auth/*": ["./src/auth/*"],
       "@/types": ["./src/types"],
       "@/data": ["./src/data"]
