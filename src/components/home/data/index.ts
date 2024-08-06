@@ -8,6 +8,7 @@ const HomePageData = {
   viewSourceLink: "https://github.com/Yuzu02/tech-blog/tree/dev",
   viewBlogLabel: "View Blog",
   viewBlogLink: "/blog",
+  viewCategoriesBlogLink: "/blog/categories",
   viewCategoriesLabel: "View Categories",
   viewCategoriesLink: "/blog/categories",
 };

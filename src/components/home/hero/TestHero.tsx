@@ -40,7 +40,7 @@ export default function TestHero() {
               </span>
             </ShimmerButton>
           </Link>
-          <Link href={HomePageData.viewCategoriesLabel} className="w-full">
+          <Link href={HomePageData.viewCategoriesBlogLink} className="w-full">
             <ShimmerButton
               className="w-full"
               background="#ffffff"
