@@ -1,0 +1,9 @@
+{
+  "auto-close-tag.activationOnLanguage": ["mdx"],
+  "auto-rename-tag.activationOnLanguage": ["mdx"],
+  "mdx.server.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true
+}

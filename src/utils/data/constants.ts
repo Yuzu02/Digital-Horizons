@@ -1,5 +1,6 @@
-// index.ts
-const HomePageData = {
+// ? Todas las constantes que se utilizan en la aplicación se deben definir aquí.
+
+export const HomePageData = {
   welcomeMessage: "Welcome to Digital Horizons",
   description: "A tech blog using Next.js, TypeScript, and Tailwind CSS",
   learnMoreLabel: "Learn more",
@@ -13,4 +14,4 @@ const HomePageData = {
   viewCategoriesLink: "/blog/categories",
 };
 
-export default HomePageData;
+// * Añadir una const para cada pagina de la aplicación y exportarla , asi se podrá acceder a ellas desde cualquier parte de la aplicación y todas las constantes estarán en un solo lugar.

@@ -21,7 +21,8 @@
     "burkeholland.simple-react-snippets",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "formulahendry.auto-rename-tag"
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [

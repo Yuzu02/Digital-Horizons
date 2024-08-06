@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import { BlogSchemaExtended } from "@/schemas/blog";
+import AllComponents from "@/utils/BlogComponents";
 
 const contentDir = path.join(process.cwd(), "/src/app/blog/_mdx-content");
 
@@ -16,7 +17,7 @@ export async function getBlogBySlug(slug: string) {
   // ? Compila el MDX a HTML y extrae el frontmatter
   const { frontmatter, content } = await compileMDX({
     source: fileContent,
-    components: {},
+    components: { ...AllComponents },
     options: {
       parseFrontmatter: true,
       mdxOptions: {
