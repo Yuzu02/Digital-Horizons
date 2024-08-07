@@ -36,13 +36,10 @@ const LoginButton = ({ provider, icon }: LoginButtonProps) => {
       <Button
         type="button"
         size="lg"
-        className="rounded bg-primary-dark px-4 py-2 hover:bg-primary-hover dark:bg-primary dark:hover:bg-primary-dark"
+        className="rounded bg-secondary px-4 py-2 hover:bg-secondary-hover dark:bg-secondary-dark dark:hover:bg-secondary-hover"
         onClick={() => handleLogin("/dashboard")}
       >
-        <p className="mr-4">{icon}</p>
-        {provider === "google"
-          ? "Iniciar sesión con Google"
-          : "Iniciar sesión con Github"}
+        <p>{icon}</p>
       </Button>
       <Toaster />
     </div>

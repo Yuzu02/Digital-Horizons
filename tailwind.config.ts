@@ -10,6 +10,10 @@ import type { Config } from "tailwindcss";
 
 // Dark Bg Colors (#1c1c22, #121212)
 
+// Paleta de la imagen.
+// [#00E2E0,#00A9F2, #172D9D, #787CFE, #48BED9]
+// [#00A9F2, #172D9D, #787CFE, #48BED9, #00E2E0]
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -40,29 +44,44 @@ const config = {
         darkMode: "#1c1c22", // default #1c1c22  // 2 #1c1c22
 
         // Todo : Paleta de colores de la UI
+        // Paleta de colores - prueba
         primary: {
-          DEFAULT: "#00A9F2",
-          dark: "#172D9D",
-          hover: "#787CFE",
+          DEFAULT: "#8800ff",
+          dark: "#6f00ff",
+          hover: "#55aaff",
         },
         secondary: {
-          DEFAULT: "#FFD700",
-          dark: "#FFD700",
-          hover: "#FFD700",
+          DEFAULT: "#ff00c3",
+          dark: "#A14FF3",
+          hover: "#55aaff",
         },
         accent: {
-          DEFAULT: "#FFD700",
-          dark: "#FFD700",
-          hover: "#FFD700",
+          DEFAULT: "#ff0095",
+          dark: "#ff00c3",
+          hover: "#55aaff",
         },
         list: {
-          DEFAULT: "#FFD700",
-          dark: "#FFD700",
+          DEFAULT: "#A14FF3",
+          dark: "#8800ff",
         },
         scrollArea: {
-          DEFAULT: "#FFD700",
-          dark: "#FFD700",
+          DEFAULT: "#55aaff",
+          dark: "#6f00ff",
         },
+      },
+      backgroundImage: {
+        "gradient-custom":
+          "linear-gradient(to right, #8800ff 0%, #ff0095 50%, #ff0095 50%, #8800ff 100%)",
+      },
+      backgroundSize: {
+        200: "200% 100%",
+      },
+      backgroundPosition: {
+        "right-center": "right center",
+        "left-center": "left center",
+      },
+      transitionProperty: {
+        "bg-position": "background-position",
       },
       animation: {
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
