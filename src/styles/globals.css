@@ -37,9 +37,8 @@
 .Master {
   width: 100%;
   margin: 12px;
-  position: relative;
-  bottom: 20px;
-  right: 2rem;
+  position: fixed;
+  right: 0;
 }
 
 li {
