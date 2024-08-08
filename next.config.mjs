@@ -19,6 +19,12 @@ const nextConfig = {
         port: "",
         pathname: "/**", //? Include the pathname if necessary
       },
+      {
+        protocol: "https",
+        hostname: "flowbite.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

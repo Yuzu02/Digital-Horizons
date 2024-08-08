@@ -1,7 +1,7 @@
 "use server";
 
 // Next Optimized Components
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
 // Schemas
@@ -68,8 +68,19 @@ export const BlockQuote = ({ children }: { children: React.ReactNode }) => {
 };
 
 // Imágenes
-export const ImageMDX = ({ src, alt }: { src: string; alt: string }) => {
-  return <Image src={src} alt={alt} className="h-auto w-full" />;
+export const ImageMDX = ({ src, alt, width, height }: ImageProps) => {
+  return (
+    <Image
+      // Requerido
+      src={src} // ! No pasar rutas con (#, _ ) en el nombre de la imagen
+      alt={alt}
+      width={width}
+      height={height}
+      // Opcional
+      className="object-cover"
+      quality={100}
+    />
+  );
 };
 
 // Separador
