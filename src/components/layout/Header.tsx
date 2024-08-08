@@ -1,9 +1,13 @@
 // Todo : Hacer el header de la pagina
 
+import Logo from "./Logo";
+
 export default function Header() {
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold">Hello word!</h1>
+      <div>
+        <Logo />
+      </div>
       <nav>
         <li>
           <ul>
