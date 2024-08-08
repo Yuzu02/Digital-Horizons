@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 // * Texto
 
-// Títulos
+// Títulos // ? Front-Matter Ya usa Titulo , no es necesario usar
 export const Titulo = ({ children }: { children: React.ReactNode }) => {
   return <h1 className="text-4xl font-bold text-purple-600">{children}</h1>;
 };
@@ -61,7 +61,7 @@ export const Parrafo = ({ children, italic, justify }: ParrafoProps) => {
 // Cita
 export const BlockQuote = ({ children }: { children: React.ReactNode }) => {
   return (
-    <blockquote className="border-l-4 border-gray-300 pl-4 text-sm italic">
+    <blockquote className="border-l-4 border-purple-700 pl-4 text-sm italic">
       {children}
     </blockquote>
   );
