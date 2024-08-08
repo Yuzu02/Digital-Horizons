@@ -1,12 +1,13 @@
 // Todo : Hacer el header de la pagina
 
-import Logo from "./Logo";
+import { IoLogoInstagram } from "react-icons/io5";
+// ? import DHLogo from "@/components/layout/Logo/DHLogo";
 
 export default function Header() {
   return (
     <div>
-      <div>
-        <Logo />
+      <div className="size-[50px] items-center">
+        <IoLogoInstagram />
       </div>
       <nav>
         <li>

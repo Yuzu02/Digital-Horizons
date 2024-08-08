@@ -10,7 +10,7 @@ import SessionWrapper from "@/components/provider/SessionWrapper";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
 // Layout components
-// ? import Header from "@/components/layout/Header";
+import Header from "@/components/layout/Header";
 // ? import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
@@ -41,6 +41,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
           >
+            <Header />
             {children}
           </ThemeProvider>
         </body>
