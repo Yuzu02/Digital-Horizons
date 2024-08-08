@@ -34,11 +34,25 @@
 
 /* Julio Classes */
 
-.Hola {
-  text-align: center;
+.Master {
+  width: 100%;
+  margin: 12px;
+  position: relative;
+  bottom: 20px;
+  right: 2rem;
 }
 
-.navbar {
+li {
+  display: flex;
+  margin: 20px;
+  flex-direction: row-reverse;
   justify-content: center;
-  padding: 1rem;
+  align-items: center;
+  padding: 20px;
+}
+
+a {
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
