@@ -1,48 +1,39 @@
-"use client";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { categories } from "@/utils/data/categories/constants";
 
-import { useRouter } from "next/navigation";
-import { FaGlobe, FaRobot, FaTools } from "react-icons/fa";
-
-const CategoriesPage: React.FC = () => {
-  const router = useRouter();
-
-  const categories = [
-    { name: "Web", icon: <FaGlobe />, path: "Web" },
-    { name: "AI", icon: <FaRobot />, path: "AI" },
-    { name: "Tools", icon: <FaTools />, path: "Tools" },
-  ];
-
-  const handleNavigation = (path: string) => {
-    router.push(`/blog/categories/${path}`);
-  };
-
+export default function CategoriesPage() {
   return (
-    <section className="min-h-screen bg-gray-100 p-8 dark:bg-gray-800">
-      <div className="container mx-auto">
-        <h1 className="mb-12 text-center text-5xl font-bold text-gray-800 dark:text-white">
-          Categorías
-        </h1>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="bg-background dark:bg-muted flex min-h-screen items-center justify-center p-4 sm:p-6 md:p-8 lg:p-10">
+      <Card className="max-w-8xl w-full p-4 sm:p-6 md:p-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {categories.map((category) => (
-            <div
+            <Card
               key={category.name}
-              className="cursor-pointer rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-xl dark:bg-gray-700"
-              onClick={() => handleNavigation(category.path)}
+              className="border-muted-foreground/10 group relative overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg"
             >
-              <div className="flex flex-col items-center justify-center space-y-4 p-8">
-                <div className="text-6xl text-gray-600 transition-colors duration-300 ease-in-out hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400">
-                  {category.icon}
+              <Link
+                href={`${category.href}`}
+                className="absolute inset-0 z-10"
+                prefetch={false}
+              >
+                <span className="sr-only">View category</span>
+              </Link>
+              <div className="bg-card group-hover:text-primary-foreground flex h-full flex-col items-center justify-center gap-4 p-6 text-center transition-all duration-300 group-hover:bg-primary">
+                <div className="bg-muted/20 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 group-hover:bg-primary/20">
+                  <category.icon className="text-muted-foreground group-hover:text-primary-foreground h-8 w-8 transition-all duration-300" />
                 </div>
-                <span className="text-xl font-semibold text-gray-800 dark:text-white">
+                <h3 className="text-xl font-medium tracking-tight">
                   {category.name}
-                </span>
+                </h3>
+                <p className="text-muted-foreground group-hover:text-primary-foreground text-sm transition-all duration-300">
+                  {category.description}
+                </p>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Card>
+    </div>
   );
-};
-
-export default CategoriesPage;
+}
