@@ -17,7 +17,6 @@ export function usePostsWithVisibility(limit: number = 6) {
           throw new Error("Failed to fetch posts");
         }
         const data = await response.json();
-        console.log("Fetched data:", data);
         setPosts(data);
         setError(null);
       } catch (error) {
