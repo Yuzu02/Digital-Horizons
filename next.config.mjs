@@ -25,6 +25,9 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        hostname: "via.placeholder.com",
+      },
     ],
   },
 };

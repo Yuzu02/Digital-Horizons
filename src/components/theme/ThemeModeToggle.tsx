@@ -9,7 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 // Hooks
 import useCustomTheme from "@/hooks/useCustomTheme";
@@ -41,57 +41,52 @@ export function ThemeModeToggle() {
   }
 
   return (
-    <>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon">
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">{toggleThemeText}</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="center">
-          <DropdownMenuCheckboxItem
-            onClick={() => {
-              setTheme("light");
-              handleThemeCookieChange("light");
-              toast.success(toastMessages.themeChangeToLightMode, {
-                duration: 2500,
-              });
-            }}
-            checked={theme === "light"}
-          >
-            {lightThemeText}
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            onClick={() => {
-              setTheme("dark");
-              handleThemeCookieChange("light");
-              toast.success(toastMessages.themeChangeToDarkMode, {
-                duration: 2500,
-              });
-            }}
-            checked={theme === "dark"}
-          >
-            {darkThemeText}
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            onClick={() => {
-              setTheme("system");
-              handleThemeCookieChange("");
-              toast.success(toastMessages.themeChangeToSystemMode, {
-                duration: 2500,
-              });
-            }}
-            checked={theme === "system"}
-          >
-            {systemThemeText}
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <div className="fixed right-4 top-4 z-50">
-        <Toaster theme={theme} visibleToasts={3} duration={1500} />
-      </div>
-    </>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" size="icon">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">{toggleThemeText}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="center">
+        <DropdownMenuCheckboxItem
+          onClick={() => {
+            setTheme("light");
+            handleThemeCookieChange("light");
+            toast.success(toastMessages.themeChangeToLightMode, {
+              duration: 2500,
+            });
+          }}
+          checked={theme === "light"}
+        >
+          {lightThemeText}
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          onClick={() => {
+            setTheme("dark");
+            handleThemeCookieChange("light");
+            toast.success(toastMessages.themeChangeToDarkMode, {
+              duration: 2500,
+            });
+          }}
+          checked={theme === "dark"}
+        >
+          {darkThemeText}
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          onClick={() => {
+            setTheme("system");
+            handleThemeCookieChange("");
+            toast.success(toastMessages.themeChangeToSystemMode, {
+              duration: 2500,
+            });
+          }}
+          checked={theme === "system"}
+        >
+          {systemThemeText}
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

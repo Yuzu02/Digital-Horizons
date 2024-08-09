@@ -7,6 +7,7 @@ import {
   Enlace,
   Parrafo,
   ImageMDX,
+  Alert,
 } from "@/components/blog/mdx/MDX-Components";
 
 const AllComponents = {
@@ -18,6 +19,7 @@ const AllComponents = {
   Enlace,
   ImageMDX,
   Parrafo,
+  Alert,
 };
 
 export default AllComponents;
