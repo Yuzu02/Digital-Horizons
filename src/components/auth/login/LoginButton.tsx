@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 interface LoginButtonProps {
   provider: string;
@@ -14,13 +14,10 @@ interface LoginButtonProps {
  */
 
 /* 
-
     Avance la lógica de los botones , puedes cambiar los iconos y demás ,
     pero la lógica de los botones es la misma ,
 
     @Nova034
-
-    * Borrar el  componente Toaster luego de tener el header global , ya que se va a manejar de forma global en el header
 */
 
 const LoginButton = ({ provider, icon }: LoginButtonProps) => {
@@ -41,7 +38,6 @@ const LoginButton = ({ provider, icon }: LoginButtonProps) => {
       >
         <p>{icon}</p>
       </Button>
-      <Toaster />
     </div>
   );
 };

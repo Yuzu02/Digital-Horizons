@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import { BlogSchemaExtended } from "@/schemas/blog";
+import AllComponents from "@/utils/BlogComponents";
 
 const contentDir = path.join(process.cwd(), "/src/app/blog/_mdx-content");
 
@@ -16,7 +17,7 @@ export async function getBlogBySlug(slug: string) {
   // ? Compila el MDX a HTML y extrae el frontmatter
   const { frontmatter, content } = await compileMDX({
     source: fileContent,
-    components: {},
+    components: { ...AllComponents },
     options: {
       parseFrontmatter: true,
       mdxOptions: {
@@ -28,10 +29,12 @@ export async function getBlogBySlug(slug: string) {
 
   // ? Asegura que el frontmatter tenga las propiedades necesarias y parsea el contenido
   const safeFrontmatter = {
+    image: frontmatter.image || "https://via.placeholder.com/800x400",
     title: frontmatter.title || "Unknown Title",
     author: frontmatter.author || "Unknown Author",
     category: frontmatter.category || "Uncategorized",
     publishDate: frontmatter.publishDate || new Date().toISOString(),
+    description: frontmatter.description || "Unknown Description",
   };
 
   try {
@@ -77,22 +80,21 @@ export async function searchBlogs(query: string) {
     const slug = fileName.replace(".mdx", "");
     const filePath = path.join(contentDir, fileName);
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     return {
       slug,
+      image: data.image,
       title: data.title,
       author: data.author,
       category: data.category,
       publishDate: data.publishDate,
-      content: content.slice(0, 200), // Solo enviamos una vista previa del contenido
+      description: data.description,
     };
   });
 
-  const filteredBlogs = blogs.filter(
-    (blog) =>
-      blog.title.toLowerCase().includes(query.toLowerCase()) ||
-      blog.content.toLowerCase().includes(query.toLowerCase()),
+  const filteredBlogs = blogs.filter((blog) =>
+    blog.title.toLowerCase().includes(query.toLowerCase()),
   );
 
   return filteredBlogs;

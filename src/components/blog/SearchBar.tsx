@@ -1,4 +1,3 @@
-// components/SearchBar.tsx
 "use client";
 
 import Link from "next/link";
@@ -7,6 +6,8 @@ import { useSearchBlogs } from "@/hooks/useSearchBlogs";
 
 export default function SearchBar() {
   const { searchTerm, setSearchTerm, filteredBlogs } = useSearchBlogs();
+
+  // TODO: Mejorar el diseño de la barra de búsqueda
 
   return (
     <div className="relative w-full max-w-md">

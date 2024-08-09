@@ -1,6 +1,7 @@
+// Necessary imports
 import type { Metadata } from "next";
-
 import { Poppins } from "next/font/google";
+
 // Required for the entire app
 import "@/styles/globals.css";
 import "@/schemas/env";
@@ -8,15 +9,16 @@ import "@/schemas/env";
 // Providers
 import SessionWrapper from "@/components/provider/SessionWrapper";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import ToasterProvider from "@/components/provider/ToasterProvider";
 
 // Layout components
-// ? import Header from "@/components/layout/Header";
+import Header from "@/components/layout/Header";
 // ? import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins", // CSS variable para la fuente //? Cambiar si se cambia la fuente
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -29,19 +31,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // - Body transition classes : "dark:transition-theme-light transition-theme-dark" // ? Standby until hydration is fixed
   return (
     <SessionWrapper>
       <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${poppins.variable} dark:transition-theme-light transition-theme-dark`}
-        >
+        <body className={`${poppins.variable}`}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
           >
+            <Header />
             {children}
+            <ToasterProvider />
           </ThemeProvider>
         </body>
       </html>

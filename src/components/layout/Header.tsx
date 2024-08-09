@@ -1,22 +1,25 @@
 // Todo : Hacer el header de la pagina
 
+import Link from "next/link";
+// ? import DHLogo from "@/components/layout/Logo/DHLogo";
+
 export default function Header() {
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold">Hello word!</h1>
+      <div className="size-[50px] items-center"></div>
       <nav>
         <li>
           <ul>
-            <a href="">services</a>
+            <Link href="">services</Link>
           </ul>
           <ul>
-            <a href="">services</a>
+            <Link href="">services</Link>
           </ul>
           <ul>
-            <a href="">services</a>
+            <Link href="">services</Link>
           </ul>
           <ul>
-            <a href="">services</a>
+            <Link href="">services</Link>
           </ul>
         </li>
       </nav>

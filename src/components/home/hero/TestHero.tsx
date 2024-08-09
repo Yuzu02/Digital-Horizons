@@ -1,11 +1,11 @@
 // Data
 import Link from "next/link";
-import HomePageData from "../data";
 
 // Components
 import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
+import { HomePageData } from "@/utils/data/constants";
 
 export default function TestHero() {
   return (
@@ -40,7 +40,7 @@ export default function TestHero() {
               </span>
             </ShimmerButton>
           </Link>
-          <Link href={HomePageData.viewCategoriesLabel} className="w-full">
+          <Link href={HomePageData.viewCategoriesBlogLink} className="w-full">
             <ShimmerButton
               className="w-full"
               background="#ffffff"

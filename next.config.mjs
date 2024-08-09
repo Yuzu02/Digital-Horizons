@@ -1,14 +1,3 @@
-import createMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-
-const withMDX = createMDX({
-  //? Add markdown plugins here, as desired
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-  },
-});
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -30,8 +19,17 @@ const nextConfig = {
         port: "",
         pathname: "/**", //? Include the pathname if necessary
       },
+      {
+        protocol: "https",
+        hostname: "flowbite.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        hostname: "via.placeholder.com",
+      },
     ],
   },
 };
 
-export default withMDX(nextConfig);
+export default nextConfig;
