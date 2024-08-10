@@ -56,7 +56,12 @@ export const AlertSchema = z.object({
   className: z.string().optional(),
 });
 
-// Exportación de todos los tipos al final del archivo
+// YouTubeVideo
+export const YouTubeVideoSchema = z.object({
+  url: z.string(),
+});
+
+// Export all the schemas as types to be used in the components
 export type SubTituloProps = z.infer<typeof SubTituloSchema>;
 export type SubSeccionProps = z.infer<typeof SubSeccionSchema>;
 export type EnlaceProps = z.infer<typeof EnlaceSchema>;
@@ -65,3 +70,4 @@ export type BlockQuoteProps = z.infer<typeof BlockQuoteSchema>;
 export type ImageProps = z.infer<typeof ImageSchema>;
 export type DividerProps = z.infer<typeof DividerSchema>;
 export type AlertProps = z.infer<typeof AlertSchema>;
+export type YouTubeVideoProps = z.infer<typeof YouTubeVideoSchema>;

@@ -8,6 +8,7 @@ import {
   Parrafo,
   ImageMDX,
   Alert,
+  YouTubeVideo,
 } from "@/components/blog/mdx/MDX-Components";
 
 const AllComponents = {
@@ -20,6 +21,7 @@ const AllComponents = {
   ImageMDX,
   Parrafo,
   Alert,
+  YouTubeVideo,
 };
 
 export default AllComponents;

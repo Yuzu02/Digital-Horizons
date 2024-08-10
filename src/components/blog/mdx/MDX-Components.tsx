@@ -4,6 +4,9 @@
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
+// Third Party Components
+import ReactPlayer from "react-player/youtube";
+
 // Schemas
 import {
   AlertProps,
@@ -13,7 +16,11 @@ import {
   ParrafoProps,
   SubSeccionProps,
   SubTituloProps,
+  YouTubeVideoProps,
 } from "@/schemas/BlogComponents/mdx-props";
+
+// Extra Components
+import { icons, AlertIconType } from "@/components/blog/mdx/extra/AlertIcon";
 
 // Utils
 import { cn } from "@/lib/utils";
@@ -113,20 +120,43 @@ export const Divider = ({ className }: DividerProps) => {
 
 // Alert
 export const Alert = ({ children, type = "info", className }: AlertProps) => {
-  const typeStyles = {
-    info: "bg-blue-100 text-blue-800 border-blue-400",
-    success: "bg-green-100 text-green-800 border-green-400",
-    warning: "bg-yellow-100 text-yellow-800 border-yellow-400",
-    error: "bg-red-100 text-red-800 border-red-400",
+  const typeStyles: Record<AlertIconType, string> = {
+    info: "bg-blue-100 text-blue-800 border-blue-400 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-600",
+    success:
+      "bg-green-100 text-green-800 border-green-400 dark:bg-green-900 dark:text-green-300 dark:border-green-600",
+    warning:
+      "bg-yellow-100 text-yellow-800 border-yellow-400 dark:bg-yellow-900 dark:text-yellow-300 dark:border-yellow-600",
+    error:
+      "bg-red-100 text-red-800 border-red-400 dark:bg-red-900 dark:text-red-300 dark:border-red-600",
   };
-
+  const Icon = icons[type as AlertIconType];
   return (
     <div
-      className={cn("rounded-md border-l-4 p-4", typeStyles[type], className)}
+      className={cn(
+        "flex items-center rounded-md border-l-4 p-4",
+        typeStyles[type as AlertIconType],
+        className,
+      )}
     >
-      {children}
+      <Icon className="mr-4 h-6 w-6 flex-shrink-0" />
+      <div>{children}</div>
     </div>
   );
 };
 
+// Video
+export const YouTubeVideo = ({ url }: YouTubeVideoProps) => {
+  return (
+    <div className="flex w-full justify-center">
+      <ReactPlayer
+        url={url}
+        controls
+        className="max-w-full"
+        width="100%"
+        height="auto"
+        style={{ aspectRatio: "16 / 9" }}
+      />
+    </div>
+  );
+};
 // ? Añadir más componentes según sea necesario (Listas, Tablas, etc.)

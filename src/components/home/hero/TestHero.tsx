@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
-import { HomePageData } from "@/utils/data/constants";
+import { HomePageData } from "@/utils/data/home/constants";
 
 export default function TestHero() {
   return (
