@@ -15,10 +15,8 @@ export default function Hero() {
               Explora las fronteras de la Tecnología
             </h1>
             <p className="text-muted-foreground">
-              Bienvenido al epicentro de la innovación en IA. FutureTech AI News
-              es tu pasaporte a un mundo donde las máquinas piensan, aprenden y
-              dan forma al futuro. Únete a nosotros en esta expedición
-              visionaria al corazón de la IA.
+              Conecta con expertos, descubre recursos y mantente al día con las
+              últimas tendencias tecnológicas emergentes.
             </p>
           </div>
           <div className="flex flex-col items-center justify-center space-y-6">
