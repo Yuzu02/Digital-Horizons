@@ -4,17 +4,17 @@ import { cn } from "@/lib/utils";
 import { Label } from "./label";
 
 const inputVariants = cva(
-  //*  Default Styles for all buttons
+  // Default Styles for all buttons
   "peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal transition-all text-sm placeholder-shown:border-darkMode dark:placeholder-shown:border-lightMode border-secondary border-secondary-dark invalid:border-red-600 outline-0 mt-6",
   {
     variants: {
-      // * Variant styles
+      // Variant styles
       variant: {
         default:
-          " border-2 p-2.5 rounded-md   ease-in-out duration-500 focus:border-secondary dark:focus:border-secondary-dark",
+          " border-2 py-1.5 rounded-md   ease-in-out duration-500 focus:border-secondary dark:focus:border-secondary-dark",
 
         underline:
-          "border-b-2  py-2.5 duration-500 ease-in-out dark:focus:border-secondary-dark focus:border-secondary ",
+          "border-b-2  py-1 duration-500 ease-in-out dark:focus:border-secondary-dark focus:border-secondary ",
 
         rounded:
           "border-2  rounded-full py-2.5 dark:focus:border-secondary-dark focus:border-secondary duration-500 ease-in-out ",
@@ -41,17 +41,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <div className="relative flex w-full flex-col items-center justify-center">
           <input
             type={type}
-            className={`${cn(inputVariants({ variant, className }))} ${icon ? "pl-8" : ""} `}
+            className={`${cn(inputVariants({ variant, className }))} ${icon ? "pl-7" : ""} `}
             ref={ref}
             {...props}
           />
           {icon && (
-            <span className="absolute bottom-3.5 left-2.5 transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
+            <span className="absolute bottom-2.5 left-1.5 transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
               {icon}
             </span>
           )}
           {label && (
-            <Label className="absolute bottom-11 left-0 py-1 text-sm transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
+            <Label className="absolute bottom-10 left-0 py-1 text-xs transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
               {label}
             </Label>
           )}
