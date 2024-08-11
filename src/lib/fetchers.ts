@@ -5,8 +5,30 @@ import remarkGfm from "remark-gfm";
 import matter from "gray-matter";
 import { BlogSchemaExtended } from "@/schemas/blog";
 import AllComponents from "@/utils/BlogComponents";
+import rehypeExpressiveCode from "rehype-expressive-code";
+import type { RehypeExpressiveCodeOptions } from "rehype-expressive-code";
 
+// MDX content directory
 const contentDir = path.join(process.cwd(), "/src/app/blog/_mdx-content");
+
+// Rehype Expressive Code Options
+const ExpressiveCodeOptions: RehypeExpressiveCodeOptions = {
+  themes: ["github-light", "github-dark"],
+  useDarkModeMediaQuery: true,
+  frames: {
+    showCopyToClipboardButton: true,
+    removeCommentsWhenCopyingTerminalFrames: true,
+    extractFileNameFromCode: true,
+  },
+  defaultProps: {
+    // Enable word wrap by default
+    wrap: true,
+    // Disable wrapped line indentation for terminal languages
+    overridesByLang: {
+      "bash,ps,sh": { preserveIndent: false },
+    },
+  },
+};
 
 // ? Esta función lee un archivo MDX y devuelve un objeto con los datos del blog
 export async function getBlogBySlug(slug: string) {
@@ -22,7 +44,7 @@ export async function getBlogBySlug(slug: string) {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [],
+        rehypePlugins: [[rehypeExpressiveCode, ExpressiveCodeOptions]],
       },
     },
   });
@@ -99,3 +121,19 @@ export async function searchBlogs(query: string) {
 
   return filteredBlogs;
 }
+
+/* 
+
+  ? Ejemplo de uso de rehype-shiki
+
+import rehypeShiki, { RehypeShikiOptions } from "@shikijs/rehype";
+
+// Rehype Shiki Options
+const ShikiOptions: RehypeShikiOptions = {
+  themes: {
+    light: "snazzy-light",
+    dark: "synthwave-84",
+  },
+};
+
+*/

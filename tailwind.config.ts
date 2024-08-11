@@ -39,7 +39,7 @@ const config = {
     extend: {
       colors: {
         // Todo : Light & Dark BG Backgrounds
-        lightMode: "#FFFFF2", // default #FFFFF2 // 2  #FFFFF2
+        lightMode: "#FBFBFB", // default #FFFFF2 // 2  #FFFFF2
         darkMode: "#1c1c22", // default #1c1c22  // 2 #1c1c22
 
         // Todo : Paleta de colores de la UI

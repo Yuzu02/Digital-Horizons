@@ -24,6 +24,8 @@ import { icons, AlertIconType } from "@/components/blog/mdx/extra/AlertIcon";
 
 // Utils
 import { cn } from "@/lib/utils";
+import { Suspense } from "react";
+import Loader from "@/components/common/Loader";
 
 /*
  ? Estos componentes son utilizados por el compilador de MDX para renderizar el contenido.
@@ -61,12 +63,17 @@ export const Enlace = ({ children, href, className }: EnlaceProps) => {
 };
 
 // Párrafos
-export const Parrafo = ({
-  children,
-
-  className,
-}: ParrafoProps) => {
-  return <p className={cn("text-justify text-lg", className)}>{children}</p>;
+export const Parrafo = ({ children, className }: ParrafoProps) => {
+  return (
+    <div suppressHydrationWarning={true}>
+      <p
+        className={cn("text-justify text-lg antialiased", className)}
+        suppressHydrationWarning={true}
+      >
+        {children}
+      </p>
+    </div>
+  );
 };
 
 // Cita
@@ -93,16 +100,18 @@ export const ImageMDX = ({
   quality = 100,
 }: ImageProps) => {
   return (
-    <Image
-      // Requerido
-      src={src} // ! No pasar rutas con (#, _ ) en el nombre de la imagen
-      alt={alt}
-      width={width}
-      height={height}
-      // Opcional
-      className={cn("object-cover", className)}
-      quality={quality}
-    />
+    <div>
+      <Image
+        // Requerido
+        src={src} // ! No pasar rutas con (#, _ ) en el nombre de la imagen
+        alt={alt}
+        width={width}
+        height={height}
+        // Opcional
+        className={cn("object-cover", className)}
+        quality={quality}
+      />
+    </div>
   );
 };
 
@@ -147,16 +156,18 @@ export const Alert = ({ children, type = "info", className }: AlertProps) => {
 // Video
 export const YouTubeVideo = ({ url }: YouTubeVideoProps) => {
   return (
-    <div className="flex w-full justify-center">
-      <ReactPlayer
-        url={url}
-        controls
-        className="max-w-full"
-        width="100%"
-        height="auto"
-        style={{ aspectRatio: "16 / 9" }}
-      />
-    </div>
+    <Suspense fallback={<Loader />}>
+      <div className="flex w-full justify-center">
+        <ReactPlayer
+          url={url}
+          controls
+          className="max-w-full"
+          width="100%"
+          height="auto"
+          style={{ aspectRatio: "16 / 9" }}
+        />
+      </div>
+    </Suspense>
   );
 };
 // ? Añadir más componentes según sea necesario (Listas, Tablas, etc.)

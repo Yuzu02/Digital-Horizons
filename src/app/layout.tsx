@@ -9,7 +9,6 @@ import "@/schemas/env";
 // Providers
 import SessionWrapper from "@/components/provider/SessionWrapper";
 import { ThemeProvider } from "@/components/provider/theme-provider";
-import ToasterProvider from "@/components/provider/ToasterProvider";
 
 // Layout components
 import Header from "@/components/layout/Header";
@@ -40,11 +39,10 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="dark"
             enableSystem
-            disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
+            // disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
           >
             <Header />
             {children}
-            <ToasterProvider />
           </ThemeProvider>
         </body>
       </html>
