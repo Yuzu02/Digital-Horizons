@@ -6,10 +6,6 @@ const envVars = z.object({
   NEXTAUTH_SECRET: z.string(),
   NEXTAUTH_URL: z.string().default("http://localhost:3000"), //? Luego se cambiara a la url de autenticación
 
-  /*
-   * Cambiar NEXT_AUTH_URL por NEXTAUTH_URL en el archivo .env.local
-   */
-
   //* Providers
 
   // Github

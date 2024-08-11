@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { toast } from "sonner";
+import { themeMessages, toastMessages } from "@/utils/data/Extra/constants";
 
 // Hooks
 import useCustomTheme from "@/hooks/useCustomTheme";
@@ -19,21 +20,6 @@ export function ThemeModeToggle() {
   // Setup hooks
   const { setTheme } = useTheme();
   const theme = useCustomTheme();
-  // Variables para el manejo de texto
-  const toggleThemeText = "Cambiar tema";
-  const lightThemeText = "Claro";
-  const darkThemeText = "Oscuro";
-  const systemThemeText = "Sistema";
-
-  const toastMessages = {
-    themeChangeToLightMode: "Tema cambiado a claro",
-    themeChangeToDarkMode: "Tema cambiado a oscuro",
-    themeChangeToSystemMode: "Tema cambiado a sistema",
-  };
-
-  /*
-   *La idea seria mover todos los textos de la app a un index.ts en una carpeta data para manejarlo de forma centralizada
-   */
 
   // Manejo de cookies para el tema
   function handleThemeCookieChange(newTheme: string): void {
@@ -46,7 +32,7 @@ export function ThemeModeToggle() {
         <Button variant="outline" size="icon">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">{toggleThemeText}</span>
+          <span className="sr-only">{themeMessages.toggleThemeText}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center">
@@ -54,37 +40,37 @@ export function ThemeModeToggle() {
           onClick={() => {
             setTheme("light");
             handleThemeCookieChange("light");
-            toast.success(toastMessages.themeChangeToLightMode, {
+            toast.success(themeMessages.themeChangeToLightMode, {
               duration: 2500,
             });
           }}
           checked={theme === "light"}
         >
-          {lightThemeText}
+          {toastMessages.lightThemeText}
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           onClick={() => {
             setTheme("dark");
             handleThemeCookieChange("light");
-            toast.success(toastMessages.themeChangeToDarkMode, {
+            toast.success(themeMessages.themeChangeToDarkMode, {
               duration: 2500,
             });
           }}
           checked={theme === "dark"}
         >
-          {darkThemeText}
+          {toastMessages.darkThemeText}
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           onClick={() => {
             setTheme("system");
             handleThemeCookieChange("");
-            toast.success(toastMessages.themeChangeToSystemMode, {
+            toast.success(themeMessages.themeChangeToSystemMode, {
               duration: 2500,
             });
           }}
           checked={theme === "system"}
         >
-          {systemThemeText}
+          {toastMessages.systemThemeText}
         </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
