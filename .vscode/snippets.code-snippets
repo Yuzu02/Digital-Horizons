@@ -1,0 +1,16 @@
+{
+  "Insert Post Metadata": {
+    "prefix": "postm",
+    "body": [
+      "---",
+      "image: \"\"",
+      "title: \"\"",
+      "author: \"\"",
+      "category: \"\"",
+      "publishDate: \"\"",
+      "description: \"\"",
+      "---",
+    ],
+    "description": "Insserta el frontmatter de un post",
+  },
+}
