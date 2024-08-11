@@ -3,12 +3,14 @@ import { z } from "zod";
 // SubTitulo
 export const SubTituloSchema = z.object({
   children: z.custom<React.ReactNode>(),
+  id: z.string().optional(),
   className: z.string().optional(),
 });
 
 // SubSeccion
 export const SubSeccionSchema = z.object({
   children: z.custom<React.ReactNode>(),
+  id: z.string().optional(),
   className: z.string().optional(),
 });
 
@@ -61,6 +63,12 @@ export const YouTubeVideoSchema = z.object({
   url: z.string(),
 });
 
+// Accordion
+export const AccordionSchema = z.object({
+  children: z.custom<React.ReactNode>(),
+  title: z.string(),
+});
+
 // Export all the schemas as types to be used in the components
 export type SubTituloProps = z.infer<typeof SubTituloSchema>;
 export type SubSeccionProps = z.infer<typeof SubSeccionSchema>;
@@ -71,3 +79,4 @@ export type ImageProps = z.infer<typeof ImageSchema>;
 export type DividerProps = z.infer<typeof DividerSchema>;
 export type AlertProps = z.infer<typeof AlertSchema>;
 export type YouTubeVideoProps = z.infer<typeof YouTubeVideoSchema>;
+export type AccordionProps = z.infer<typeof AccordionSchema>;

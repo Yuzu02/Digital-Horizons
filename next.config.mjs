@@ -28,6 +28,9 @@ const nextConfig = {
       {
         hostname: "via.placeholder.com",
       },
+      {
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
   },
 };

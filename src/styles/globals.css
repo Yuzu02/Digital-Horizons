@@ -34,6 +34,8 @@
   transition-delay: 20ms;
 }
 
+/* Global Classes */
+
 :root {
   scrollbar-width: none;
 }
@@ -47,7 +49,11 @@
   right: 0;
 }
 
-li {
+/* 
+  ! No styles directamente los elementos html, como a o li ya que estos estilos se aplican a todos los elementos de ese tipo , entonces componentes como el toast se verían afectados por estos estilos y se verían mal.
+*/
+
+.Navigation-li {
   display: flex;
   margin: 20px;
   flex-direction: row-reverse;
@@ -56,7 +62,7 @@ li {
   padding: 20px;
 }
 
-a {
+.Navigation-a {
   margin: 20px;
   font-size: 20px;
   font-weight: bold;

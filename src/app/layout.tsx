@@ -9,21 +9,27 @@ import "@/schemas/env";
 // Providers
 import SessionWrapper from "@/components/provider/SessionWrapper";
 import { ThemeProvider } from "@/components/provider/theme-provider";
-import ToasterProvider from "@/components/provider/ToasterProvider";
 
 // Layout components
 import Header from "@/components/layout/Header";
 // ? import Footer from "@/components/layout/Footer";
 
+// Font
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-poppins",
 });
 
+// Metadata para SEO
 export const metadata: Metadata = {
   title: "Digital Horizons",
   description: "A tech blog using Next.js , TypeScript, and Tailwind CSS",
+  authors: [{ name: "Yuzu", url: "https://github.com/Yuzu02" }], // ? Recuerden agregar sus datos
+  keywords: ["Next.js", "TypeScript", "Tailwind CSS", "Tech Blog"],
+  applicationName: "Digital Horizons",
+  colorScheme: "dark light",
+  publisher: "Vercel",
 };
 
 export default function RootLayout({
@@ -38,13 +44,12 @@ export default function RootLayout({
         <body className={`${poppins.variable}`}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="system"
             enableSystem
-            disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
+            // disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
           >
             <Header />
             {children}
-            <ToasterProvider />
           </ThemeProvider>
         </body>
       </html>

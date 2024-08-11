@@ -9,6 +9,11 @@ import {
   ImageMDX,
   Alert,
   YouTubeVideo,
+  Accordion,
+  Indice,
+  TablaComparativa,
+  ProsCons,
+  CarruselCitas,
 } from "@/components/blog/mdx/MDX-Components";
 
 const AllComponents = {
@@ -22,6 +27,11 @@ const AllComponents = {
   Parrafo,
   Alert,
   YouTubeVideo,
+  Accordion,
+  Indice,
+  TablaComparativa,
+  ProsCons,
+  CarruselCitas,
 };
 
 export default AllComponents;

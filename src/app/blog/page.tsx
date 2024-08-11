@@ -1,10 +1,11 @@
-import Link from "next/link";
+import React from "react";
 import { getBlogs } from "../../lib/fetchers";
+import AnimatedBlogCard from "@/components/blog/AnimatedBlogCard";
 
-export default async function BlogsPage() {
+const BlogsPage: React.FC = async () => {
   const blogs = await getBlogs();
 
-  // Ordenar los blogs por fecha de publicación de forma descendente
+  // Sort blogs by publish date in descending order
   blogs.sort(
     (a, b) =>
       new Date(b.frontmatter.publishDate).getTime() -
@@ -12,22 +13,21 @@ export default async function BlogsPage() {
   );
 
   return (
-    <main>
-      {blogs.map((blog) => (
-        <article
-          key={blog.frontmatter.title}
-          className="grid grid-cols-4 items-center justify-center gap-4 text-3xl"
-        >
-          <div className="col-span-3">
-            <h1 className="text-left">{blog.frontmatter.title}</h1>
-            <p>{blog.frontmatter.author}</p>
-            <p>{blog.frontmatter.publishDate}</p>
-          </div>
-          <div className="col-span-1 flex justify-end">
-            <Link href={`/blog/post/${blog.slug}`}>Read More</Link>
-          </div>
-        </article>
-      ))}
+    <main className="container mx-auto px-4 py-12 transition-colors duration-300 dark:bg-gray-900">
+      <h1 className="mb-12 text-4xl font-bold text-gray-800 dark:text-white sm:text-5xl">
+        Blog Posts
+      </h1>
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {blogs.map((blog, index) => (
+          <AnimatedBlogCard
+            key={blog.frontmatter.title}
+            blog={blog}
+            index={index}
+          />
+        ))}
+      </div>
     </main>
   );
-}
+};
+
+export default BlogsPage;

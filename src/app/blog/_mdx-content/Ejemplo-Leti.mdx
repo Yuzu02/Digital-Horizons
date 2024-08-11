@@ -4,10 +4,136 @@ image: "/post/Ejemplo/Principal.webp"
 description: "Ejemplo de un archivo MDX para Leti , explicando como se usa y como se estructura y como se ve"
 author: "Yuzu Kaufman"
 category: "AI"
-publishDate: "6/08/2024"
+publishDate: "11/08/2024"
 ---
 
-<SubTitulo> Esto es contenido ( Un SubTitulo) </SubTitulo>
+<Indice
+  items={[
+    { title: "Introducción a la IA", link: "#introduccion" },
+    { title: "Aplicaciones Prácticas", link: "#aplicaciones" },
+    { title: "El Futuro de la IA", link: "#futuro" },
+    { title: "Preguntas Frecuentes", link: "#preguntas-frecuentes" },
+  ]}
+/>
+
+<TablaComparativa
+  headers={["Industria", "Aplicación de IA", "Beneficio"]}
+  rows={[
+    ["Salud", "Diagnóstico por imagen", "Detección temprana de enfermedades"],
+    ["Finanzas", "Detección de fraudes", "Mayor seguridad en transacciones"],
+    ["Automoción", "Vehículos autónomos", "Reducción de accidentes de tráfico"],
+    ["Educación", "Tutoría personalizada", "Aprendizaje adaptativo"],
+  ]}
+/>
+
+<Divider />
+
+<ProsCons
+  pros={[
+    "Aumento de la eficiencia y productividad",
+    "Mejora en la toma de decisiones basada en datos",
+    "Avances en investigación científica y médica",
+    "Automatización de tareas repetitivas",
+  ]}
+  cons={[
+    "Posible desplazamiento laboral",
+    "Preocupaciones éticas y de privacidad",
+    "Dependencia tecnológica",
+    "Potencial uso malicioso de la tecnología",
+  ]}
+/>
+
+<Divider />
+
+<SubTitulo id=""> Preguntas Frecuentes </SubTitulo>
+
+<Accordion title="¿Por qué es importante modularizar?">
+  <Parrafo>
+    Modularizar el código permite dividir grandes bloques de código en partes
+    más pequeñas y manejables, lo que facilita la colaboración y el
+    mantenimiento.
+  </Parrafo>
+</Accordion>
+
+<Accordion title="¿Como escribir coidgo limpio?">
+  <Parrafo className="justify-normal italic">
+    Para escribir código limpio es importante seguir buenas prácticas de
+    programación, como utilizar nombres descriptivos para las variables y
+    funciones, mantener un estilo de codificación consistente y evitar la
+    duplicación de código.
+  </Parrafo>
+</Accordion>
+
+<Accordion title="¿Qué es la programación modular?">
+  <Parrafo>
+    La programación modular es un enfoque de diseño de software que consiste en
+    dividir un programa en módulos independientes y reutilizables, lo que
+    facilita la creación, mantenimiento y depuración del código.
+  </Parrafo>
+</Accordion>
+
+<Divider />
+
+<CarruselCitas
+  quotes={[
+    {
+      text: "La IA transformará cada industria y creará nuevas oportunidades que ni siquiera podemos imaginar hoy.",
+      author: "Sundar Pichai, CEO de Google",
+    },
+    {
+      text: "La inteligencia artificial es la nueva electricidad. Transformará todas las industrias.",
+      author: "Andrew Ng, Experto en IA",
+    },
+    {
+      text: "La IA es una herramienta poderosa, pero debemos asegurarnos de que se desarrolle de manera ética y beneficiosa para la humanidad.",
+      author: "Fei-Fei Li, Profesora de IA en Stanford",
+    },
+  ]}
+/>
+
+<Parrafo>
+  La inteligencia artificial (IA) es una rama de la informática que se encarga
+  de desarrollar sistemas capaces de realizar tareas que requieren inteligencia
+  humana, como el reconocimiento de voz, la toma de decisiones y el aprendizaje
+  automático.
+</Parrafo>
+
+<SubTitulo id="introduccion">Introducción a la IA</SubTitulo>
+
+<Parrafo>
+  La inteligencia artificial se basa en el concepto de que las máquinas pueden
+  aprender de la experiencia, adaptarse a nuevas situaciones y realizar tareas
+  similares a las que realizan los seres humanos. Para lograr esto, los sistemas
+  de IA utilizan algoritmos y modelos matemáticos que les permiten procesar
+  grandes cantidades de datos y extraer patrones y conocimientos útiles.
+</Parrafo>
+
+<SubSeccion id="aplicaciones">Aplicaciones Prácticas</SubSeccion>
+
+<Parrafo>
+  La inteligencia artificial tiene una amplia gama de aplicaciones prácticas en
+  diversos campos, como la medicina, la robótica, la industria automotriz y la
+  seguridad. Algunos ejemplos de aplicaciones de IA incluyen sistemas de
+  diagnóstico médico, vehículos autónomos, asistentes virtuales y sistemas de
+  detección de fraudes.
+</Parrafo>
+
+<SubSeccion id="futuro">El Futuro de la IA</SubSeccion>
+
+<Parrafo>
+  El futuro de la inteligencia artificial es prometedor, ya que se espera que
+  los avances en esta área permitan el desarrollo de sistemas más inteligentes y
+  sofisticados. Se prevé que la IA tenga un impacto significativo en la sociedad
+  y la economía, transformando la forma en que vivimos y trabajamos.
+</Parrafo>
+
+<Divider />
+
+<SubTitulo id=""> Preguntas Frecuentes </SubTitulo>
+
+<SubTitulo id="preguntas-frecuentes">
+  Esto es contenido ( Un SubTitulo){" "}
+</SubTitulo>
 
 <SubSeccion> Un subtitulo </SubSeccion>
 

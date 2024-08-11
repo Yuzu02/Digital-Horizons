@@ -6,12 +6,7 @@ function ToasterProvider() {
   const theme = useCustomTheme();
   return (
     <div className="fixed right-4 top-4 z-50">
-      <Toaster
-        theme={theme}
-        visibleToasts={3}
-        duration={1500}
-        className="items-start"
-      />
+      <Toaster theme={theme} visibleToasts={3} duration={2500} dir="ltr" />
     </div>
   );
 }
