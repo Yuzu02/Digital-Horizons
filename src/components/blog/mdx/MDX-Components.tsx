@@ -52,13 +52,19 @@ import useCustomTheme from "@/hooks/useCustomTheme";
 
 // Títulos // ? Front-Matter Ya usa Titulo , no es necesario usar
 export const Titulo = ({ children }: { children: React.ReactNode }) => {
-  return <h1 className="text-4xl font-bold text-purple-600">{children}</h1>;
+  return (
+    <h1 className="text-4xl font-bold text-purple-600">
+      <span className="text-primary dark:text-primary-dark">► </span>
+      {children}
+    </h1>
+  );
 };
 
 // Subtítulos
 export const SubTitulo = ({ children, className, id }: SubTituloProps) => {
   return (
-    <h2 id={id} className={cn("text-3xl font-bold", className)}>
+    <h2 id={id} className={cn("text-2xl font-bold", className)}>
+      <span className="text-primary dark:text-primary-dark">► </span>
       {children}
     </h2>
   );
@@ -67,7 +73,8 @@ export const SubTitulo = ({ children, className, id }: SubTituloProps) => {
 // SubSección
 export const SubSeccion = ({ children, className, id }: SubSeccionProps) => {
   return (
-    <h3 id={id} className={cn("text-2xl font-bold", className)}>
+    <h3 id={id} className={cn("text-xl font-bold", className)}>
+      <span className="text-primary dark:text-primary-dark">► </span>
       {children}
     </h3>
   );
@@ -421,6 +428,61 @@ export const CarruselCitas = ({
       </div>
     </div>
   );
+};
+
+// Timeline
+export const Timeline = ({
+  events,
+}: {
+  events: { date: string; title: string; description: string }[];
+}) => {
+  return (
+    <div className="relative justify-center">
+      {events.map((event) => (
+        <div key={event.description} className="mb-8 flex items-center">
+          <div className="mr-4 flex flex-col items-center justify-center">
+            <div className="h-full w-px bg-gray-300 dark:bg-gray-600"></div>
+            <div className="h-4 w-4 rounded-full bg-primary dark:bg-primary-dark"></div>
+          </div>
+          <div>
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              {event.date}
+            </span>
+            <h4 className="text-lg font-semibold">{event.title}</h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              {event.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Tarjeta de Información
+export const TarjetaInfo = ({
+  title,
+  content,
+  icon,
+}: {
+  title: string;
+  content: string;
+  icon: string;
+}) => {
+  return (
+    <div className="mb-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
+      <div className="mb-4 flex items-center">
+        <span className="mr-3 text-3xl">{icon}</span>
+        <h3 className="text-xl font-semibold">{title}</h3>
+      </div>
+      <p>{content}</p>
+    </div>
+  );
+};
+
+// Galería de Imágenes
+export const GaleriaImagenes = ({ images }: { images: string[] }) => {
+  return <div>{images}</div>;
 };
 
 // ? Añadir más componentes según sea necesario (Listas, Tablas, etc.)

@@ -1,17 +1,48 @@
 ---
 image: "/post/ChatGPT/Post-1.jpg"
 title: "ChatGPT: Dominan la IA de cero a héroe facilmente"
+avatar: "/assets/Avatars/Yuzu-Roze.jpg"
 author: "Yuzu Kaufman"
 category: "IA"
-publishDate: "7/29/2024"
+publishDate: "8/12/2024"
 description: "Explora cómo puedes pasar de ser un principiante en IA conversacional a convertirte en un héroe utilizando ChatGPT de OpenAI."
 ---
 
-<ImageMDX
-  src="/assets/Hero/Hero.png"
-  alt="ChatGPT: De cero a héroe en IA conversacional"
-  width={1200}
-  height={800}
+<Indice
+  items={[
+    {
+      title: "Introducción a ChatGPT",
+      link: "#introduccion",
+    },
+    {
+      title: "Primeros pasos con ChatGPT",
+      link: "#primeros-pasos",
+    },
+    {
+      title: "Ajuste fino de ChatGPT",
+      link: "#Ajuste-Fino-ChatGPT",
+    },
+    {
+      title: "Construcción de chatbots con ChatGPT",
+      link: "#Contruccion-chatbots",
+    },
+    {
+      title: "Prompts básicos para ChatGPT",
+      link: "#prompts-basicos",
+    },
+    {
+      title: "Implementación de ChatGPT",
+      link: "#Implementación-de-ChatGPT",
+    },
+    {
+      title: "Pros y contras de ChatGPT",
+      link: "#pros-y-contras",
+    },
+    {
+      title: "Preguntas frecuentes",
+      link: "#preguntas-frecuentes",
+    },
+  ]}
 />
 
 <Parrafo>
@@ -21,6 +52,13 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
   de los pasos para dominar ChatGPT y crear experiencias conversacionales
   atractivas y efectivas.
 </Parrafo>
+
+<ImageMDX
+  src="/assets/Hero/Hero.png"
+  alt="ChatGPT: De cero a héroe en IA conversacional"
+  width={1200}
+  height={800}
+/>
 
 <Parrafo>
   La inteligencia artificial (IA) conversacional ha revolucionado la forma en
@@ -37,7 +75,7 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
   contextuales en conversaciones en lenguaje natural.
 </Alert>
 
-<SubTitulo> Paso 1: Introducción a ChatGPT </SubTitulo>
+<SubTitulo id="introduccion"> Paso 1: Introducción a ChatGPT </SubTitulo>
 
 <Parrafo>
   ChatGPT es un modelo de IA conversacional potente desarrollado por OpenAI.
@@ -49,7 +87,7 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
 
 <YouTubeVideo url="https://www.youtube.com/watch?v=D9byh4MAsUQ" />
 
-<SubSeccion> Paso 2: Primeros pasos con ChatGPT </SubSeccion>
+<SubSeccion id="primeros-pasos">Paso 2: Primeros pasos con ChatGPT </SubSeccion>
 
 <Parrafo>
   Para comenzar con ChatGPT, puedes utilizar la API de OpenAI para interactuar
@@ -57,7 +95,7 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
   generadas por ChatGPT.
 </Parrafo>
 
-<SubSeccion> Paso 3: Ajuste fino de ChatGPT </SubSeccion>
+<SubSeccion id="Ajuste-Fino-ChatGPT">Paso 3: Ajuste fino de ChatGPT</SubSeccion>
 
 <Parrafo>
   Si deseas personalizar ChatGPT para tareas o dominios específicos, puedes
@@ -65,7 +103,7 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
   entrenar el modelo con un conjunto de datos relevante para tu caso de uso.
 </Parrafo>
 
-<SubSeccion> Paso 4: Construcción de chatbots con ChatGPT </SubSeccion>
+<SubSeccion id="Contruccion-chatbots">Paso 4: Construcción de chatbots con ChatGPT</SubSeccion>
 
 <Parrafo>
   Una de las aplicaciones populares de ChatGPT es la construcción de chatbots.
@@ -73,7 +111,7 @@ description: "Explora cómo puedes pasar de ser un principiante en IA conversaci
   conversaciones con usuarios sobre diversos temas.
 </Parrafo>
 
-<SubSeccion> Paso 5: Prompts básicos para ChatGPT </SubSeccion>
+<SubSeccion id="prompts-basicos">Paso 5: Prompts básicos para ChatGPT</SubSeccion>
 
 <Parrafo>
   Para ayudarte a comenzar con ChatGPT, aquí tienes algunos prompts básicos que
@@ -112,11 +150,62 @@ Ahora tienes un conjunto de prompts básicos para iniciar tus conversaciones con
 
 </Parrafo>
 
-<SubSeccion> Paso 6: Implementación de ChatGPT </SubSeccion>
+<SubSeccion id="Implementación-de-ChatGPT">Paso 6: Implementación de ChatGPT</SubSeccion>
 
 <Parrafo>
-Una vez que hayas entrenado o ajustado finamente ChatGPT para tu caso de uso específico, puedes implementar el modelo para interactuar con los usuarios en tiempo real. Esto se puede hacer a través de una interfaz web, plataforma de mensajería u otro canal de comunicación.
-
-¡Eso es todo! Ahora tienes las herramientas y el conocimiento para convertirte en un héroe en el mundo de la IA conversacional con ChatGPT. ¡Disfruta de las conversaciones!
-
+  Una vez que hayas entrenado o ajustado finamente ChatGPT para tu caso de uso
+  específico, puedes implementar el modelo para interactuar con los usuarios en
+  tiempo real. Esto se puede hacer a través de una interfaz web, plataforma de
+  mensajería u otro canal de comunicación.
 </Parrafo>
+
+<SubSeccion id="pros-y-contras">Pros y contras de ChatGPT</SubSeccion>
+
+<Parrafo>
+  A continuación, se presentan algunos pros y contras de ChatGPT que debes tener
+  en cuenta al utilizar el modelo en tus aplicaciones de IA conversacional:
+</Parrafo>
+
+<ProsCons
+  pros={[
+    "Generación de texto coherente y contextual.",
+    "Capacidad para ajustar finamente el modelo para tareas específicas.",
+    "Amplia gama de aplicaciones en chatbots, asistentes virtuales y más.",
+  ]}
+  cons={[
+    "Posibilidad de generar respuestas inapropiadas o incorrectas.",
+    "Requiere un manejo cuidadoso de las respuestas generadas para garantizar la precisión y relevancia.",
+    "Limitaciones en la comprensión de contextos complejos o conversaciones largas.",
+  ]}
+/>
+
+<SubSeccion id="preguntas-frecuentes">Preguntas frecuentes</SubSeccion>
+
+<Accordion title="¿ChatGPT es gratuito?">
+  <Parrafo>
+    OpenAI ofrece una versión gratuita de ChatGPT a través de su API, que
+    permite a los usuarios enviar mensajes de texto y recibir respuestas
+    generadas por el modelo. Sin embargo, hay límites en el uso gratuito, y los
+    usuarios pueden optar por planes de suscripción pagos para acceder a más
+    capacidades y funcionalidades.
+  </Parrafo>
+</Accordion>
+
+<Accordion title="¿Cómo puedo ajustar finamente ChatGPT para mi caso de uso?">
+  <Parrafo>
+    Puedes ajustar finamente ChatGPT para tu caso de uso específico mediante el
+    entrenamiento del modelo con un conjunto de datos relevante. Este proceso
+    implica proporcionar ejemplos de entrada y salida que sean representativos
+    de las conversaciones que deseas que el modelo genere.
+  </Parrafo>
+</Accordion>
+
+<Accordion title="¿Qué tipo de aplicaciones puedo construir con ChatGPT?">
+  <Parrafo>
+    ChatGPT se puede utilizar para una amplia variedad de aplicaciones de IA
+    conversacional, como chatbots, asistentes virtuales, sistemas de soporte al
+    cliente y más. Puedes adaptar el modelo para satisfacer tus necesidades
+    específicas y crear experiencias conversacionales personalizadas y
+    efectivas.
+  </Parrafo>
+</Accordion>

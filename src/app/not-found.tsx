@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default async function NotFound() {
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-white">
+    <div className="flex h-screen flex-col items-center justify-center">
       <h1 className="mb-4 text-8xl font-bold text-primary">404</h1>
       <p className="mb-8 text-gray-600">
         La página que buscas no existe. Por favor, verifica la URL e inténtalo

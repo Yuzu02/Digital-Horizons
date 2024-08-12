@@ -14,6 +14,9 @@ import {
   TablaComparativa,
   ProsCons,
   CarruselCitas,
+  Timeline,
+  TarjetaInfo,
+  GaleriaImagenes,
 } from "@/components/blog/mdx/MDX-Components";
 
 const AllComponents = {
@@ -32,6 +35,9 @@ const AllComponents = {
   TablaComparativa,
   ProsCons,
   CarruselCitas,
+  Timeline,
+  TarjetaInfo,
+  GaleriaImagenes,
 };
 
 export default AllComponents;

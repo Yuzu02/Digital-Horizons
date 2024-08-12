@@ -1,6 +1,9 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { JSX, SVGProps } from "react";
+import { avatarUrls, HomePageData } from "@/utils/data/home/constants";
+import AvatarCircles from "@/components/magicui/avatar-circles";
+import { TextEffect } from "@/components/magicui/TextEffect";
+import WordRotate from "@/components/magicui/word-rotate";
 
 export default function Hero() {
   return (
@@ -8,48 +11,47 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">
+            {/* Texto Hero */}
             <p className="text-muted-foreground">
-              Tu viaje hacia el mañana comienza aquí
+              {HomePageData.heroTitleSmall}
             </p>
-            <h1 className="text-3xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Explora las fronteras de la Tecnología
+            <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
+              {HomePageData.heroTitleBig} &nbsp;
+              <WordRotate
+                words={HomePageData.heroWords}
+                className="inline-block bg-gradient-to-r from-cyan-200 via-yellow-300 to-emerald-400 bg-clip-text text-transparent"
+              />
             </h1>
-            <p className="text-muted-foreground">
-              Conecta con expertos, descubre recursos y mantente al día con las
-              últimas tendencias tecnológicas emergentes.
-            </p>
+            <TextEffect
+              className="text-muted-foreground"
+              preset="blur"
+              per="char"
+            >
+              {HomePageData.heroDescription}
+            </TextEffect>
           </div>
           <div className="flex flex-col items-center justify-center space-y-6">
             <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" alt="Usuario 1" />
-                <AvatarFallback>U1</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" alt="Usuario 2" />
-                <AvatarFallback>U2</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" alt="Usuario 3" />
-                <AvatarFallback>U3</AvatarFallback>
-              </Avatar>
+              <AvatarCircles avatarUrls={avatarUrls} numPeople={3} />
             </div>
             <div className="text-center">
               <h2 className="text-lg font-bold">
-                Explora más de 1000 recursos
+                {/* Texto Recursos */}
+                {HomePageData.resourcesTitle}
               </h2>
               <p className="text-muted-foreground">
-                Más de 1,000 artículos sobre tendencias tecnológicas emergentes
-                y avances.
+                {HomePageData.resourcesDescription}
               </p>
               <Button variant="outline" className="mt-4">
-                Explorar Recursos <ArrowRightIcon className="ml-2 h-4 w-4" />
+                {HomePageData.resourcesButtonLabel}{" "}
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="text-center">
+            {/* Texto Stats */}
             <h3 className="text-2xl font-bold">300+</h3>
             <p className="text-muted-foreground">Recursos disponibles</p>
           </div>
