@@ -180,3 +180,13 @@ function StarIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+/* 
+   ? AvatarCircles for the hero section
+
+                    <AvatarCircles
+                      avatarUrls={[blog.frontmatter.avatar]}
+                      numPeople={1}
+                    />
+
+*/

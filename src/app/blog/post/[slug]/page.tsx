@@ -1,5 +1,6 @@
 import CommentSection from "@/components/blog/comments/CommentSection";
 import Loader from "@/components/common/Loader";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getAllBlogSlug, getBlogBySlug } from "@/lib/fetchers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,6 +35,15 @@ export default async function BlogPage({
                   {blog.frontmatter.title}
                 </h1>
                 <div className="mt-6 flex flex-wrap items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                  <div className="">
+                    <Avatar>
+                      <AvatarImage
+                        src={blog.frontmatter.avatar}
+                        alt={blog.frontmatter.author}
+                      />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                  </div>
                   <span className="font-medium">{blog.frontmatter.author}</span>
                   <span>•</span>
                   <time dateTime={blog.frontmatter.publishDate}>

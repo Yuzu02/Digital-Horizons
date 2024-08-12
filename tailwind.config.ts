@@ -55,22 +55,24 @@ const config = {
           hover: "#55aaff",
         },
         accent: {
-          DEFAULT: "#ff0095",
+          DEFAULT: "#ff0095", // ? default #ff0095
           dark: "#ff00c3",
           hover: "#55aaff",
         },
         list: {
-          DEFAULT: "#A14FF3",
-          dark: "#8800ff",
+          DEFAULT: "", // Minerva Options // ? 1 #F0F8FF , // ? 2 #F5FFFA
+          dark: "#2e2e35",
         },
         scrollArea: {
-          DEFAULT: "#55aaff",
-          dark: "#6f00ff",
+          DEFAULT: "#d1d1d1",
+          dark: "#3a3a42",
         },
       },
       backgroundImage: {
         "gradient-custom":
           "linear-gradient(to right, #8800ff 0%, #ff0095 50%, #ff0095 50%, #8800ff 100%)",
+        "list-gradient":
+          "linear-gradient(to left, rgb(236 254 255 / 0), #ecfeff, rgb(255 0 149 / 0.05))",
       },
       backgroundSize: {
         200: "200% 100%",

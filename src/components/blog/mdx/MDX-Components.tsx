@@ -29,6 +29,7 @@ import { ProsConIcons } from "@/components/blog/mdx/extra/ProsConIcons";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import useCustomTheme from "@/hooks/useCustomTheme";
 
 /*
  ? Estos componentes son utilizados por el compilador de MDX para renderizar el contenido.
@@ -191,12 +192,26 @@ export const YouTubeVideo = ({ url }: YouTubeVideoProps) => {
   );
 };
 
+// bg-gray-100 dark:bg-gray-800 //? Por si se me olvida
+// gradient //*  bg-gradient-to-l from-cyan-50 to-accent/5 // ? bg-list-gradient
+
 // Accordion // ? Está en preview, dependiendo del feedback se pueden cambiar o mejorar.
 export const Accordion = ({ title, children }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useCustomTheme();
+
+  const swithBetweenGradient = {
+    light: "bg-list-gradient border-gray-300",
+    dark: "dark:border-gray-700 dark:bg-list-dark",
+  };
 
   return (
-    <div className="mb-4 rounded-lg border border-gray-300 bg-gray-100 p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+    <div
+      className={cn(
+        "mb-4 rounded-lg border p-4 shadow-lg",
+        `${theme == "light" ? swithBetweenGradient.light : swithBetweenGradient.dark}`,
+      )}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full justify-between py-2 text-left text-lg font-semibold"

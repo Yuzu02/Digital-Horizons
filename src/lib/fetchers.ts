@@ -57,6 +57,7 @@ export async function getBlogBySlug(slug: string) {
     category: frontmatter.category || "Uncategorized",
     publishDate: frontmatter.publishDate || new Date().toISOString(),
     description: frontmatter.description || "Unknown Description",
+    avatar: frontmatter.avatar || "https://via.placeholder.com/150",
   };
 
   try {
@@ -112,6 +113,7 @@ export async function searchBlogs(query: string) {
       category: data.category,
       publishDate: data.publishDate,
       description: data.description,
+      avatar: data.avatar,
     };
   });
 

@@ -13,4 +13,45 @@
     ],
     "description": "Insserta el frontmatter de un post",
   },
+
+  "Fast Pros and Const Component": {
+    "prefix": "proscons",
+    "body": ["<ProsCons pros={[\"\",\"\",\"\"]} cons={[\"\",\"\",\"\"]} />"],
+    "description": "Crea un componente de pros y contras",
+  },
+
+  "Fast Table of Content Component": {
+    "prefix": "indice",
+    "body": [
+      "<Indice",
+      "  items={[",
+      "    {",
+      "      title: \"\",",
+      "      link: \"#\",",
+      "    },",
+      "    {",
+      "      title: \"\",",
+      "      link: \"#\",",
+      "    },",
+      "    {",
+      "      title: \"\",",
+      "      link: \"#\",",
+      "    },",
+      "  ]}",
+      "/>",
+    ],
+    "description": "Crea un componente de tabla de contenido",
+  },
+
+  "Fast Accordion": {
+    "prefix": "accordion",
+    "body": [
+      "<Accordion title=\"\">",
+      "  <Parrafo>",
+      "  ",
+      "  </Parrafo>",
+      "</Accordion>",
+    ],
+    "description": "Crea un componente de acordeón",
+  },
 }

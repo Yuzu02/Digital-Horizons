@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Yuzu", url: "https://github.com/Yuzu02" }], // ? Recuerden agregar sus datos
   keywords: ["Next.js", "TypeScript", "Tailwind CSS", "Tech Blog"],
   applicationName: "Digital Horizons",
-  colorScheme: "dark light",
   publisher: "Vercel",
 };
 

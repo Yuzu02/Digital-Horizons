@@ -9,6 +9,7 @@ const BlogSchema = z.object({
   content: z.any(), // ? De momento no se valida el contenido del blog
   description: z.string(),
   image: z.string(),
+  avatar: z.string(), //? Luego se hará un custom z tipo para aceptar string | StaticImport
 });
 
 const BlogSchemaExtended = BlogSchema.extend({
@@ -19,6 +20,7 @@ const BlogSchemaExtended = BlogSchema.extend({
     publishDate: z.string(),
     image: z.string(),
     description: z.string(),
+    avatar: z.string(),
   }),
 }).omit({
   title: true,
@@ -27,6 +29,7 @@ const BlogSchemaExtended = BlogSchema.extend({
   publishDate: true,
   image: true,
   description: true,
+  avatar: true,
 });
 
 type Blog = z.infer<typeof BlogSchema>;
