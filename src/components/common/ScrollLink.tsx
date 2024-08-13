@@ -14,7 +14,10 @@ export const ScrollLink = ({
     event.preventDefault();
     const element = document.querySelector(target);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.scrollY;
+      const middle = absoluteElementTop - window.innerHeight / 2;
+      window.scrollTo({ top: middle, behavior: "smooth" });
     }
   };
 
