@@ -12,6 +12,7 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 
 // Layout components
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 // ? import Footer from "@/components/layout/Footer";
 
 // Font
@@ -49,6 +50,7 @@ export default function RootLayout({
           >
             <Header />
             {children}
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
