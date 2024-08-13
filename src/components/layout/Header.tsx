@@ -1,44 +1,46 @@
 // Todo : Hacer el header de la pagina
 
 import Link from "next/link";
-import ToasterProvider from "@/components/provider/ToasterProvider"; // * Dejar el ToasterProvider para que funcione el toast
-import { ThemeModeToggle } from "../theme/ThemeModeToggle";
-// ? import DHLogo from "@/components/layout/Logo/DHLogo";
+import DHLogo from "@/components/layout/Logo/DHLogo";
+import React from "react";
+import { FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { RiContactsLine } from "react-icons/ri";
+import { AiOutlineSolution } from "react-icons/ai";
 
 export default function Header() {
   return (
-    <>
-      <div>
-        <div className="size-[50px] items-center"></div>
-        <nav>
-          <li className="Navigation-li">
+    <header className="mt-5">
+      <div className="Logos1 flex h-20 justify-items-center bg-emerald-300">
+        <div className="container">
+          <DHLogo />
+        </div>
+        <nav className="Master m-auto flex max-w-3xl justify-start">
+          <li className="flex flex-row justify-center gap-16 font-bold">
             <ul>
-              <Link href="" className="Navigation-a">
-                services
-              </Link>
+              <FaHome />
+              <Link href="">Home</Link>
             </ul>
             <ul>
-              <Link href="" className="Navigation-a">
-                services
-              </Link>
+              <FcAbout />
+              <Link href="">About</Link>
             </ul>
             <ul>
-              <Link href="" className="Navigation-a">
-                services
-              </Link>
+              <AiOutlineSolution />
+              <Link href="">Solutions</Link>
             </ul>
             <ul>
-              <Link href="" className="Navigation-a">
-                services
-              </Link>
+              <RiContactsLine />
+              <Link href="">Contact</Link>
             </ul>
             <ul>
-              <ThemeModeToggle />
+              <MdMiscellaneousServices />
+              <Link href="">Pricing</Link>
             </ul>
           </li>
         </nav>
       </div>
-      <ToasterProvider />
-    </>
+    </header>
   );
 }

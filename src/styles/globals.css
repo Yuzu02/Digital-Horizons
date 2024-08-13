@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*  Yuzu Classes  */
-
 @layer base {
   body {
     @apply bg-lightMode font-primary leading-loose text-darkMode dark:bg-darkMode dark:text-lightMode;
@@ -34,38 +32,28 @@
   transition-delay: 20ms;
 }
 
-/* Global Classes */
-
-:root {
-  scrollbar-width: none;
-}
-
 /* Julio Classes */
-
 .Master {
-  width: 100%;
-  margin: 12px;
-  position: fixed;
-  right: 0;
-}
-
-/* 
-  ! No styles directamente los elementos html, como a o li ya que estos estilos se aplican a todos los elementos de ese tipo , entonces componentes como el toast se verían afectados por estos estilos y se verían mal.
-*/
-
-.Navigation-li {
+  max-width: 700vw;
+  margin: auto;
   display: flex;
-  margin: 20px;
-  flex-direction: row-reverse;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
-.Navigation-a {
-  margin: 20px;
-  font-size: 20px;
-  font-weight: bold;
+.Master li {
+  display: flex;
+  justify-content: center;
+  width: 27rem;
+  margin: 1rem 0;
+}
+
+.Master ul {
+  list-style: none;
+}
+
+.Logos {
+  position: relative;
+  left: 3rem;
 }
 
 /* Leticia Classes */
