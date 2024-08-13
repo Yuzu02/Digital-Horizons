@@ -55,4 +55,36 @@
     ],
     "description": "Crea un componente de acordeón",
   },
+  "Fast Image Component": {
+    "prefix": "image",
+    "body": [
+      "<ImageMDX",
+      "  src=\"\"",
+      "  alt=\"\"",
+      "  width={}",
+      "  height={}",
+      "/>",
+    ],
+    "description": "Crea un componente de imagen",
+  },
+  "Fast Subseccion Component": {
+    "prefix": "subseccion",
+    "body": ["<SubSeccion id=\"\"></SubSeccion>"],
+    "description": "Crea un componente de subsección",
+  },
+  "Fast Subtitulo Component": {
+    "prefix": "subtitulo",
+    "body": ["<Subtitulo id=\"\"></Subtitulo>"],
+    "description": "Crea un componente de subtítulo",
+  },
+  "Fast Parrafo Component": {
+    "prefix": "parrafo",
+    "body": ["<Parrafo></Parrafo>"],
+    "description": "Crea un componente de párrafo",
+  },
+  "Fast Codigo Component": {
+    "prefix": "alerta",
+    "body": ["<Alert type=\"\"></Alert>"],
+    "description": "Crea un componente de código",
+  },
 }

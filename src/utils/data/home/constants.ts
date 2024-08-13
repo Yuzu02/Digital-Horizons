@@ -19,16 +19,7 @@ export const HomePageData = {
   heroTitleBig: "Explora las fronteras de la ",
 
   // * Word Rotation
-  heroWords: [
-    "Tecnología",
-    "IA",
-    "Internet de las Cosas",
-    "Realidad Virtual",
-    "Realidad Aumentada",
-    "Ciberseguridad",
-    "Automatización",
-    "Desarrollo Web",
-  ],
+  heroWords: ["Tecnología", "IA", "Ciberseguridad", "Automatización"],
 
   heroTitleSmall: "Tu viaje hacia el mañana comienza aquí",
   heroDescription:
@@ -39,23 +30,22 @@ export const HomePageData = {
   resourcesDescription:
     "Más de 1,000 artículos sobre tendencias tecnológicas emergentes y avances.",
   resourcesButtonLabel: "Explorar Recursos",
-
-  // Stats
-  stats: [
-    {
-      number: "300+",
-      label: "Recursos disponibles",
-    },
-    {
-      number: "12k+",
-      label: "Descargas totales",
-    },
-    {
-      number: "10k+",
-      label: "Usuarios activos",
-    },
-  ],
 };
+
+export const stats = [
+  {
+    number: 300, // ? 300 +
+    label: "Recursos disponibles",
+  },
+  {
+    number: 12, // ? 12k +
+    label: "Descargas totales",
+  },
+  {
+    number: 10, // ? 10k +
+    label: "Usuarios activos",
+  },
+];
 
 // AvatarCircles
 export const avatarUrls = [
