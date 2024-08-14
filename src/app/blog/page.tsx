@@ -13,8 +13,8 @@ const BlogsPage: React.FC = async () => {
   );
 
   return (
-    <main className="container mx-auto px-4 py-12 transition-colors duration-300 dark:bg-gray-900">
-      <h1 className="mb-12 text-4xl font-bold text-gray-800 dark:text-white sm:text-5xl">
+    <main className="container mx-auto mt-12 px-4 py-14 transition-colors duration-300">
+      <h1 className="mb-6 text-center text-5xl font-medium tracking-tighter md:text-6xl">
         Blog Posts
       </h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

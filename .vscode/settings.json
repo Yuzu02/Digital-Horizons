@@ -16,5 +16,11 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "cSpell.words": [
+    "automatizacion",
+    "Automatizacion",
+    "ciberseguridad",
+    "programacion"
+  ]
 }

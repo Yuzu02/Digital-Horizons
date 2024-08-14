@@ -13,10 +13,6 @@ export const headerLinks = {
       href: "/blog",
     },
     {
-      name: "Blog",
-      href: "/blog",
-    },
-    {
       name: "Contact",
       href: "/contact",
     },

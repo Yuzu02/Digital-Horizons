@@ -32,6 +32,12 @@
   transition-delay: 20ms;
 }
 
+/* Yuzu Classes */
+
+:root {
+  scrollbar-width: none;
+}
+
 /* Julio Classes */
 .Master {
   max-width: 700vw;

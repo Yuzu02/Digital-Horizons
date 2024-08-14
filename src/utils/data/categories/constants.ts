@@ -1,77 +1,72 @@
 import {
-  FaCode,
-  FaMicrochip,
-  FaDatabase,
-  FaCloud,
-  FaMobileAlt,
-  FaLayerGroup,
-  FaCamera,
-  FaBriefcase,
-  FaChartLine,
+  FaRobot,
+  FaBrain,
+  FaShieldAlt,
+  FaChartPie,
+  FaBitcoin,
+  FaBullhorn,
+  FaStar,
+  FaLaptopCode,
+  FaFire,
 } from "react-icons/fa";
 
 export const categories = [
   {
-    name: "Programming",
-    icon: FaCode,
+    name: "Automatización",
+    icon: FaRobot,
     description:
-      "Explore the latest articles on programming and software development.",
-    href: "/blog/categories/programming",
+      "Optimiza procesos y deja que la tecnología haga el trabajo por ti.",
+    href: "/blog/categories/automatizacion",
   },
   {
-    name: "Hardware",
-    icon: FaMicrochip,
+    name: "IA",
+    icon: FaBrain,
     description:
-      "Explore the latest articles on computer hardware and technology.",
-    href: "/blog/categories/hardware",
+      "Descubre el futuro con la inteligencia artificial y sus innovaciones.",
+    href: "/blog/categories/ia",
   },
   {
-    name: "Databases",
-    icon: FaDatabase,
-    description:
-      "Explore the latest articles on database technologies and management.",
-    href: "/blog/categories/databases",
+    name: "Ciberseguridad",
+    icon: FaShieldAlt,
+    description: "Protege tus datos y mantente seguro en el mundo digital.",
+    href: "/blog/categories/ciberseguridad",
   },
   {
-    name: "Cloud Computing",
-    icon: FaCloud,
+    name: "Big Data",
+    icon: FaChartPie,
     description:
-      "Explore the latest articles on cloud computing and cloud-based technologies.",
-    href: "/blog/categories/cloud-computing",
+      "Analiza grandes volúmenes de datos para tomar decisiones inteligentes.",
+    href: "/blog/categories/big-data",
   },
   {
-    name: "Mobile Development",
-    icon: FaMobileAlt,
+    name: "Criptomonedas",
+    icon: FaBitcoin,
     description:
-      "Explore the latest articles on mobile app development and mobile technologies.",
-    href: "/blog/categories/mobile-development",
+      "Explora el mundo de las monedas digitales y sus oportunidades.",
+    href: "/blog/categories/criptomonedas",
   },
   {
-    name: "Web Development",
-    icon: FaLayerGroup,
-    description:
-      "Explore the latest articles on web development and web technologies.",
-    href: "/blog/categories/web-development",
+    name: "Marketing Digital",
+    icon: FaBullhorn,
+    description: "Conquista el mercado online con estrategias innovadoras.",
+    href: "/blog/categories/marketing-digital",
   },
   {
-    name: "Design",
-    icon: FaCamera,
-    description:
-      "Explore the latest articles on design, UX, and visual communication.",
-    href: "/blog/categories/design",
+    name: "Reviews",
+    icon: FaStar,
+    description: "Opiniones y análisis detallados de los últimos productos.",
+    href: "/blog/categories/reviews",
   },
   {
-    name: "Career",
-    icon: FaBriefcase,
-    description:
-      "Explore the latest articles on career development and professional growth.",
-    href: "/blog/categories/career",
+    name: "Programación",
+    icon: FaLaptopCode,
+    description: "Crea y desarrolla con las mejores prácticas de programación.",
+    href: "/blog/categories/programacion",
   },
   {
-    name: "Trending",
-    icon: FaChartLine,
-    description:
-      "Explore the latest trending topics and technologies in the tech industry.",
-    href: "/blog/categories/trending",
+    name: "Tendencias",
+    icon: FaFire,
+    description: "Mantente al día con lo más caliente y novedoso del momento.",
+    href: "/blog/categories/tendencias",
   },
 ];

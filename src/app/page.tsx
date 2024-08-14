@@ -8,7 +8,7 @@ import Post from "@/components/home/post/Post";
 
 export default function Home() {
   return (
-    <main className="flex h-full items-center justify-center">
+    <main className="mt-2 flex h-full items-center justify-center">
       <div className="flex flex-col items-center">
         {/* <TestHero /> */}
         <Hero />

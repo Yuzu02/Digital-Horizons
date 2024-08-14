@@ -92,6 +92,7 @@ export function MobileNav() {
             </TooltipContent>
           </Tooltip>
         </DockIcon>
+        <Separator orientation="vertical" className="h-full" />
       </Dock>
     </TooltipProvider>
   );

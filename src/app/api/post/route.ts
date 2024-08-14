@@ -20,6 +20,7 @@ export async function GET(request: Request) {
       author: blog.frontmatter.author,
       publishDate: blog.frontmatter.publishDate,
       description: blog.frontmatter.description,
+      avatar: blog.frontmatter.avatar,
     }));
 
     return NextResponse.json(recentBlogs);
