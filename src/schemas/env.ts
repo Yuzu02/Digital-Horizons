@@ -4,7 +4,7 @@ import { z } from "zod";
 const envVars = z.object({
   // NextAuth
   NEXTAUTH_SECRET: z.string(),
-  NEXTAUTH_URL: z.string().default("http://localhost:3000"), //? Luego se cambiara a la url de autenticación
+  NEXTAUTH_URL: z.string().optional(), //? Luego se cambiara a la url de autenticación en producción (https://digital-horizons.vercel.app/auth)
 
   //* Providers
 

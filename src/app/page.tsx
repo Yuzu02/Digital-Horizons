@@ -3,6 +3,7 @@
 // -import TestHero from "@/components/home/hero/TestHero";
 import Hero from "@/components/home/hero/Hero"; // ? Standby for Hero component
 import Post from "@/components/home/post/Post";
+import { Testimonials } from "@/components/home/testimonial/Testimonials";
 // - import Banner from "@/components/common/Banner"; // ? Standby for Banner component
 
 export default function Home() {
@@ -12,7 +13,11 @@ export default function Home() {
         {/* <TestHero /> */}
         <Hero />
         {/* <Features /> */}
+        {/* <Testimonials /> */}
+        <Testimonials />
+        {/* <Post /> */}
         <Post />
+        {/* <Banner /> */}
       </div>
     </main>
   );

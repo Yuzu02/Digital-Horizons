@@ -1,7 +1,8 @@
 "use client";
 
 // Next Optimized Components
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
+// - import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
 // Third Party Components
@@ -14,6 +15,7 @@ import {
   BlockQuoteProps,
   DividerProps,
   EnlaceProps,
+  ImagePropsExtended,
   ParrafoProps,
   SubSeccionProps,
   SubTituloProps,
@@ -95,13 +97,14 @@ export const Enlace = ({ children, href, className }: EnlaceProps) => {
 // Párrafos
 export const Parrafo = ({ children, className }: ParrafoProps) => {
   return (
-    <div suppressHydrationWarning={true}>
-      <p
-        className={cn("text-lg antialiased", className)}
-        suppressHydrationWarning={true}
-      >
-        {children}
-      </p>
+    <div
+      suppressHydrationWarning={true}
+      className={cn(
+        "text-lg text-darkMode/70 antialiased dark:text-lightMode/70 sm:text-justify",
+        className,
+      )}
+    >
+      {children}
     </div>
   );
 };
@@ -128,9 +131,16 @@ export const ImageMDX = ({
   height,
   className,
   quality = 100,
-}: ImageProps) => {
+  position = "center",
+}: ImagePropsExtended) => {
+  const positionStyles = {
+    center: "mx-auto",
+    left: "float-left",
+    right: "float-right",
+  };
+
   return (
-    <div>
+    <div className={cn("my-2", positionStyles[position])}>
       <Image
         // Requerido
         src={src} // ! No pasar rutas con (#, _ ) en el nombre de la imagen

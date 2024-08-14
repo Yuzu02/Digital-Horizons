@@ -1,39 +1,40 @@
-// Todo : Hacer el footer de la pagina
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="m-4 rounded-lg bg-white shadow dark:bg-gray-800">
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="m-4 rounded-lg bg-white/10 shadow-lg backdrop-blur-md dark:bg-gray-800/30"
+    >
       <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-          © 2024{" "}
-          <a href="https://flowbite.com/" className="hover:underline">
-            Digitals Horizons™
-          </a>
+        <motion.span
+          whileHover={{ scale: 1.05 }}
+          className="text-sm text-gray-600 dark:text-gray-300 sm:text-center"
+        >
+          © 2024 -{" "}
+          <Link href="/" className="hover:underline">
+            Digital Horizons™
+          </Link>
           . All Rights Reserved.
-        </span>
-        <ul className="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-          <li>
-            <a href="#" className="me-4 hover:underline md:me-6">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="me-4 hover:underline md:me-6">
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="#" className="me-4 hover:underline md:me-6">
-              Licensing
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Contact
-            </a>
-          </li>
+        </motion.span>
+        <ul className="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-600 dark:text-gray-300 sm:mt-0">
+          {["Home", "Blog", "Contact"].map((item, index) => (
+            <motion.li key={item} whileHover={{ scale: 1.1 }}>
+              <Link
+                href="#"
+                className={`hover:underline ${index < 3 ? "me-4 md:me-6" : ""}`}
+              >
+                {item}
+              </Link>
+            </motion.li>
+          ))}
         </ul>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

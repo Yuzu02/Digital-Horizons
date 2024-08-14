@@ -29,7 +29,8 @@
       "@/lib/*": ["./src/lib/*"],
       "@/auth/*": ["./src/auth/*"],
       "@/types": ["./src/types"],
-      "@/data": ["./src/utils/data"]
+      "@/data": ["./src/utils/data"],
+      "@/private": ["./src/private/assets"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

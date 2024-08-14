@@ -22,7 +22,7 @@ export default function WordRotate({
     transition: { duration: 0.25, ease: "easeOut" },
   },
   className,
-}: WordRotateProps) {
+}: Readonly<WordRotateProps>) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -37,13 +37,13 @@ export default function WordRotate({
   return (
     <div className="overflow-hidden py-2">
       <AnimatePresence mode="wait">
-        <motion.h1
+        <motion.span
           key={words[index]}
           className={cn(className)}
           {...framerProps}
         >
           {words[index]}
-        </motion.h1>
+        </motion.span>
       </AnimatePresence>
     </div>
   );

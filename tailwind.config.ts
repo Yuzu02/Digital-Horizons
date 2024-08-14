@@ -73,6 +73,10 @@ const config = {
           "linear-gradient(to right, #8800ff 0%, #ff0095 50%, #ff0095 50%, #8800ff 100%)",
         "list-gradient":
           "linear-gradient(to left, rgb(236 254 255 / 0), #ecfeff, rgb(255 0 149 / 0.05))",
+        "testimonial-gradient-dark":
+          "linear-gradient(to bottom left, rgb(140,69,255,.3), black)",
+        "testimonial-gradient-light":
+          "linear-gradient(to bottom left, rgb(140,69,255,.3), #ecfeff)",
       },
       backgroundSize: {
         200: "200% 100%",

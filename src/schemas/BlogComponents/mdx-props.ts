@@ -41,6 +41,7 @@ export const ImageSchema = z.object({
   height: z.number().optional(),
   className: z.string().optional(),
   quality: z.number().optional().default(100),
+  position: z.enum(["center", "left", "right"]).optional(),
 });
 
 // Divider
@@ -75,7 +76,7 @@ export type SubSeccionProps = z.infer<typeof SubSeccionSchema>;
 export type EnlaceProps = z.infer<typeof EnlaceSchema>;
 export type ParrafoProps = z.infer<typeof ParrafoSchema>;
 export type BlockQuoteProps = z.infer<typeof BlockQuoteSchema>;
-export type ImageProps = z.infer<typeof ImageSchema>;
+export type ImagePropsExtended = z.infer<typeof ImageSchema>;
 export type DividerProps = z.infer<typeof DividerSchema>;
 export type AlertProps = z.infer<typeof AlertSchema>;
 export type YouTubeVideoProps = z.infer<typeof YouTubeVideoSchema>;

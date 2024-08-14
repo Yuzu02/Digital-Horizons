@@ -1,13 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { JSX, SVGProps } from "react";
-import { avatarUrls, HomePageData } from "@/utils/data/home/constants";
+import { avatarUrls, HomePageData, stats } from "@/utils/data/home/constants";
 import AvatarCircles from "@/components/magicui/avatar-circles";
 import { TextEffect } from "@/components/magicui/TextEffect";
 import WordRotate from "@/components/magicui/word-rotate";
+import NumberTicker from "@/components/magicui/number-ticker";
+import {
+  ArrowRightIcon,
+  GlobeIcon,
+  NewspaperIcon,
+  StarIcon,
+} from "@/components/home/hero/svg/HeroIcons";
 
 export default function Hero() {
   return (
-    <div className="bg-background text-foreground p-8 md:p-16 lg:p-24">
+    <div className="p-8 md:p-16 lg:p-24 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">
@@ -16,10 +22,10 @@ export default function Hero() {
               {HomePageData.heroTitleSmall}
             </p>
             <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-              {HomePageData.heroTitleBig} &nbsp;
+              {HomePageData.heroTitleBig}
               <WordRotate
                 words={HomePageData.heroWords}
-                className="inline-block bg-gradient-to-r from-cyan-200 via-yellow-300 to-emerald-400 bg-clip-text text-transparent"
+                className="inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
               />
             </h1>
             <TextEffect
@@ -52,16 +58,22 @@ export default function Hero() {
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="text-center">
             {/* Texto Stats */}
-            <h3 className="text-2xl font-bold">300+</h3>
-            <p className="text-muted-foreground">Recursos disponibles</p>
+            <h3 className="text-2xl font-bold">
+              <NumberTicker value={stats[0].number} />
+            </h3>
+            <p className="">{stats[0].label}</p>
           </div>
           <div className="text-center">
-            <h3 className="text-2xl font-bold">12k+</h3>
-            <p className="text-muted-foreground">Descargas totales</p>
+            <h3 className="text-2xl font-bold">
+              <NumberTicker value={stats[1].number} />
+            </h3>
+            <p className="">{stats[1].label}</p>
           </div>
           <div className="text-center">
-            <h3 className="text-2xl font-bold">10k+</h3>
-            <p className="text-muted-foreground">Usuarios activos</p>
+            <h3 className="text-2xl font-bold">
+              <NumberTicker value={stats[2].number} />
+            </h3>
+            <p className="">{stats[2].label}</p>
           </div>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -96,99 +108,3 @@ export default function Hero() {
     </div>
   );
 }
-
-function ArrowRightIcon(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
-
-function GlobeIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-      <path d="M2 12h20" />
-    </svg>
-  );
-}
-
-function NewspaperIcon(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
-      <path d="M18 14h-8" />
-      <path d="M15 18h-5" />
-      <path d="M10 6h8v4h-8V6Z" />
-    </svg>
-  );
-}
-
-function StarIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-}
-
-/* 
-   ? AvatarCircles for the hero section
-
-                    <AvatarCircles
-                      avatarUrls={[blog.frontmatter.avatar]}
-                      numPeople={1}
-                    />
-
-*/
