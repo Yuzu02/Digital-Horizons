@@ -52,5 +52,5 @@ export const avatarUrls = [
   "/assets/Avatars/Yuzu-Roze.jpg",
   "/assets/Avatars/yos-avatar.jpg",
   "/assets/Avatars/avatarPamela.jpg",
-  "/assets/Avatars/avatar_5-8-2024_221747_.jpeg",
+  "/assets/Avatars/avatar-Leticia.jpeg",
 ];

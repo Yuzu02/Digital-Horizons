@@ -18,27 +18,27 @@ export function MagicCard({
   gradientColor = "#262626",
   gradientOpacity = 0.8,
 }: Readonly<MagicCardProps>) {
-  const mouseX = useMotionValue(-gradientSize);
+  const mousex = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const { left, top } = e.currentTarget.getBoundingClientRect();
-      mouseX.set(e.clientX - left);
+      mousex.set(e.clientX - left);
       mouseY.set(e.clientY - top);
     },
-    [mouseX, mouseY],
+    [mousex, mouseY],
   );
 
   const handleMouseLeave = useCallback(() => {
-    mouseX.set(-gradientSize);
+    mousex.set(-gradientSize);
     mouseY.set(-gradientSize);
-  }, [mouseX, mouseY, gradientSize]);
+  }, [mousex, mouseY, gradientSize]);
 
   useEffect(() => {
-    mouseX.set(-gradientSize);
+    mousex.set(-gradientSize);
     mouseY.set(-gradientSize);
-  }, [mouseX, mouseY, gradientSize]);
+  }, [mousex, mouseY, gradientSize]);
 
   return (
     <div
@@ -54,7 +54,7 @@ export function MagicCard({
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+            radial-gradient(${gradientSize}px circle at ${mousex}px ${mouseY}px, ${gradientColor}, transparent 100%)
           `,
           opacity: gradientOpacity,
         }}
