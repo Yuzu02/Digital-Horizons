@@ -19,7 +19,7 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-12 sm:p-32">
+    <section className="py-8 sm:p-32 lg:py-2 lg:pb-12">
       <div className="container">
         <h2 className="text-center text-5xl font-medium tracking-tighter md:text-6xl">
           {testimonialSectionData.title}
@@ -44,34 +44,38 @@ export const Testimonials = () => {
             }}
             className="flex flex-none -translate-x-1/2 gap-5 pr-5"
           >
-            {[...testimonialData, ...testimonialData].map((testimonial) => (
-              <div
-                key={testimonial.name}
-                className={cn(
-                  "max-w-xs flex-none rounded-xl border border-white/15 p-6 dark:border-darkMode/15 md:max-w-md md:p-10",
-                  `${theme === "dark" ? gradients.darkMode : gradients.lightMode}`,
-                )}
-              >
-                <div className="text-lg tracking-tight md:text-2xl">
-                  {testimonial.text}
-                </div>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="relative before:absolute before:inset-0 before:z-10 before:rounded-lg before:border before:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light after:content-[''] before:dark:border-white/30">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={`Avatar de ${testimonial.name}`}
-                      className="size-11 rounded-lg border border-r-darkMode/30 grayscale dark:border-white/30"
-                    />
+            {[...testimonialData, ...testimonialData].map(
+              (testimonial, index) => (
+                <div
+                  key={testimonial.name}
+                  className={cn(
+                    // Ocultar algunas tarjetas en pantallas pequeñas
+                    index >= 3 ? "hidden sm:block" : "",
+                    "max-w-xs flex-none rounded-xl border border-white/15 p-6 dark:border-darkMode/15 md:max-w-md md:p-10",
+                    `${theme === "dark" ? gradients.darkMode : gradients.lightMode}`,
+                  )}
+                >
+                  <div className="text-lg tracking-tight md:text-2xl">
+                    {testimonial.text}
                   </div>
-                  <div>
-                    <div>{testimonial.name}</div>
-                    <div className="text-sm dark:text-white/50">
-                      {testimonial.title}
+                  <div className="mt-5 flex items-center gap-3">
+                    <div className="relative before:absolute before:inset-0 before:z-10 before:rounded-lg before:border before:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light after:content-[''] before:dark:border-white/30">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={`Avatar de ${testimonial.name}`}
+                        className="size-11 rounded-lg border border-r-darkMode/30 grayscale dark:border-white/30"
+                      />
+                    </div>
+                    <div>
+                      <div>{testimonial.name}</div>
+                      <div className="text-sm dark:text-white/50">
+                        {testimonial.title}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ),
+            )}
           </motion.div>
         </div>
       </div>
