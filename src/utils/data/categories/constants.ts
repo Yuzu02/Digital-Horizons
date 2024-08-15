@@ -1,7 +1,6 @@
 import {
   FaRobot,
   FaBrain,
-  FaShieldAlt,
   FaChartPie,
   FaBitcoin,
   FaBullhorn,
@@ -10,63 +9,74 @@ import {
   FaFire,
 } from "react-icons/fa";
 
+import { MdMotionPhotosAuto } from "react-icons/md";
+import { SiVirtualbox } from "react-icons/si";
+
 export const categories = [
   {
-    name: "Automatización",
-    icon: FaRobot,
+    name: "Aprendizaje-Automático",
+    icon: FaBrain,
     description:
       "Optimiza procesos y deja que la tecnología haga el trabajo por ti.",
-    href: "/blog/categories/automatizacion",
+    href: "/blog/categories/Aprendizaje-Automático",
   },
   {
     name: "IA",
-    icon: FaBrain,
+    icon: FaRobot,
     description:
       "Descubre el futuro con la inteligencia artificial y sus innovaciones.",
     href: "/blog/categories/ia",
   },
   {
-    name: "Ciberseguridad",
-    icon: FaShieldAlt,
-    description: "Protege tus datos y mantente seguro en el mundo digital.",
-    href: "/blog/categories/ciberseguridad",
+    name: "Robótica&Automatización",
+    icon: MdMotionPhotosAuto,
+    description:
+      "La robótica y automatización han revolucionando la industria y la vida cotidiana.",
+    href: "/blog/categories/Robótica&Automatización",
   },
   {
-    name: "Big Data",
+    name: "Ciencia-de-Datos",
     icon: FaChartPie,
     description:
       "Analiza grandes volúmenes de datos para tomar decisiones inteligentes.",
-    href: "/blog/categories/big-data",
+    href: "/blog/categories/Ciencia-de-Datos",
   },
   {
-    name: "Criptomonedas",
+    name: "Tecnología-Financiera",
     icon: FaBitcoin,
     description:
       "Explora el mundo de las monedas digitales y sus oportunidades.",
-    href: "/blog/categories/criptomonedas",
+    href: "/blog/categories/Tecnología-Financiera",
   },
   {
-    name: "Marketing Digital",
+    name: "Redes-Sociales&Marketing",
     icon: FaBullhorn,
     description: "Conquista el mercado online con estrategias innovadoras.",
-    href: "/blog/categories/marketing-digital",
+    href: "/blog/categories/mRedes-Sociales&Marketing",
   },
   {
-    name: "Reviews",
+    name: "Tecnología-e-Innovación",
     icon: FaStar,
     description: "Opiniones y análisis detallados de los últimos productos.",
-    href: "/blog/categories/reviews",
+    href: "/blog/categories/Tecnología-e-Innovación",
   },
   {
-    name: "Programación",
+    name: "Desarrollo-Web&Aplicaciones",
     icon: FaLaptopCode,
     description: "Crea y desarrolla con las mejores prácticas de programación.",
-    href: "/blog/categories/programacion",
+    href: "/blog/categories/Desarrollo-Web&Aplicaciones",
   },
   {
-    name: "Tendencias",
+    name: "Internet-de-las-Cosas",
     icon: FaFire,
     description: "Mantente al día con lo más caliente y novedoso del momento.",
-    href: "/blog/categories/tendencias",
+    href: "/blog/categories/Internet-de-las-Cosas",
+  },
+  {
+    name: "Realidad-Virtual&Mundos-Digitales",
+    icon: SiVirtualbox,
+    description:
+      "crea entornos de simulaciones digitales, transformando la manera en que jugamos y aprendemos.",
+    href: "/blog/categories/Realidad-Virtual&Mundos-Digitales",
   },
 ];
