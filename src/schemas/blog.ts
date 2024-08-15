@@ -1,5 +1,18 @@
 import { z } from "zod";
 
+const FrontmatterSchema = z.object({
+  post: z.object({
+    slug: z.string(),
+    title: z.string(),
+    author: z.string(),
+    category: z.string(),
+    publishDate: z.string(),
+    image: z.string(),
+    description: z.string(),
+    avatar: z.string(),
+  }),
+});
+
 const BlogSchema = z.object({
   slug: z.string(),
   title: z.string(),
@@ -34,10 +47,16 @@ const BlogSchemaExtended = BlogSchema.extend({
 
 type Blog = z.infer<typeof BlogSchema>;
 type BlogExtended = z.infer<typeof BlogSchemaExtended>;
+type Frontmatter = z.infer<typeof FrontmatterSchema>;
 
 type CategoryPageProps = {
-  blogs: Blog[];
+  category: string;
+  posts: BlogExtended[];
+};
+
+type Posts = {
+  post: BlogExtended[];
 };
 
 export { BlogSchema, BlogSchemaExtended };
-export type { Blog, BlogExtended, CategoryPageProps };
+export type { Blog, BlogExtended, CategoryPageProps, Frontmatter, Posts };

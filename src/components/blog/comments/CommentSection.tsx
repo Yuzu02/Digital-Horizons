@@ -54,7 +54,7 @@ export default function CommentSection({
               className="rounded-full"
             />
             <div className="flex-grow">
-              <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-200">
+              <p className="mb-1 ml-1 mt-2 text-sm font-semibold text-gray-600 dark:text-gray-200">
                 {comment.author}
               </p>
               <div className="rounded-lg bg-gray-100 p-4 dark:bg-gray-700">
@@ -62,7 +62,7 @@ export default function CommentSection({
                   {comment.content}
                 </p>
               </div>
-              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+              <p className="mb-1 ml-1 mt-2 text-xs text-gray-500 dark:text-gray-400">
                 Publicado el{" "}
                 {new Date(comment.createdAt).toLocaleDateString("es-ES", {
                   year: "numeric",

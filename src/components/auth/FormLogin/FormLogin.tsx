@@ -70,7 +70,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
 
         const inputNameError = valueInput
           ? input.validation(valueInput)
-          : "Este Campo no puede estar vacio";
+          : "Este Campo no puede estar vació";
 
         if (inputNameError) {
           newErrors[inputName] = inputNameError;
@@ -80,7 +80,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
 
     setErrors(newErrors);
 
-    // "Envio" de los datos.
+    // "Envió" de los datos.
     if (!newErrors.username && !newErrors.email) {
       console.log("Formulario enviado con éxito", {
         username: inputs.username.ref.current?.value,
@@ -92,14 +92,14 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
 
   return (
     <section className="container flex min-h-screen flex-col items-center justify-center">
-      {/* Me gusto el efecto y queria probar como se ve xd */}
+      {/* Me gusto el efecto y quería probar como se ve xd */}
       <NeonGradientCard className="max-w-lg">
         <form
           action="/dashboard"
-          className="flex w-full max-w-lg flex-col items-center justify-center gap-8 bg-lightMode p-10 dark:bg-zinc-950"
+          className="flex w-full max-w-lg flex-col items-center justify-center gap-8 p-10"
           onSubmit={handleSubmit}
         >
-          {/* Para probar los dos modo nada mas. Se podria colocar el logo aqui 🤔 */}
+          {/* Para probar los dos modo nada mas. Se podría colocar el logo aquí 🤔 */}
           <ThemeModeToggle />
           <h2 className="my-4 text-4xl font-bold">
             {isRegister ? "Crear Cuenta" : "Bienvenido"}
@@ -133,10 +133,10 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
               ref={inputs.password.ref}
               icon={<MdOutlinePassword />}
               variant={"underline"}
-              placeholder="Contaseña"
+              placeholder="Contraseña"
               type="password"
               minLength={8}
-              label="Contraña"
+              label="Contraseña"
               error={errors.password}
             />
           </div>
@@ -148,7 +148,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
           </button>
           <div>
             <span className="text-sm">
-              {isRegister ? "Registrate con" : "O Inicia Sección Con"}
+              {isRegister ? "Regístrate con" : "O Inicia Sección Con"}
             </span>
             <div className="flex items-center justify-center gap-5">
               <LoginButton provider="google" icon={<FaGoogle />} />
@@ -162,7 +162,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
               className="m-0 text-sm text-secondary dark:text-secondary-dark"
             >
               <span className="hover:text-secondary-hover hover:underline">
-                {isRegister ? "Iniciar seccion aqui" : "Regístrate Ahora"}
+                {isRegister ? "Iniciar Sesión aquí" : "Regístrate Ahora"}
               </span>
             </Link>
           </div>

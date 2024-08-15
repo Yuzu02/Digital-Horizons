@@ -13,7 +13,7 @@ import {
 
 export default function Hero() {
   return (
-    <div className="p-8 md:p-16 lg:p-24 lg:py-20">
+    <div className="p-8 md:p-16 lg:p-24 lg:py-20 lg:pb-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">

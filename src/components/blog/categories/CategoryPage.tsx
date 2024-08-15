@@ -3,29 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-//? Luego lo moveré a un schema de zod
-interface Post {
-  slug: string;
-  frontmatter: {
-    title: string;
-    author: string;
-    image: string;
-    publishDate: string;
-    description: string;
-    avatar: string;
-  };
-}
-
-interface CategoryPageContentProps {
-  category: string;
-  posts: Post[];
-}
+import { cleanString } from "@/lib/utils";
+import { CategoryPageProps } from "@/schemas/blog";
 
 export default function CategoryPageContent({
   category,
   posts,
-}: Readonly<CategoryPageContentProps>) {
+}: Readonly<CategoryPageProps>) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -37,9 +21,9 @@ export default function CategoryPageContent({
         <motion.h1
           initial={{ y: -20 }}
           animate={{ y: 0 }}
-          className="mb-8 text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl"
+          className="mb-6 text-center text-5xl font-medium tracking-tighter md:text-6xl"
         >
-          Categoría: {category.toUpperCase()}
+          Categoría: {cleanString(category)}
         </motion.h1>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
@@ -86,7 +70,7 @@ export default function CategoryPageContent({
                       {post.frontmatter.title}
                     </h2>
                     <p className="mt-2 text-gray-700 dark:text-gray-200">
-                      {post.frontmatter.description.length > 100
+                      {post.frontmatter.description?.length > 100
                         ? `${post.frontmatter.description.substring(0, 100)}...`
                         : post.frontmatter.description}
                     </p>

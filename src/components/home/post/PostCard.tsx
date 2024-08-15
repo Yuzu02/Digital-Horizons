@@ -5,22 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Frontmatter } from "@/schemas/blog";
 
-interface BlogPost {
-  slug: string;
-  title: string;
-  author: string;
-  publishDate: string;
-  image: string;
-  description: string;
-  avatar: string;
-}
-
-interface EpicBlogCardProps {
-  post: BlogPost;
-}
-
-const PostCard: React.FC<EpicBlogCardProps> = ({ post }) => {
+const PostCard: React.FC<Frontmatter> = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const containerVariants = {
