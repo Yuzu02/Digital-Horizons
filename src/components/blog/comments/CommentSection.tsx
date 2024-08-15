@@ -45,7 +45,7 @@ export default function CommentSection({
       </h2>
       {comments.length > 0 ? (
         comments.map((comment) => (
-          <div key={comment.id} className="mb-6 flex items-start space-x-4">
+          <div key={comment.id} className="mb-6 flex items-center space-x-4">
             <Image
               src={comment.authorImage}
               alt={comment.author}
@@ -54,13 +54,16 @@ export default function CommentSection({
               className="rounded-full"
             />
             <div className="flex-grow">
+              <p className="mt-2 text-sm font-semibold text-gray-600 dark:text-gray-200">
+                {comment.author}
+              </p>
               <div className="rounded-lg bg-gray-100 p-4 dark:bg-gray-700">
                 <p className="text-gray-800 dark:text-gray-200">
                   {comment.content}
                 </p>
               </div>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Por {comment.author} el{" "}
+              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                Publicado el{" "}
                 {new Date(comment.createdAt).toLocaleDateString("es-ES", {
                   year: "numeric",
                   month: "long",
