@@ -8,15 +8,30 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import useCustomTheme from "@/hooks/useCustomTheme";
+import { useEffect, useState } from "react";
 
 export const Testimonials = () => {
   const theme = useCustomTheme();
-
   // Gradients
   const gradients = {
     darkMode: "bg-testimonial-gradient-dark",
     lightMode: "bg-testimonial-gradient-light",
   };
+  const [visibleTestimonials, setVisibleTestimonials] = useState<number[]>([
+    0, 1,
+  ]);
+
+  const getNextTestimonials = (prev: number[]) => {
+    return prev.map((index) => (index + 2) % testimonialData.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleTestimonials((prev) => getNextTestimonials(prev));
+    }, 15000); // Cambia cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-8 sm:p-32 lg:py-2 lg:pb-12">
@@ -37,20 +52,22 @@ export const Testimonials = () => {
               translateX: "0",
             }}
             transition={{
-              duration: 25, // ? Si son más testimonios, aumentar la duración
+              duration: 15, // ? Si son más testimonios, aumentar la duración
               ease: "linear",
               repeat: Infinity,
               repeatType: "reverse",
             }}
-            className="flex flex-none -translate-x-1/2 gap-5 pr-5"
+            className="flex flex-none -translate-x-1/2 gap-5"
           >
             {[...testimonialData, ...testimonialData].map(
               (testimonial, index) => (
                 <div
                   key={testimonial.name}
                   className={cn(
-                    // Ocultar algunas tarjetas en pantallas pequeñas
-                    index >= 3 ? "hidden sm:block" : "",
+                    // Mostrar solo si está en visibleTestimonials
+                    visibleTestimonials.includes(index)
+                      ? ""
+                      : "hidden sm:block",
                     "max-w-xs flex-none rounded-xl border border-white/15 p-6 dark:border-darkMode/15 md:max-w-md md:p-10",
                     `${theme === "dark" ? gradients.darkMode : gradients.lightMode}`,
                   )}

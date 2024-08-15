@@ -18,7 +18,7 @@ const Features = () => {
       transition={{ duration: 1 }}
     >
       <motion.h2
-        className="mb-6 text-center text-5xl font-medium tracking-tighter md:text-6xl"
+        className="mb-6 text-center text-4xl font-medium tracking-tighter md:text-5xl"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, type: "spring", stiffness: 100 }}

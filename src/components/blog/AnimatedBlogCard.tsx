@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { cleanString } from "@/lib/utils";
 
 interface BlogPost {
   slug: string;
@@ -62,7 +63,7 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
           transition={{ delay: 0.2, duration: 0.3 }}
           className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-lg"
         >
-          {blog.frontmatter.category}
+          {cleanString(blog.frontmatter.category)}
         </motion.div>
       </div>
       <div className="p-6">

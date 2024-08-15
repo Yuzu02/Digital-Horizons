@@ -10,7 +10,7 @@ export const testimonialSectionData = {
 
 export const testimonialData = [
   {
-    text: "Gracias a estos artículos, he podido mejorar mis habilidades ¡Altamente recomendados!",
+    text: "Gracias a estos artículos, he podido mejorar mis habilidades y conocimientos en marketing digital.",
     name: "Ana Pérez",
     title: "Gerente de Marketing",
     avatar: avatar01,

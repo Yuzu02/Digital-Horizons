@@ -26,7 +26,7 @@ export const featureData = [
     icon: <FaLayerGroup className="text-2xl" />,
     title: "Variedad",
     description:
-      "Los artículos cubren campos como IA, robótica, biotecnología y más.",
+      "Los artículos cubren campos como IA, robótica, biotech y más.",
   },
   {
     icon: <FaClock className="text-2xl" />,

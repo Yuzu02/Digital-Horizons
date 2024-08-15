@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Frontmatter } from "@/schemas/blog";
+import { truncateText } from "@/lib/utils";
 
 const PostCard: React.FC<Frontmatter> = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -52,7 +53,7 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="perspective-1000"
     >
-      <Card className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl dark:bg-gray-800">
+      <Card className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl dark:bg-slate-800">
         <Link
           href={`/blog/post/${post.slug}`}
           className="absolute inset-0 z-10"
@@ -114,7 +115,7 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
             variants={contentVariants}
             className="text-sm text-gray-700 dark:text-gray-300"
           >
-            {post.description}
+            {truncateText(post.description, 150)}
           </motion.p>
         </div>
         <AnimatePresence>

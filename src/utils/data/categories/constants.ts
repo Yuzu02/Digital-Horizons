@@ -59,10 +59,10 @@ export const categories = [
     href: "/blog/categories/Tecnología-Financiera",
   },
   {
-    name: "Realidad Virtual y Mundos Digitales",
+    name: "Realidad Virtual y aumentada",
     icon: SiVirtualbox,
     description:
-      "crea entornos de simulaciones digitales, transformando la manera en que jugamos y aprendemos.",
+      "Entornos de simulaciones digitales, que transforman la manera en que jugamos y aprendemos",
     href: "/blog/categories/Realidad-Virtual&Mundos-Digitales",
   },
   {

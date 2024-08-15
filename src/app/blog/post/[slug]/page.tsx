@@ -30,7 +30,7 @@ export default async function BlogPage({
 
   return (
     <section className="mt-12 flex min-h-screen flex-col items-center">
-      <div className="w-full max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-5xl px-4 pt-12 sm:px-6 lg:px-8">
         <article className="space-y-8">
           <header className="mb-8 border-b border-gray-200 pb-8 dark:border-gray-700">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl">
@@ -66,7 +66,7 @@ export default async function BlogPage({
           </section>
         </article>
       </div>
-      <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="-mt-5 mb-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <CommentSection slug={params.slug} />
       </div>
     </section>

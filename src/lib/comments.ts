@@ -41,3 +41,19 @@ export function addCommentToPost(slug: string, comment: NewComment): void {
 export function validateComment(comment: unknown): Comment {
   return CommentSchema.parse(comment);
 }
+
+// Función para obtener todos los comentarios de una persona
+export function getCommentsForPerson(author: string): Comment[] {
+  const files = fs.readdirSync(commentsDirectory);
+  const allComments = files.flatMap((file) => {
+    const filePath = path.join(commentsDirectory, file);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const parsedComments = JSON.parse(fileContents);
+    return parsedComments;
+  });
+
+  const commentsForPerson = allComments.filter(
+    (comment: Comment) => comment.author === author,
+  );
+  return commentsForPerson;
+}

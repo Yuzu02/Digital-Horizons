@@ -13,7 +13,6 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 // Layout components
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-// ? import Footer from "@/components/layout/Footer";
 
 // Font
 const poppins = Poppins({
@@ -25,9 +24,9 @@ const poppins = Poppins({
 // Metadata para SEO
 export const metadata: Metadata = {
   title: "Digital Horizons",
-  description: "A tech blog using Next.js , TypeScript, and Tailwind CSS",
+  description: "A tech blog using Next.js , TypeScript, MDX and Tailwind CSS",
   authors: [{ name: "Yuzu", url: "https://github.com/Yuzu02" }], // ? Recuerden agregar sus datos
-  keywords: ["Next.js", "TypeScript", "Tailwind CSS", "Tech Blog"],
+  keywords: ["Next.js", "TypeScript", "Tailwind CSS", "Tech Blog", "MDX"],
   applicationName: "Digital Horizons",
   publisher: "Vercel",
 };
@@ -48,8 +47,10 @@ export default function RootLayout({
             enableSystem
             // disableTransitionOnChange //? Para habilitar las animaciones de transición de tema
           >
+            {/* <Header /> */}
             <Header />
             {children}
+            {/* <Footer /> */}
             <Footer />
           </ThemeProvider>
         </body>
