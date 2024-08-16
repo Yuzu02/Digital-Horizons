@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import useCustomTheme from "@/hooks/useCustomTheme";
 import { useEffect, useState } from "react";
+import useResponsiveDuration from "@/hooks/useResponsiveDuration";
 
 export const Testimonials = () => {
   const theme = useCustomTheme();
@@ -33,6 +34,9 @@ export const Testimonials = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Manejar la duración de la animación en base al tamaño de la pantalla
+  const duration = useResponsiveDuration();
+
   return (
     <section className="py-8 sm:p-32 lg:py-2 lg:pb-12">
       <div className="container">
@@ -52,7 +56,7 @@ export const Testimonials = () => {
               translateX: "0",
             }}
             transition={{
-              duration: 15, // ? Si son más testimonios, aumentar la duración
+              duration, // ? Si son más testimonios, aumentar la duración
               ease: "linear",
               repeat: Infinity,
               repeatType: "reverse",

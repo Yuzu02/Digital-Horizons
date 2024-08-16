@@ -4,7 +4,7 @@ export default function DHLogo() {
   return (
     <div className="Master3 flex justify-items-center">
       <Link
-        className="space-x-1 self-center justify-self-end whitespace-nowrap text-2xl font-semibold"
+        className="space-x-1 self-center justify-self-start whitespace-nowrap text-2xl font-semibold"
         href="/"
       >
         Digital Horizons

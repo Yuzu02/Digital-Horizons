@@ -469,27 +469,6 @@ export const Timeline = ({
   );
 };
 
-// Tarjeta de Información
-export const TarjetaInfo = ({
-  title,
-  content,
-  icon,
-}: {
-  title: string;
-  content: string;
-  icon: string;
-}) => {
-  return (
-    <div className="mb-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
-      <div className="mb-4 flex items-center">
-        <span className="mr-3 text-3xl">{icon}</span>
-        <h3 className="text-xl font-semibold">{title}</h3>
-      </div>
-      <p>{content}</p>
-    </div>
-  );
-};
-
 // Galería de Imágenes
 export const GaleriaImagenes = ({ images }: { images: string[] }) => {
   return <div>{images}</div>;

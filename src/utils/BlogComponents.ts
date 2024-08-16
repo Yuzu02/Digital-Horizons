@@ -15,7 +15,6 @@ import {
   ProsCons,
   CarruselCitas,
   Timeline,
-  TarjetaInfo,
   GaleriaImagenes,
 } from "@/components/blog/mdx/MDX-Components";
 
@@ -36,7 +35,6 @@ const AllComponents = {
   ProsCons,
   CarruselCitas,
   Timeline,
-  TarjetaInfo,
   GaleriaImagenes,
 };
 

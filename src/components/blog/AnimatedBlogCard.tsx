@@ -143,7 +143,7 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
           <>
             {[...Array(10)].map((_, i) => (
               <motion.div
-                key={i}
+                key={_}
                 className="absolute h-2 w-2 rounded-full bg-blue-500"
                 initial="hidden"
                 animate="visible"

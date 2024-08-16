@@ -3,14 +3,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHome, FaEnvelope, FaBlog, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
-import DHLogo from "./Logo/DHLogo";
-import SearchBar from "@/components/blog/SearchBar";
+import DHLogo from "../Logo/DHLogo";
+import SearchBar from "@/components/layout/SearchBar/SearchBar";
 import { headerLinks } from "@/utils/data/layout/constants";
-import Link from "next/link";
+import { NavItem } from "@/components/layout/Nav/NavItem";
 
-const DesktopNav: React.FC = () => {
+export const DesktopNav: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
@@ -31,21 +31,14 @@ const DesktopNav: React.FC = () => {
               <DHLogo />
             </motion.div>
             <nav className="hidden items-center space-x-4 md:flex lg:space-x-8">
-              <NavItem
-                href={headerLinks.navLinks[0].href}
-                icon={<FaHome />}
-                text={headerLinks.navLinks[0].name}
-              />
-              <NavItem
-                href={headerLinks.navLinks[1].href}
-                icon={<FaBlog />}
-                text={headerLinks.navLinks[1].name}
-              />
-              <NavItem
-                href={headerLinks.navLinks[2].href}
-                icon={<FaEnvelope />}
-                text={headerLinks.navLinks[2].name}
-              />
+              {headerLinks.navLinks.map((link) => (
+                <NavItem
+                  key={link.href}
+                  href={link.href}
+                  icon={link.icon}
+                  text={link.name}
+                />
+              ))}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -83,31 +76,3 @@ const DesktopNav: React.FC = () => {
     </motion.div>
   );
 };
-
-interface NavItemProps {
-  href: string;
-  icon: React.ReactNode;
-  text: string;
-}
-
-const NavItem: React.FC<NavItemProps> = ({ href, icon, text }) => {
-  return (
-    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-      <Link
-        href={href}
-        className="flex items-center space-x-2 text-darkMode transition-all duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
-      >
-        <motion.div
-          className="text-xl"
-          initial={{ rotate: 0 }}
-          whileHover={{ rotate: 15 }}
-        >
-          {icon}
-        </motion.div>
-        <span className="font-medium">{text}</span>
-      </Link>
-    </motion.div>
-  );
-};
-
-export default DesktopNav;

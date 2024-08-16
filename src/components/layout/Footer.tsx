@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const footerItems = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
-];
+import { footerItems, footerData } from "@/utils/data/layout/constants";
 
 export default function Footer() {
   return (
@@ -23,9 +18,9 @@ export default function Footer() {
             whileHover={{ scale: 1.05 }}
             className="whitespace-nowrap text-gray-600 dark:text-gray-300"
           >
-            © 2024 -{" "}
+            © {footerData.year} -{" "}
             <Link href="/" className="hover:underline">
-              Digital Horizons™
+              {footerData.name}
             </Link>
           </motion.span>
           <ul className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 sm:space-x-4">

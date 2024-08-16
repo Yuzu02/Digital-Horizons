@@ -1,6 +1,5 @@
 import ToasterProvider from "@/components/provider/ToasterProvider";
-import DesktopNav from "./DesktopNav";
-import { MobileNav } from "./MobileNav";
+import { MobileNav, DesktopNav } from "@/components/layout/Nav/";
 
 export default function Header() {
   return (

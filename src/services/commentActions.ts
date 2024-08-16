@@ -1,4 +1,4 @@
-// @/actions/commentActions.ts
+// @/services/commentActions.ts
 import { NewComment, NewCommentSchema, CommentSchema } from "@/schemas/comment";
 import { Session } from "next-auth";
 import { z } from "zod";
