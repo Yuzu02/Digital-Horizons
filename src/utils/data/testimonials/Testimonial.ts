@@ -1,7 +1,7 @@
-import avatar01 from "@/private/assets/avatar-1.png";
-import avatar02 from "@/private/assets/avatar-2.png";
-import avatar03 from "@/private/assets/avatar-3.png";
-import avatar04 from "@/private/assets/avatar-4.png";
+import avatar01 from "@/private/assets/Testimonials/avatar-1.png";
+import avatar02 from "@/private/assets/Testimonials/avatar-2.png";
+import avatar03 from "@/private/assets/Testimonials/avatar-3.png";
+import avatar04 from "@/private/assets/Testimonials/avatar-4.png";
 
 export const testimonialSectionData = {
   title: "Mas allá de las expectativas",
