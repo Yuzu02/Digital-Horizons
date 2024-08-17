@@ -1,110 +1,138 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { avatarUrls, HomePageData, stats } from "@/utils/data/home/constants";
 import AvatarCircles from "@/components/magicui/avatar-circles";
 import { TextEffect } from "@/components/magicui/TextEffect";
 import WordRotate from "@/components/magicui/word-rotate";
+import { ArrowRightIcon } from "@/components/home/hero/svg/HeroIcons";
 import NumberTicker from "@/components/magicui/number-ticker";
-import {
-  ArrowRightIcon,
-  GlobeIcon,
-  NewspaperIcon,
-  StarIcon,
-} from "@/components/home/hero/svg/HeroIcons";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <div className="p-8 md:p-16 lg:p-24 lg:py-20 lg:pb-8">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="p-8 md:p-14 lg:p-20 lg:py-20 lg:pb-8"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="space-y-6">
-            {/* Texto Hero */}
-            <p className="text-muted-foreground">
+        <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="space-y-6 text-center lg:text-left"
+          >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="font-medium"
+            >
               {HomePageData.heroTitleSmall}
-            </p>
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
+            </motion.p>
+            <motion.h1
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
+            >
               {HomePageData.heroTitleBig}
-              <WordRotate
-                words={HomePageData.heroWords}
-                className="inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-              />
-            </h1>
+            </motion.h1>
+            <WordRotate
+              words={HomePageData.heroWords}
+              className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl"
+            />
             <TextEffect
-              className="text-muted-foreground"
+              className="text-lg dark:text-gray-300"
               preset="blur"
               per="char"
             >
               {HomePageData.heroDescription}
             </TextEffect>
-          </div>
-          <div className="flex flex-col items-center justify-center space-y-6">
-            <div className="flex items-center space-x-4">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+            >
+              <Button size="lg" className="mr-4 mt-4">
+                Get Started
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="mt-4 dark:border-white dark:text-white"
+              >
+                Learn More
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Vertical Divider */}
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-gray-200 dark:bg-gray-700 lg:block"></div>
+
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="flex flex-col items-center justify-center space-y-6"
+          >
+            <motion.div
+              initial={{ rotate: -10 }}
+              animate={{ rotate: 0 }}
+              transition={{ delay: 1, duration: 0.5, type: "spring" }}
+              className="flex items-center space-x-4"
+            >
               <AvatarCircles avatarUrls={avatarUrls} numPeople={3} />
-            </div>
-            <div className="text-center">
-              <h2 className="text-lg font-bold">
-                {/* Texto Recursos */}
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-card rounded-lg p-6 text-center shadow-lg dark:bg-gray-800 dark:text-white"
+            >
+              <h2 className="mb-2 text-xl font-bold">
                 {HomePageData.resourcesTitle}
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4 dark:text-gray-300">
                 {HomePageData.resourcesDescription}
               </p>
-              <Button variant="outline" className="mt-4">
+              <Button
+                variant="outline"
+                className="dark:border-white dark:text-white"
+              >
                 {HomePageData.resourcesButtonLabel}{" "}
                 <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="text-center">
-            {/* Texto Stats */}
-            <h3 className="text-2xl font-bold">
-              <NumberTicker value={stats[0].number} />
-            </h3>
-            <p className="">{stats[0].label}</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold">
-              <NumberTicker value={stats[1].number} />
-            </h3>
-            <p className="">{stats[1].label}</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold">
-              <NumberTicker value={stats[2].number} />
-            </h3>
-            <p className="">{stats[2].label}</p>
-          </div>
-        </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="flex flex-col items-center space-y-4 rounded-lg border p-4 text-center">
-            <NewspaperIcon className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-bold">
-              Últimas actualizaciones de noticias
-            </h3>
-            <p className="text-muted-foreground">Mantente al día</p>
-            <p className="text-muted-foreground">
-              Más de 1,000 artículos publicados mensualmente
-            </p>
-          </div>
-          <div className="flex flex-col items-center space-y-4 rounded-lg border p-4 text-center">
-            <StarIcon className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-bold">Colaboradores expertos</h3>
-            <p className="text-muted-foreground">Información confiable</p>
-            <p className="text-muted-foreground">
-              Más de 5 expertos en Tecnología de renombre en nuestro equipo
-            </p>
-          </div>
-          <div className="flex flex-col items-center space-y-4 rounded-lg border p-4 text-center">
-            <GlobeIcon className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-bold">Lectores globales</h3>
-            <p className="text-muted-foreground">Impacto mundial</p>
-            <p className="text-muted-foreground">
-              2 millones de lectores mensuales
-            </p>
-          </div>
-        </div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="rounded-lg p-6 text-center shadow-md dark:bg-gray-800 dark:text-white"
+            >
+              <motion.h3
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 1.4 + index * 0.2, duration: 0.5 }}
+                className="mb-2 text-3xl font-bold"
+              >
+                <NumberTicker value={stat.number} />
+              </motion.h3>
+              <p className="dark:text-gray-300">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

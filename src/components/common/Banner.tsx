@@ -1,6 +1,6 @@
 "use client";
 
-import { trendingCategories } from "../../../topTrending";
+import { trendingCategories } from "@/utils/data/categories/topTrending";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
