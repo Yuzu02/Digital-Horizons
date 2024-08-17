@@ -45,9 +45,18 @@ const BlogSchemaExtended = BlogSchema.extend({
   avatar: true,
 });
 
+const PostHeaderSchema = z.object({
+  title: z.string(),
+  author: z.string(),
+  avatar: z.string(),
+  publishDate: z.string(),
+  category: z.string(),
+});
+
 type Blog = z.infer<typeof BlogSchema>;
 type BlogExtended = z.infer<typeof BlogSchemaExtended>;
 type Frontmatter = z.infer<typeof FrontmatterSchema>;
+type PostHeaderProps = z.infer<typeof PostHeaderSchema>;
 
 type CategoryPageProps = {
   category: string;
@@ -59,4 +68,11 @@ type Posts = {
 };
 
 export { BlogSchema, BlogSchemaExtended };
-export type { Blog, BlogExtended, CategoryPageProps, Frontmatter, Posts };
+export type {
+  Blog,
+  BlogExtended,
+  CategoryPageProps,
+  Frontmatter,
+  Posts,
+  PostHeaderProps,
+};

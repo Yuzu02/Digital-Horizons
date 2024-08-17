@@ -74,7 +74,7 @@
   },
   "Fast Subtitulo Component": {
     "prefix": "subtitulo",
-    "body": ["<Subtitulo id=\"\"></Subtitulo>"],
+    "body": ["<SubTitulo id=\"\"></Subtitulo>"],
     "description": "Crea un componente de subtítulo",
   },
   "Fast Parrafo Component": {
@@ -85,6 +85,6 @@
   "Fast Codigo Component": {
     "prefix": "alerta",
     "body": ["<Alert type=\"\"></Alert>"],
-    "description": "Crea un componente de código",
+    "description": "Crea un componente de código \n Tipos: info, warning, danger, success",
   },
 }

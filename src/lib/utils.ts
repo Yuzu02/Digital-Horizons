@@ -11,13 +11,28 @@ export function capitalize(str: string): string {
   if (str.length <= 2) {
     return str.toUpperCase();
   }
-  str = str.replace(/\b\w/g, (char) => char.toUpperCase());
-  return str.replace(/&/g, " y ");
+
+  // Limpiar el string de caracteres especiales
+  str = str.replace(/[-%20]/g, " ");
+
+  // Capitalizar las palabras, excepto "y" y "e"
+  str = str
+    .split(" ")
+    .map((word) => {
+      if (word.toLowerCase() === "y" || word.toLowerCase() === "e") {
+        return word.toLowerCase(); // Mantener "y" y "e" en minúsculas
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // Capitalizar la primera letra
+    })
+    .join(" ");
+  str.replace(/-/g, " ");
+  return str;
 }
 
 // Function to clean a string from special characters (replace -, &, %20 with spaces)
 export function cleanString(str: string): string {
   const cleanedStr = str.replace(/[-%20]/g, " ");
+
   return capitalize(cleanedStr);
 }
 

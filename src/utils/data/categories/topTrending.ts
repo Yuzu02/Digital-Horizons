@@ -15,14 +15,14 @@ export const trendingCategories: Category[] = [
     icon: SiVirtualbox,
     description:
       "Explorando el impacto de la realidad virtual en nuestra vida diaria y su crecimiento.",
-    href: "/blog/categories/Realidad-Virtual&Mundos-Digitales",
+    href: "/blog/categories/Realidad-Virtual-y-Mundos-Digitales",
   },
   {
     name: "Desarrollo Web y Aplicaciones",
     icon: FaLaptopCode,
     description:
       "Crea y desarrolla con las mejores prácticas de programación y lleva tus ideas al siguiente nivel.",
-    href: "/blog/categories/Desarrollo-Web&Aplicaciones",
+    href: "/blog/categories/Desarrollo-Web-y-Aplicaciones",
   },
   {
     name: "IA",

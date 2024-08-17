@@ -23,7 +23,7 @@ export const categories = [
     name: "Desarrollo Web y Aplicaciones",
     icon: FaLaptopCode,
     description: "Crea y desarrolla con las mejores prácticas de programación.",
-    href: "/blog/categories/Desarrollo-Web&Aplicaciones",
+    href: "/blog/categories/Desarrollo-Web-y-Aplicaciones",
   },
   {
     name: "IA",
@@ -43,32 +43,32 @@ export const categories = [
     icon: MdMotionPhotosAuto,
     description:
       "La robótica y automatización han revolucionando la industria y la vida cotidiana.",
-    href: "/blog/categories/Robótica&Automatización",
+    href: "/blog/categories/Robotica-y-Automatizacion",
   },
   {
     name: "Redes Sociales y Marketing",
     icon: FaBullhorn,
     description: "Conquista el mercado online con estrategias innovadoras.",
-    href: "/blog/categories/mRedes-Sociales&Marketing",
+    href: "/blog/categories/Redes-Sociales-y-Marketing",
   },
   {
     name: "Tecnología Financiera",
     icon: FaBitcoin,
     description:
       "Explora el mundo de las monedas digitales y sus oportunidades.",
-    href: "/blog/categories/Tecnología-Financiera",
+    href: "/blog/categories/Tecnologia-Financiera",
   },
   {
     name: "Realidad Virtual y aumentada",
     icon: SiVirtualbox,
     description:
-      "Entornos de simulaciones digitales, que transforman la manera en que jugamos y aprendemos",
-    href: "/blog/categories/Realidad-Virtual&Mundos-Digitales",
+      "Entornos de simulaciones digitales, que transforman la manera en que aprendemos",
+    href: "/blog/categories/Realidad-Virtual-y-Mundos-Digitales",
   },
   {
     name: "Tecnología e Innovación",
     icon: FaStar,
     description: "Opiniones y análisis detallados de los últimos productos.",
-    href: "/blog/categories/Tecnología-e-Innovación",
+    href: "/blog/categories/Tecnologia-e-Innovacion",
   },
 ];
