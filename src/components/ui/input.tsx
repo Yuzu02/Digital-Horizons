@@ -5,13 +5,13 @@ import { Label } from "./label";
 
 const inputVariants = cva(
   // Default Styles for all buttons
-  "peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal transition-all text-sm placeholder-shown:border-darkMode dark:placeholder-shown:border-lightMode border-secondary border-secondary-dark invalid:border-red-600 outline-0 mt-6",
+  "peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal transition-all text-sm placeholder-shown:border-darkMode dark:placeholder-shown:border-lightMode border-secondary dark:border-secondary-dark invalid:border-red-600 outline-0 mt-6",
   {
     variants: {
       // Variant styles
       variant: {
         default:
-          " border-2 py-1.5 rounded-md   ease-in-out duration-500 focus:border-secondary dark:focus:border-secondary-dark",
+          " border-2 p-2 rounded-md   ease-in-out duration-500 focus:border-secondary dark:focus:border-secondary-dark",
 
         underline:
           "border-b-2  py-1 duration-500 ease-in-out dark:focus:border-secondary-dark focus:border-secondary ",
@@ -51,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
           {label && (
-            <Label className="absolute bottom-10 left-0 py-1 text-xs transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
+            <Label className="absolute left-0 top-0 py-1 text-xs font-medium text-gray-500 transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:text-gray-400 dark:peer-focus:text-secondary-dark">
               {label}
             </Label>
           )}
