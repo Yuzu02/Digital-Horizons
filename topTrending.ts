@@ -1,5 +1,5 @@
-import { FaChartPie, FaLaptopCode, FaRobot } from "react-icons/fa";
-
+import { FaLaptopCode, FaRobot } from "react-icons/fa";
+import { SiVirtualbox } from "react-icons/si";
 // Define the Category type
 type Category = {
   name: string;
@@ -11,11 +11,11 @@ type Category = {
 // Top 3 trending categories
 export const trendingCategories: Category[] = [
   {
-    name: "Ciencia de Datos",
-    icon: FaChartPie,
+    name: "Realidad Virtual",
+    icon: SiVirtualbox,
     description:
-      "Analiza grandes volúmenes de datos para tomar decisiones inteligentes.",
-    href: "/blog/categories/Ciencia-de-Datos",
+      "Explorando el impacto de la realidad virtual en nuestra vida diaria y su crecimiento.",
+    href: "/blog/categories/Realidad-Virtual&Mundos-Digitales",
   },
   {
     name: "Desarrollo Web y Aplicaciones",
