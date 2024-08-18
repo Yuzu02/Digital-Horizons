@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
         <div className="flex size-full flex-col gap-4 px-8 py-8">
           <h2 className="text-center text-2xl font-semibold">
-            Envianos un mensaje
+            Envíanos un mensaje
           </h2>
           <ContactForm />
         </div>

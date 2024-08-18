@@ -1,3 +1,10 @@
+import avatarAuri from "@/private/assets/Team/avatarAuri.jpg";
+import avatarLetty from "@/private/assets/Team/avatarLetty.jpg";
+import avatarPamela from "@/private/assets/Team/avatarPamela.jpg";
+import avatarYoselin from "@/private/assets/Team/avatarYoselin.jpg";
+import avatarJulio from "@/private/assets/Team/avatarJulio.jpg";
+import avatarJuan from "@/private/assets/Team/avatarJuan.png";
+
 export const teamData = {
   title: "",
   description: " ",
@@ -16,7 +23,7 @@ export const teamMembers = [
     id: 2,
     name: "Leticia Encarnación Lopez",
     title: "Gerente de Marketing Digital",
-    avatar: "/assets/Avatars/avatarLetty.jpg",
+    avatar: avatarLetty,
     description:
       "¡Saludos! Me llamo Leticia, tengo 22 años y soy apasionada por la tecnología y el desarrollo de soluciones innovadoras",
   },
@@ -24,7 +31,7 @@ export const teamMembers = [
     id: 3,
     name: "Juan Carlos Mota George",
     title: "Editor de Contenidos",
-    avatar: "",
+    avatar: avatarJuan,
     description:
       "¡Hola! soy Juan y me defino como un joven con una pasión por la edición de contenidos y la optimización de procesos digitales.",
   },
@@ -32,15 +39,15 @@ export const teamMembers = [
     id: 4,
     name: "Julio Antonio Solís",
     title: "Especialista en SEO",
-    avatar: "/assets/Avatars/avatarjulio.jpg",
+    avatar: avatarJulio,
     description:
       "Mi nombre es Julio soy un estudiante de Ingeniería en Sistemas, con un fuerte interés en el SEO y la mejora de la visibilidad en línea",
   },
   {
     id: 5,
     name: "Pamela Michael Javier",
-    title: "Diseñador Gráfico",
-    avatar: "/assets/Avatars/avatarpamela2.jpg",
+    title: "Diseñadora Gráfica",
+    avatar: avatarPamela,
     description:
       "¡Hola! Mi nombre es Pamela Michael, soy una joven de 20 años motivada por la esperanza de un futuro mejor y en busca de crecer sanamente como persona en mi ámbito laboral",
   },
@@ -48,7 +55,7 @@ export const teamMembers = [
     id: 6,
     name: "Auri Eliezer Gabriel Delis",
     title: "Redactor de Contenidos",
-    avatar: "/assets/Avatars/avatarAuri.jpg",
+    avatar: avatarAuri,
     description:
       "¡Hey! soy Auri un joven con interés en la redacción de contenidos y el desarrollo de soluciones tecnológicas.",
   },
@@ -56,7 +63,7 @@ export const teamMembers = [
     id: 7,
     name: "Yoselin Pérez Padilla",
     title: "Community Manager",
-    avatar: "/assets/Avatars/avatarYoselin.jpg",
+    avatar: avatarYoselin,
     description:
       "Soy Yoselin una joven trabajadora con buen desempeño en trabajo en equipo , estudiante le gusta salir a relajarse en su tiempo libre.",
   },

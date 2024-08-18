@@ -1,10 +1,12 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
-// ? import { useEffect } from "react";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { Contact, contactResolver, mappedMotivos } from "@/schemas/contact";
 import { Button } from "../ui/button";
 import { FormInputs } from "./FormInputs";
+import { useEffect } from "react";
+import { submitForm } from "@/services/emailAction";
+import { toastMessages } from "@/utils/data/Extra/constants";
 
 export default function ContactForm() {
   const formFields = [
@@ -48,14 +50,34 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<Contact>({
     resolver: contactResolver,
   });
 
+  const watchFields = watch();
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production") {
+      console.log(watchFields);
+    }
+  }, [watchFields]);
+
+  // Handler
   const onSubmit: SubmitHandler<Contact> = (data) => {
-    console.log("Formulario enviado con los datos:", data);
-    toast.success("Su mensaje a sido enviado");
-    reset();
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    toast.promise(submitForm(formData), {
+      loading: toastMessages.formLoading,
+      success: () => {
+        reset();
+        return toastMessages.formSuccess;
+      },
+      error: toastMessages.formError,
+    });
   };
 
   return (
@@ -83,7 +105,6 @@ export default function ContactForm() {
         </Button>
         <p>Gracias por tu mensaje </p>
       </div>
-      <Toaster richColors expand />
     </form>
   );
 }

@@ -22,7 +22,7 @@ export const contactSchema = z.object({
     .min(10, { message: "El mensaje debe tener al menos 10 caracteres" })
     .max(1000, { message: "El mensaje no puede exceder los 1000 caracteres" }),
   motivo: z.enum(motivos, {
-    errorMap: () => ({ message: "Seleciona una opcion valida" }),
+    errorMap: () => ({ message: "Selecciona una opción valida" }),
   }),
 });
 

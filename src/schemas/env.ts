@@ -15,6 +15,10 @@ const envVars = z.object({
   // Google
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
+
+  // Email Service
+  WEB3FORMS_ACCESS_KEY: z.string(),
+
   //? Add more environment variables here
 });
 

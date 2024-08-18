@@ -13,4 +13,7 @@ export const toastMessages = {
   lightThemeText: "Claro",
   darkThemeText: "Oscuro",
   systemThemeText: "Sistema",
+  formLoading: "Enviando mensaje...",
+  formSuccess: "Mensaje enviado con éxito",
+  formError: "Error al enviar mensaje",
 };
