@@ -3,7 +3,10 @@ import path from "path";
 import { CommentSchema, Comment, NewComment } from "@/schemas/comment";
 import { z } from "zod";
 
-const commentsDirectory = path.join(process.cwd(), "public", "comments");
+const commentsDirectory =
+  process.env.NODE_ENV === "development"
+    ? path.join(process.cwd(), "public", "comments")
+    : path.join(process.cwd(), "/tmp", "comments");
 
 export function getCommentsForPost(slug: string): Comment[] {
   const filePath = path.join(commentsDirectory, `${slug}.json`);
