@@ -38,6 +38,12 @@
   scrollbar-width: none;
 }
 
+.long-text-handler {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
 /* Julio Classes */
 .Master {
   max-width: 700vw;

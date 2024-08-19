@@ -192,7 +192,7 @@ const renderComments = (comments: Comment[]) => {
               whileHover={{ scale: 1.02 }}
               className="rounded-lg bg-gray-100 p-3 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
             >
-              <p className="text-sm text-gray-800 dark:text-gray-200">
+              <p className="long-text-handler text-sm text-gray-800 dark:text-gray-200">
                 {comment.content}
               </p>
             </motion.div>
