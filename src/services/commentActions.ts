@@ -12,6 +12,7 @@ export const addComment = async (
     content,
     author: session?.user?.name ?? "Anonymous",
     authorImage: session?.user?.image ?? "/default-avatar.png",
+    email: session?.user?.email ?? "",
   };
 
   const validatedComment = NewCommentSchema.safeParse(newComment);
