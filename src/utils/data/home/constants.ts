@@ -26,10 +26,10 @@ export const HomePageData = {
     "Conecta con expertos, descubre recursos y mantente al día con las últimas tendencias tecnológicas emergentes que están cambiando el mundo y el futuro de la tecnología.",
 
   // Recursos
-  resourcesTitle: "Explora más de 1000 recursos",
+  resourcesTitle: "Explora más de 30 recursos",
   resourcesDescription:
-    "Más de 1,000 artículos sobre tendencias tecnológicas emergentes y avances.",
-  resourcesButtonLabel: "Explorar Recursos",
+    "Más de 1,000 posts sobre tendencias tecnológicas emergentes y avances.",
+  resourcesButtonLabel: "Explorar Posts",
 };
 
 export const stats = [

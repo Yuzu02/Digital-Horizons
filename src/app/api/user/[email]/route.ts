@@ -1,4 +1,4 @@
-// app/api/comments/[email]/route.ts
+// app/api/user/[email]/route.ts
 
 import { NextResponse } from "next/server";
 import { getCommentsForUser } from "@/lib/comments";

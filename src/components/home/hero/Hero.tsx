@@ -1,12 +1,12 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { avatarUrls, HomePageData, stats } from "@/utils/data/home/constants";
-import AvatarCircles from "@/components/magicui/avatar-circles";
+import { avatarUrls, HomePageData } from "@/utils/data/home/constants";
 import { TextEffect } from "@/components/magicui/TextEffect";
 import WordRotate from "@/components/magicui/word-rotate";
-import { ArrowRightIcon } from "@/components/home/hero/svg/HeroIcons";
-import NumberTicker from "@/components/magicui/number-ticker";
 import { motion } from "framer-motion";
+import SessionButton from "@/components/auth/SessionButton";
+import AboutUsButton from "@/components/about/team/AboutUsButton";
+import { HeroCards } from "./HeroCards";
+import AvatarAndResources from "./AvatarsAndResources";
 
 export default function Hero() {
   return (
@@ -14,38 +14,44 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="p-8 md:p-14 lg:p-20 lg:py-20 lg:pb-8"
+      className="p-8 md:p-14 lg:p-20 lg:py-[120px] lg:pb-14"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="relative grid grid-cols-1 gap-6 lg:mb-1 lg:grid-cols-2 lg:gap-8">
+          {/* Contenido del Hero */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-6 text-center lg:text-left"
+            className="space-y-4 text-center lg:text-left"
           >
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="font-medium"
+              className="font-medium text-gray-600 dark:text-gray-300 lg:text-lg"
             >
               {HomePageData.heroTitleSmall}
             </motion.p>
-            <motion.h1
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
+              className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-center text-2xl font-bold leading-tight text-transparent dark:from-gray-100 dark:to-gray-400 md:text-left md:text-4xl lg:text-5xl"
             >
-              {HomePageData.heroTitleBig}
-            </motion.h1>
-            <WordRotate
-              words={HomePageData.heroWords}
-              className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl"
-            />
+              <h2 className="text-2xl font-bold md:text-4xl lg:text-5xl">
+                Explora las fronteras de la{" "}
+                <span className="inline-block whitespace-nowrap align-middle">
+                  <WordRotate
+                    words={HomePageData.heroWords}
+                    className="relative -top-[0.06em] inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-5xl"
+                  />
+                </span>
+              </h2>
+            </motion.div>
+
             <TextEffect
-              className="text-lg dark:text-gray-300"
+              className="text-gray-700 dark:text-gray-300 sm:text-base lg:text-lg"
               preset="blur"
               per="char"
             >
@@ -55,83 +61,23 @@ export default function Hero() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
+              className="flex justify-center space-x-4 lg:justify-start"
             >
-              <Button size="lg" className="mr-4 mt-4">
-                Get Started
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="mt-4 dark:border-white dark:text-white"
-              >
-                Learn More
-              </Button>
+              <SessionButton />
+              <AboutUsButton />
             </motion.div>
           </motion.div>
 
-          {/* Vertical Divider */}
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-gray-200 dark:bg-gray-700 lg:block"></div>
+          {/* Divider */}
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-gradient-to-b from-gray-200 via-gray-400 to-gray-200 dark:from-gray-700 dark:via-gray-500 dark:to-gray-700 lg:block"></div>
 
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className="flex flex-col items-center justify-center space-y-6"
-          >
-            <motion.div
-              initial={{ rotate: -10 }}
-              animate={{ rotate: 0 }}
-              transition={{ delay: 1, duration: 0.5, type: "spring" }}
-              className="flex items-center space-x-4"
-            >
-              <AvatarCircles avatarUrls={avatarUrls} numPeople={3} />
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-card rounded-lg p-6 text-center shadow-lg dark:bg-gray-800 dark:text-white"
-            >
-              <h2 className="mb-2 text-xl font-bold">
-                {HomePageData.resourcesTitle}
-              </h2>
-              <p className="text-muted-foreground mb-4 dark:text-gray-300">
-                {HomePageData.resourcesDescription}
-              </p>
-              <Button
-                variant="outline"
-                className="dark:border-white dark:text-white"
-              >
-                {HomePageData.resourcesButtonLabel}{" "}
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Button>
-            </motion.div>
-          </motion.div>
+          {/* Avatar y Recursos */}
+          <AvatarAndResources avatarUrls={avatarUrls} />
         </div>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="rounded-lg p-6 text-center shadow-md dark:bg-gray-800 dark:text-white"
-            >
-              <motion.h3
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.4 + index * 0.2, duration: 0.5 }}
-                className="mb-2 text-3xl font-bold"
-              >
-                <NumberTicker value={stat.number} />
-              </motion.h3>
-              <p className="dark:text-gray-300">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Espaciado adicional para evitar superposición */}
+        <div className="mt-8 sm:mt-12">
+          <HeroCards />
+        </div>
       </div>
     </motion.div>
   );
