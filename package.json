@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.8",
+    "firebase": "^10.13.0",
     "framer-motion": "^11.3.28",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.417.0",
@@ -64,5 +65,8 @@
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
-  }
+  },
+  "trustedDependencies": [
+    "protobufjs"
+  ]
 }

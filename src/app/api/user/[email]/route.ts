@@ -1,7 +1,5 @@
-// app/api/user/[email]/route.ts
-
-import { NextResponse } from "next/server";
 import { getCommentsForUser } from "@/lib/comments";
+import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
@@ -13,7 +11,6 @@ export async function GET(
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
   }
 
-  const comments = getCommentsForUser(email);
-
+  const comments = await getCommentsForUser(email);
   return NextResponse.json(comments, { status: 200 });
 }

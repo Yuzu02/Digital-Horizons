@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth/next";
-import { getCommentsForPost, addCommentToPost } from "@/lib/comments";
 import { authOptions } from "@/auth/authOptions";
+import { addCommentToPost, getCommentsForPost } from "@/lib/comments";
+import { getServerSession } from "next-auth";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { slug: string } },
 ) {
-  const comments = getCommentsForPost(params.slug);
+  const comments = await getCommentsForPost(params.slug);
   return NextResponse.json(comments);
 }
 
@@ -32,11 +32,12 @@ export async function POST(
     );
   }
 
-  addCommentToPost(params.slug, {
+  await addCommentToPost(params.slug, {
     content,
     author: session.user?.name ?? "Anonymous",
     authorImage: session.user?.image ?? "/default-avatar.png",
     email: session.user?.email ?? "email@example",
+    postSlug: params.slug,
   });
 
   return NextResponse.json({ success: true });

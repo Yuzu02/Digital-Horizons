@@ -1,46 +1,29 @@
-import fs from "fs";
-import path from "path";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { CommentSchema, Comment, NewComment } from "@/schemas/comment";
 import { z } from "zod";
+import { db } from "./firebaseConfig";
 
-const commentsDirectory =
-  process.env.NODE_ENV === "development"
-    ? path.join(process.cwd(), "public", "comments")
-    : path.join(process.cwd(), "/tmp", "comments");
+export async function getCommentsForPost(slug: string): Promise<Comment[]> {
+  const commentsRef = collection(db, "comments");
+  const q = query(commentsRef, where("postSlug", "==", slug));
+  const querySnapshot = await getDocs(q);
 
-export function getCommentsForPost(slug: string): Comment[] {
-  const filePath = path.join(commentsDirectory, `${slug}.json`);
-  if (!fs.existsSync(filePath)) {
-    return [];
-  }
-  try {
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const parsedComments = JSON.parse(fileContents);
-    return CommentSchema.array().parse(parsedComments);
-  } catch (error) {
-    console.error(`Error reading comments for post ${slug}:`, error);
-    return [];
-  }
+  return querySnapshot.docs.map((doc) => CommentSchema.parse(doc.data()));
 }
 
-export function addCommentToPost(slug: string, comment: NewComment): void {
-  try {
-    const comments = getCommentsForPost(slug);
-    const newComment: Comment = {
-      ...comment,
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-    };
+export async function addCommentToPost(
+  slug: string,
+  comment: NewComment,
+): Promise<void> {
+  const newComment: Comment = {
+    ...comment,
+    id: Date.now().toString(), // Considera usar un ID generado por Firestore
+    createdAt: new Date().toISOString(),
+    postSlug: slug,
+  };
 
-    const validatedNewComment = CommentSchema.parse(newComment);
-
-    comments.push(validatedNewComment);
-    const filePath = path.join(commentsDirectory, `${slug}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(comments, null, 2));
-  } catch (error) {
-    console.error(`Error adding comment to post ${slug}:`, error);
-    throw new Error("Failed to add comment");
-  }
+  const validatedNewComment = CommentSchema.parse(newComment);
+  await addDoc(collection(db, "comments"), validatedNewComment);
 }
 
 export function validateComment(comment: unknown): Comment | null {
@@ -56,27 +39,16 @@ export function validateComment(comment: unknown): Comment | null {
   }
 }
 
-export function getCommentsForUser(
+export async function getCommentsForUser(
   email: string,
-): (Comment & { postSlug: string })[] {
-  try {
-    const files = fs.readdirSync(commentsDirectory);
-    const allComments = files.flatMap((file) => {
-      const filePath = path.join(commentsDirectory, file);
-      const fileContents = fs.readFileSync(filePath, "utf8");
-      const parsedComments = JSON.parse(fileContents);
-      const postSlug = path.basename(file, ".json");
-      return CommentSchema.array()
-        .parse(parsedComments)
-        .map((comment) => ({
-          ...comment,
-          postSlug,
-        }));
-    });
+): Promise<(Comment & { postSlug: string })[]> {
+  const commentsRef = collection(db, "comments");
+  const querySnapshot = await getDocs(commentsRef);
 
-    return allComments.filter((comment) => comment.email === email);
-  } catch (error) {
-    console.error("Error getting comments for user:", error);
-    return [];
-  }
+  const allComments = querySnapshot.docs.map((doc) => ({
+    ...CommentSchema.parse(doc.data()),
+    postSlug: doc.data().postSlug,
+  }));
+
+  return allComments.filter((comment) => comment.email === email);
 }
