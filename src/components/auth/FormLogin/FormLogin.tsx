@@ -7,139 +7,107 @@ import { MdOutlineMail, MdOutlinePassword } from "react-icons/md";
 import Link from "next/link";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
 import { Input } from "@/components/ui/input";
-import { useState, useRef } from "react";
-
-// estas funciones son para validar aspectos clave de los datos antes de ser enviados.
-function validateUsername(value: string) {
-  if (value) {
-    return null;
-  }
-}
-
-function validateEmail(value: string) {
-  if (value) {
-    return null;
-  }
-}
+import { useForm } from "react-hook-form";
+import { loginResolver, Login } from "@/schemas/login";
+import { toast } from "sonner";
 
 interface FormLoginProps {
   isRegister?: boolean;
 }
 
-// Actualmente solo funcionan los botones de github y google.
-
 export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
-  const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
+  const formFields = [
+    ...(isRegister
+      ? [
+          {
+            id: "nombreUsuario",
+            type: "text",
+            placeholder: "Nombre Usuario",
+            label: "Crear Nombre de Usuario",
+            autoComplete: "given-name",
+            icon: <FaRegUser />,
+          },
+        ]
+      : []),
+    {
+      id: "email",
+      type: "email",
+      placeholder: "Correo electrónico",
+      label: "Correo electrónico",
+      autoComplete: "email",
+      icon: <MdOutlineMail />,
+      pattern:
+        "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}",
+    },
+    {
+      id: "password",
+      type: "password",
+      placeholder: "Contraseña",
+      label: "Contraseña",
+      autoComplete: "off",
+      icon: <MdOutlinePassword />,
+    },
+  ];
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Login>({
+    resolver: loginResolver,
   });
+
+  const promise = () =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve({ name: "Sonner" }), 2000),
+    );
+
+  // ? Probando, esto puede ser eliminado
+  const onSubmit = (data: Login) => {
+    toast.promise(promise, {
+      loading: "Validando datos...",
+      success: "Validación Completada",
+      error: "Error",
+    });
+    console.log(data);
+  };
 
   const searchParams = useSearchParams();
   const returnUrl = searchParams.get("returnUrl") ?? "/dashboard";
-  const inputs = {
-    username: {
-      ref: useRef<HTMLInputElement>(null),
-      validation: validateUsername,
-    },
-    password: {
-      ref: useRef<HTMLInputElement>(null),
-      validation: validateUsername,
-    },
-    email: {
-      ref: useRef<HTMLInputElement>(null),
-      validation: validateEmail,
-    },
-  };
-  type InputName = keyof typeof inputs;
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const newErrors = {
-      username: "",
-      email: "",
-      password: "",
-    };
-
-    for (const name in inputs) {
-      const inputName = name as InputName;
-      const input = inputs[inputName];
-      console.log(inputs[inputName]);
-
-      if (input.ref.current) {
-        const valueInput = input.ref.current.value;
-
-        const inputNameError = valueInput
-          ? input.validation(valueInput)
-          : "Este Campo no puede estar vació";
-
-        if (inputNameError) {
-          newErrors[inputName] = inputNameError;
-        }
-      }
-    }
-
-    setErrors(newErrors);
-
-    // "Envió" de los datos.
-    if (!newErrors.username && !newErrors.email) {
-      console.log("Formulario enviado con éxito", {
-        username: inputs.username.ref.current?.value,
-        email: inputs.email.ref.current?.value,
-        password: inputs.password.ref.current?.value,
-      });
-    }
-  };
 
   return (
-    <section className="container flex min-h-screen flex-col items-center justify-center">
+    <section className="container flex size-full min-h-screen max-w-md flex-col justify-center">
       {/* Me gusto el efecto y quería probar como se ve xd */}
-      <NeonGradientCard className="max-w-lg">
+      <NeonGradientCard className="">
         <form
           action="/dashboard"
-          className="flex w-full max-w-lg flex-col items-center justify-center gap-8 p-10"
-          onSubmit={handleSubmit}
+          className="flex w-full flex-col items-center justify-center gap-12 px-4 py-4"
+          onSubmit={handleSubmit(onSubmit)}
         >
-          {/* Para probar los dos modo nada mas. Se podría colocar el logo aquí 🤔 */}
-          <h2 className="my-4 text-4xl font-bold">
+          <h2 className="text-4xl font-bold">
             {isRegister ? "Crear Cuenta" : "Bienvenido"}
           </h2>
           <div className="flex w-full flex-col gap-5">
-            {isRegister && (
+            {formFields.map((field) => (
               <Input
-                id="UserInput"
-                ref={inputs.username.ref}
-                icon={<FaRegUser />}
+                key={field.id}
+                id={field.id}
+                type={field.type}
+                placeholder={field.placeholder}
+                label={field.label}
+                icon={field.icon}
                 variant={"underline"}
-                placeholder="Nombre Usuario"
-                type="text"
-                label="Crear Nombre de Usuario"
-                error={errors.username}
+                autoComplete={field.autoComplete}
+                error={errors[field.id as keyof Login]?.message}
+                {...register(field.id as keyof Login, {
+                  ...(field.pattern && {
+                    pattern: {
+                      value: new RegExp(field.pattern),
+                      message: `Formato de ${field.id} inválido`,
+                    },
+                  }),
+                })}
               />
-            )}
-
-            <Input
-              id="EmailInput"
-              ref={inputs.email.ref}
-              icon={<MdOutlineMail />}
-              variant={"underline"}
-              placeholder="Correo"
-              type="email"
-              label="Correo Electrónico"
-              error={errors.email}
-            />
-            <Input
-              id="PassInput"
-              ref={inputs.password.ref}
-              icon={<MdOutlinePassword />}
-              variant={"underline"}
-              placeholder="Contraseña"
-              type="password"
-              minLength={8}
-              label="Contraseña"
-              error={errors.password}
-            />
+            ))}
           </div>
           <button
             type="submit"

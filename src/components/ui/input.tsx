@@ -41,12 +41,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <div className="relative flex w-full flex-col items-center justify-center">
           <input
             type={type}
-            className={`${cn(inputVariants({ variant, className }))} ${icon ? "pl-7" : ""} `}
+            className={`${cn(inputVariants({ variant, className }))} ${icon ? "pl-8" : ""} `}
             ref={ref}
             {...props}
           />
           {icon && (
-            <span className="absolute bottom-2.5 left-1.5 transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
+            <span className="absolute left-1.5 top-[54%] transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:peer-focus:text-secondary-dark">
               {icon}
             </span>
           )}
