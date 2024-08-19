@@ -25,10 +25,18 @@ export async function POST(
     return NextResponse.json({ error: "Content is required" }, { status: 400 });
   }
 
+  if (content.length > 500) {
+    return NextResponse.json(
+      { error: "Content must be less than 500 characters" },
+      { status: 400 },
+    );
+  }
+
   addCommentToPost(params.slug, {
     content,
     author: session.user?.name ?? "Anonymous",
     authorImage: session.user?.image ?? "/default-avatar.png",
+    email: session.user?.email ?? "email@example",
   });
 
   return NextResponse.json({ success: true });

@@ -1,9 +1,10 @@
 import ContactForm from "@/components/contact/ContactForm";
 import DHLogo from "@/components/layout/Logo/DHLogo";
+
 export default function ContactPage() {
   return (
-    <section className="mt-8 size-full lg:mt-28">
-      <div className="mx-auto flex max-w-lg flex-col gap-2 rounded-md shadow-xl dark:bg-gray-950/50 lg:max-w-screen-lg lg:flex-row">
+    <section className="flex h-screen items-center justify-center">
+      <div className="mx-auto w-full max-w-lg flex-col gap-2 rounded-md shadow-xl dark:bg-gray-950/50 lg:flex lg:max-w-screen-lg lg:flex-row">
         <div
           className="w-full bg-cover bg-center"
           style={{

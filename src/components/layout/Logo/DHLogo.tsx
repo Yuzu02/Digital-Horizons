@@ -1,10 +1,18 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export default function DHLogo() {
+interface DHLogoProps {
+  className?: string;
+}
+
+export default function DHLogo({ className }: Readonly<DHLogoProps>) {
   return (
     <div className="Master3 flex justify-items-center">
       <Link
-        className="space-x-1 self-center justify-self-start whitespace-nowrap text-2xl font-semibold"
+        className={cn(
+          "space-x-1 self-center justify-self-start whitespace-nowrap text-2xl font-semibold",
+          className,
+        )}
         href="/"
       >
         Digital Horizons

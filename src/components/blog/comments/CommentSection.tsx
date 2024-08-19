@@ -2,13 +2,20 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import CommentForm from "./CommentForm";
-import { Comment, CommentSchema } from "@/schemas/comment";
-import { z } from "zod";
-import { addComment } from "@/services/commentActions";
 import { FaChevronDown } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { useComments } from "@/hooks/useComments";
+
+interface Comment {
+  content: string;
+  id: string;
+  author: string;
+  authorImage: string;
+  createdAt: string;
+  email: string;
+}
 
 interface CommentSectionProps {
   slug: string;
@@ -42,52 +49,12 @@ export default function CommentSection({
   slug,
 }: Readonly<CommentSectionProps>) {
   const { data: session } = useSession();
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [visibleComments, setVisibleComments] = useState<Comment[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const pathname = usePathname();
+  const { visibleComments, isLoading, handleAddComment, loadMoreComments } =
+    useComments(slug);
 
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const res = await fetch(`/api/comments/${slug}`);
-        const data = await res.json();
-        const parsedComments = z.array(CommentSchema).safeParse(data);
-        if (parsedComments.success) {
-          const sortedComments = parsedComments.data.toSorted(
-            (a, b) =>
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-          );
-          setComments(sortedComments);
-          setVisibleComments(sortedComments.slice(0, 2));
-        } else {
-          console.error("Error parsing comments:", parsedComments.error);
-        }
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchComments();
-  }, [slug]);
-
-  const handleAddComment = async (content: string) => {
-    const newComments = await addComment(slug, content, session);
-    if (newComments) {
-      const sortedComments = newComments.toSorted(
-        (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      );
-      setComments(sortedComments);
-      setVisibleComments(sortedComments.slice(0, 2));
-    }
-  };
-
-  const loadMoreComments = () => {
-    const currentLength = visibleComments.length;
-    const nextComments = comments.slice(currentLength, currentLength + 2);
-    setVisibleComments([...visibleComments, ...nextComments]);
+  const handleSubmit = async (content: string) => {
+    await handleAddComment(content);
   };
 
   return (
@@ -118,7 +85,7 @@ export default function CommentSection({
         ) : (
           <>
             {renderComments(visibleComments)}
-            {visibleComments.length < comments.length && (
+            {visibleComments.length < Comment.length && (
               <motion.button
                 onClick={loadMoreComments}
                 className="mt-4 flex w-full items-center justify-center space-x-2 rounded-lg bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 transition duration-300 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
@@ -134,7 +101,7 @@ export default function CommentSection({
       </AnimatePresence>
       {session ? (
         <motion.div variants={formVariants}>
-          <CommentForm onSubmit={handleAddComment} />
+          <CommentForm onSubmit={handleSubmit} />
         </motion.div>
       ) : (
         <motion.div
@@ -146,10 +113,10 @@ export default function CommentSection({
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/login"
+              href={`/login?returnUrl=${encodeURIComponent(pathname)}`}
               className="inline-block rounded bg-blue-500 px-4 py-2 text-sm font-bold text-white transition duration-300 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 sm:text-base"
             >
-              Iniciar sesión
+              Iniciar Sesión
             </Link>
           </motion.div>
         </motion.div>

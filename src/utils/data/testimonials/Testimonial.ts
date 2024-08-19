@@ -2,6 +2,9 @@ import avatar01 from "@/private/assets/Testimonials/avatar-1.png";
 import avatar02 from "@/private/assets/Testimonials/avatar-2.png";
 import avatar03 from "@/private/assets/Testimonials/avatar-3.png";
 import avatar04 from "@/private/assets/Testimonials/avatar-4.png";
+import avatar05 from "@/private/assets/Testimonials/avatar-5.png";
+import avatar06 from "@/private/assets/Testimonials/avatar-6.png";
+import avatar07 from "@/private/assets/Testimonials/avatar-7.png";
 
 export const testimonialSectionData = {
   title: "Mas allá de las expectativas",
@@ -32,5 +35,23 @@ export const testimonialData = [
     name: "Carlos López",
     title: "Desarrollador de Software",
     avatar: avatar04,
+  },
+  {
+    text: "Gracias a estos blogs, he podido aprender nuevas habilidades y mejorar mi carrera profesional.",
+    name: "Pedro Rodríguez",
+    title: "Diseñador Web",
+    avatar: avatar05,
+  },
+  {
+    text: "Estos blogs me han ayudado a mejorar mis habilidades de escritura y a ser más creativo en mi trabajo.",
+    name: "Laura Martínez",
+    title: "Redactora",
+    avatar: avatar06,
+  },
+  {
+    text: "Los blogs son muy útiles y fáciles de leer, me han ayudado a mejorar mis habilidades de programación.",
+    name: "Jose Pérez",
+    title: "Desarrollador de Software",
+    avatar: avatar07,
   },
 ];

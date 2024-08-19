@@ -3,29 +3,33 @@
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface LoginButtonProps {
   provider: string;
   icon: JSX.Element;
+  returnUrl?: string;
 }
 
-/*
- *La idea seria mover todos los textos de la app a un index.ts en una carpeta data para manejarlo de forma centralizada
- */
+const LoginButton = ({ provider, icon, returnUrl }: LoginButtonProps) => {
+  const router = useRouter();
 
-/* 
-    Avance la lógica de los botones , puedes cambiar los iconos y demás ,
-    pero la lógica de los botones es la misma ,
+  const handleLogin = async () => {
+    try {
+      const result = await signIn(provider, {
+        redirect: false,
+        callbackUrl: returnUrl,
+      });
 
-    @Nova034
-*/
-
-const LoginButton = ({ provider, icon }: LoginButtonProps) => {
-  const handleLogin = (redirect: string) => {
-    signIn(provider, {
-      callbackUrl: redirect,
-    });
-    toast.loading("Iniciando sesión...");
+      if (result?.error) {
+        toast.error("Error al iniciar sesión");
+      } else if (result?.url) {
+        toast.success("Sesión iniciada correctamente");
+        router.push(result.url);
+      }
+    } catch (error) {
+      toast.error("Ocurrió un error inesperado");
+    }
   };
 
   return (
@@ -34,7 +38,7 @@ const LoginButton = ({ provider, icon }: LoginButtonProps) => {
         type="button"
         size="lg"
         className="rounded bg-secondary px-4 py-2 hover:bg-secondary-hover dark:bg-secondary-dark dark:hover:bg-secondary-hover"
-        onClick={() => handleLogin("/dashboard")}
+        onClick={handleLogin}
       >
         <p>{icon}</p>
       </Button>

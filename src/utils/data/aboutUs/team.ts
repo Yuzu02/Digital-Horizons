@@ -4,20 +4,23 @@ import avatarPamela from "@/private/assets/Team/avatarPamela.jpg";
 import avatarYoselin from "@/private/assets/Team/avatarYoselin.jpg";
 import avatarJulio from "@/private/assets/Team/avatarJulio.jpg";
 import avatarJuan from "@/private/assets/Team/avatarJuan.png";
+import avatarFrederick from "@/private/assets/Team/avatarFrederick.jpg";
 
 export const teamData = {
-  title: "",
-  description: " ",
+  title: "Nuestro Dev Team",
+  description:
+    "Conoce a los visionarios que impulsan nuestra misión e hicieron posible este proyecto",
 };
 
 export const teamMembers = [
   {
     id: 1,
-    name: " Frederick Daell Lied",
-    title: "Gerente de Estrategia de Contenidos",
-    avatar: "",
+    name: "Frederick Daell Lied",
+    title: "CEO",
+    avatar: avatarFrederick,
     description:
       "Mi nombre es Frederick y soy un Apasionado por la tecnología y la estrategia de contenidos, siempre en constante estudio para innovar y optimizar soluciones digitales.",
+    matricula: "2022-SISN-2-045",
   },
   {
     id: 2,
@@ -26,6 +29,7 @@ export const teamMembers = [
     avatar: avatarLetty,
     description:
       "¡Saludos! Me llamo Leticia, tengo 22 años y soy apasionada por la tecnología y el desarrollo de soluciones innovadoras",
+    matricula: "2022-SISN-2-008",
   },
   {
     id: 3,
@@ -34,6 +38,7 @@ export const teamMembers = [
     avatar: avatarJuan,
     description:
       "¡Hola! soy Juan y me defino como un joven con una pasión por la edición de contenidos y la optimización de procesos digitales.",
+    matricula: "2022-SISN-2-021",
   },
   {
     id: 4,
@@ -42,6 +47,7 @@ export const teamMembers = [
     avatar: avatarJulio,
     description:
       "Mi nombre es Julio soy un estudiante de Ingeniería en Sistemas, con un fuerte interés en el SEO y la mejora de la visibilidad en línea",
+    matricula: "2022-SISN-2-027",
   },
   {
     id: 5,
@@ -50,6 +56,7 @@ export const teamMembers = [
     avatar: avatarPamela,
     description:
       "¡Hola! Mi nombre es Pamela Michael, soy una joven de 20 años motivada por la esperanza de un futuro mejor y en busca de crecer sanamente como persona en mi ámbito laboral",
+    matricula: "2022-SISN-2-010",
   },
   {
     id: 6,
@@ -58,6 +65,7 @@ export const teamMembers = [
     avatar: avatarAuri,
     description:
       "¡Hey! soy Auri un joven con interés en la redacción de contenidos y el desarrollo de soluciones tecnológicas.",
+    matricula: "2022-SISN-2-048",
   },
   {
     id: 7,
@@ -66,5 +74,6 @@ export const teamMembers = [
     avatar: avatarYoselin,
     description:
       "Soy Yoselin una joven trabajadora con buen desempeño en trabajo en equipo , estudiante le gusta salir a relajarse en su tiempo libre.",
+    matricula: "2022-SISN-2-001",
   },
 ];

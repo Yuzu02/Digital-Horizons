@@ -13,12 +13,14 @@ export default function CommentForm({ onSubmit }: Readonly<CommentFormProps>) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      await onSubmit(content);
-      setContent("");
-    } finally {
-      setIsSubmitting(false);
+    if (content.trim()) {
+      setIsSubmitting(true);
+      try {
+        await onSubmit(content);
+        setContent("");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 

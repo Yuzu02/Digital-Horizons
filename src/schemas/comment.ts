@@ -7,6 +7,7 @@ export const CommentSchema = z.object({
   author: z.string(),
   authorImage: z.string().url(),
   createdAt: z.string().datetime(),
+  email: z.string().email(),
 });
 
 // Creamos un tipo TypeScript a partir del esquema Zod

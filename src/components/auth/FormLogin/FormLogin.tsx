@@ -1,6 +1,6 @@
 // Components
 "use client";
-import { ThemeModeToggle } from "@/components/theme/ThemeModeToggle";
+import { useSearchParams } from "next/navigation";
 import LoginButton from "./LoginButton";
 import { FaGoogle, FaGithub, FaRegUser } from "react-icons/fa";
 import { MdOutlineMail, MdOutlinePassword } from "react-icons/md";
@@ -35,6 +35,8 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
     password: "",
   });
 
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get("returnUrl") ?? "/dashboard";
   const inputs = {
     username: {
       ref: useRef<HTMLInputElement>(null),
@@ -100,7 +102,6 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
           onSubmit={handleSubmit}
         >
           {/* Para probar los dos modo nada mas. Se podría colocar el logo aquí 🤔 */}
-          <ThemeModeToggle />
           <h2 className="my-4 text-4xl font-bold">
             {isRegister ? "Crear Cuenta" : "Bienvenido"}
           </h2>
@@ -151,8 +152,16 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
               {isRegister ? "Regístrate con" : "O Inicia Sección Con"}
             </span>
             <div className="flex items-center justify-center gap-5">
-              <LoginButton provider="google" icon={<FaGoogle />} />
-              <LoginButton provider="github" icon={<FaGithub />} />
+              <LoginButton
+                provider="google"
+                icon={<FaGoogle />}
+                returnUrl={returnUrl}
+              />
+              <LoginButton
+                provider="github"
+                icon={<FaGithub />}
+                returnUrl={returnUrl}
+              />
             </div>
           </div>
           <div className="flex flex-col items-center justify-center">

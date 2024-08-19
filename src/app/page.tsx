@@ -7,7 +7,7 @@ import Banner from "@/components/common/Banner";
 
 export default function Home() {
   return (
-    <main className="flex h-full items-center justify-center">
+    <main className="mt-14 flex h-full items-center justify-center md:mt-0">
       <div className="flex flex-col items-center">
         {/* <Hero /> */}
         <Hero />
