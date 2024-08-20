@@ -1,42 +1,170 @@
 ---
-title: "Prettier, ESLint & VSCode"
+title: "Prettier, ESLint y VSCode: Cómo configurarlos juntos"
+image: "/post/Prettier/prinicpal.webp"
 author: "Yuzu Kaufman"
-category: "Tools"
-publishDate: "4/23/2024"
+avatar: "/assets/Avatars/yuzu-roze.jpg"
+category: "Desarrollo-Web-y-Aplicaciones"
+publishDate: "07/09/2024"
+description: "Aprende a configurar Prettier con ESLint para formatear tu código automáticamente y detectar errores de estilo."
 ---
 
-<Parrafo>En este artículo, aprenderemos cómo configurar Prettier con ESLint y VSCode.</Parrafo>
+<Indice
+  items={[
+    {
+      title: "Introducción",
+      link: "#introduccion",
+    },
+    {
+      title: "Paso 1: Instalar Prettier y ESLint",
+      link: "#step-1-install-prettier-and-eslint",
+    },
+    {
+      title: "Paso 2: Crear el archivo de configuración de ESLint",
+      link: "#step-2-create-eslint-configuration-file",
+    },
+    {
+      title: "Paso 3: Crear el archivo de configuración de Prettier",
+      link: "#step-3-create-prettier-configuration-file",
+    },
+    {
+      title: "Paso 4: Instalar las extensiones de Prettier y ESLint en VSCode",
+      link: "#extensions-in-vscode",
+    },
+    {
+      title: "Ventajas y Desventajas",
+      link: "#pros-and-cons",
+    },
+    {
+      title: "Conclusión",
+      link: "#conclusion",
+    },
+  ]}
+/>
 
-<SubSeccion>Paso 1: Instalar Prettier y ESLint</SubSeccion>
+<SubSeccion id="introduccion">Introducción</SubSeccion>
 
-<Parrafo>Primero, necesitamos instalar Prettier y ESLint.</Parrafo>
+<Parrafo>
+  En el mundo del desarrollo de software, mantener un código limpio y consistente es crucial. Prettier y ESLint son dos
+  herramientas poderosas que pueden ayudarte a lograr esto. En este artículo, aprenderemos cómo configurar Prettier con ESLint y
+  VSCode para mejorar tu flujo de trabajo de desarrollo.
+</Parrafo>
+
+<Alert type="info">
+  Prettier es un formateador de código opinado, mientras que ESLint es una herramienta de linting que ayuda a identificar y
+  reportar patrones en JavaScript. Cuando se usan juntos, pueden hacer maravillas para la calidad de tu código.
+</Alert>
+
+<SubSeccion id="step-1-install-prettier-and-eslint">Paso 1: Instalar Prettier y ESLint</SubSeccion>
+
+<Parrafo>
+  Lo primero que necesitamos hacer es instalar Prettier y ESLint en nuestro proyecto. Abre tu terminal y ejecuta el siguiente
+  comando:
+</Parrafo>
 
 ```bash
-npm install --save-dev prettier eslint
+npm install --save-dev prettier eslint eslint-config-prettier eslint-plugin-prettier
 ```
 
-<SubSeccion>Paso 2: Crear el archivo de configuración de ESLint</SubSeccion>
+<Parrafo>
+  Este comando instala Prettier, ESLint, y dos paquetes adicionales que ayudan a que Prettier y ESLint trabajen juntos sin
+  conflictos.
+</Parrafo>
 
-<Parrafo>A continuación, necesitamos crear un archivo de configuración de ESLint.</Parrafo>
+<SubSeccion id="step-2-create-eslint-configuration-file">Paso 2: Crear el archivo de configuración de ESLint</SubSeccion>
+
+<Parrafo>
+  A continuación, necesitamos crear un archivo de configuración de ESLint. Puedes hacerlo manualmente o usar el asistente de
+  configuración de ESLint:
+</Parrafo>
 
 ```bash
 npx eslint --init
 ```
 
-<SubSeccion>Paso 3: Crear el archivo de configuración de Prettier</SubSeccion>
+<Parrafo>
+  Sigue las instrucciones en la terminal para configurar ESLint según tus preferencias. Una vez completado, tendrás un archivo
+  \`.eslintrc.js\` en tu proyecto.
+</Parrafo>
 
-Luego, necesitamos crear un archivo de configuración de Prettier.
+<SubSeccion id="step-3-create-prettier-configuration-file">Paso 3: Crear el archivo de configuración de Prettier</SubSeccion>
 
-```bash
-echo {}> .prettierrc.json
+<Parrafo>
+  Ahora, vamos a crear un archivo de configuración de Prettier. Crea un archivo llamado \`.prettierrc\` en la raíz de tu proyecto
+  y añade las siguientes reglas:
+</Parrafo>
+
+```json
+{
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "jsxSingleQuote": true,
+  "bracketSpacing": true
+}
 ```
 
-<SubSeccion>Paso 4: Instalar las extensiones de Prettier y ESLint en VSCode</SubSeccion>
+<Parrafo>Estas reglas son solo un ejemplo. Puedes ajustarlas según las preferencias de tu equipo o proyecto.</Parrafo>
 
-<Parrafo>Finalmente, necesitamos instalar las extensiones de Prettier y ESLint en VSCode.</Parrafo>
+<SubSeccion id="extensions-in-vscode">Paso 4: Instalar las extensiones de Prettier y ESLint en VSCode</SubSeccion>
 
-<BlockQuote>
-  Abre VSCode, ve a la pestaña de extensiones y busca "Prettier - Code formatter" y "ESLint". Instálalas y recarga VSCode.
-</BlockQuote>
+<Parrafo>Para que todo funcione sin problemas en VSCode, necesitamos instalar las extensiones de Prettier y ESLint:</Parrafo>
 
-<Parrafo>¡Eso es todo! Ahora has configurado con éxito Prettier con ESLint y VSCode.</Parrafo>
+<ol>
+  <li>Abre VSCode</li>
+  <li>Ve a la pestaña de extensiones (o presiona Ctrl+Shift+X)</li>
+  <li>Busca "Prettier - Code formatter" e instálala</li>
+  <li>Busca "ESLint" e instálala</li>
+  <li>Reinicia VSCode</li>
+</ol>
+
+<Alert type="warning">
+  Si no ves los cambios de formato de Prettier, asegúrate de que la opción "Format On Save" esté habilitada en VSCode. Puedes
+  habilitarla yendo a "File" > "Preferences" > "Settings" y buscando "Format On Save".
+</Alert>
+
+<SubSeccion id="pros-and-cons">Ventajas y Desventajas</SubSeccion>
+
+<ProsCons
+  pros={[
+    "Código consistente en todo el proyecto",
+    "Ahorra tiempo en discusiones sobre estilos de código",
+    "Detecta errores potenciales antes de que lleguen a producción",
+    "Mejora la legibilidad del código",
+  ]}
+  cons={[
+    "Puede haber una curva de aprendizaje inicial",
+    "Algunas reglas pueden ser demasiado estrictas para ciertos proyectos",
+    "Puede haber conflictos entre Prettier y ESLint si no se configuran correctamente",
+    "Puede aumentar el tiempo de construcción en proyectos grandes",
+  ]}
+/>
+
+<SubSeccion id="conclusion">Conclusión</SubSeccion>
+
+<Parrafo>
+  Configurar Prettier con ESLint y VSCode puede parecer un poco abrumador al principio, pero los beneficios a largo plazo son
+  innegables. Con estas herramientas, podrás mantener un código limpio, consistente y libre de errores comunes, lo que te
+  permitirá enfocarte en lo que realmente importa: construir grandes aplicaciones.
+</Parrafo>
+
+<Alert type="success">
+  ¡Felicidades! Has configurado con éxito Prettier, ESLint y VSCode para trabajar juntos. Tu flujo de trabajo de desarrollo ahora
+  está optimizado para producir código de alta calidad.
+</Alert>
+
+<CarruselCitas
+  quotes={[
+    { text: "La consistencia es la última refugio de los sin imaginación.", author: "Oscar Wilde" },
+    { text: "La simplicidad es la máxima sofisticación.", author: "Leonardo da Vinci" },
+    { text: "El código limpio siempre parece que fue escrito por alguien que se preocupa.", author: "Robert C. Martin" },
+  ]}
+/>
+
+<Divider />
+
+<Parrafo>
+  Recuerda, la configuración que hemos discutido aquí es solo un punto de partida. No dudes en ajustar las reglas de Prettier y
+  ESLint según las necesidades específicas de tu proyecto o equipo. ¡Feliz codificación!
+</Parrafo>

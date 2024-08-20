@@ -3,6 +3,7 @@ import { CommentSchema, Comment, NewComment } from "@/schemas/comment";
 import { z } from "zod";
 import { db } from "./firebaseConfig";
 
+// ? Obtiene los comentarios de un post
 export async function getCommentsForPost(slug: string): Promise<Comment[]> {
   const commentsRef = collection(db, "comments");
   const q = query(commentsRef, where("postSlug", "==", slug));
@@ -11,13 +12,14 @@ export async function getCommentsForPost(slug: string): Promise<Comment[]> {
   return querySnapshot.docs.map((doc) => CommentSchema.parse(doc.data()));
 }
 
+// ? Agrega un comentario a un post
 export async function addCommentToPost(
   slug: string,
   comment: NewComment,
 ): Promise<void> {
   const newComment: Comment = {
     ...comment,
-    id: Date.now().toString(), // Considera usar un ID generado por Firestore
+    id: Date.now().toString(),
     createdAt: new Date().toISOString(),
     postSlug: slug,
   };
@@ -26,6 +28,7 @@ export async function addCommentToPost(
   await addDoc(collection(db, "comments"), validatedNewComment);
 }
 
+// ? Valida un comentario
 export function validateComment(comment: unknown): Comment | null {
   try {
     return CommentSchema.parse(comment);
@@ -39,6 +42,7 @@ export function validateComment(comment: unknown): Comment | null {
   }
 }
 
+// ? Obtiene los comentarios de un usuario
 export async function getCommentsForUser(
   email: string,
 ): Promise<(Comment & { postSlug: string })[]> {

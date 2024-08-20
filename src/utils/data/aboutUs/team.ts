@@ -1,13 +1,13 @@
-import avatarAuri from "@/private/assets/Team/avatarAuri.jpg";
+import avatarAuri2 from "@/private/assets/Team/avatarAuri2.jpg";
 import avatarLetty from "@/private/assets/Team/avatarLetty.jpg";
 import avatarPamela from "@/private/assets/Team/avatarPamela.jpg";
-import avatarYoselin from "@/private/assets/Team/avatarYoselin.jpg";
+import avatarYoselin2 from "@/private/assets/Team/avatarYoselin2.jpg";
 import avatarJulio from "@/private/assets/Team/avatarJulio.jpg";
 import avatarJuan from "@/private/assets/Team/avatarJuan.png";
 import avatarFrederick from "@/private/assets/Team/avatarFrederick.jpg";
 
 export const teamData = {
-  title: "Nuestro Dev Team",
+  title: "Nuestro gran equipo :D",
   description:
     "Conoce a los visionarios que impulsan nuestra misión e hicieron posible este proyecto",
 };
@@ -62,7 +62,7 @@ export const teamMembers = [
     id: 6,
     name: "Auri Eliezer Gabriel Delis",
     title: "Redactor de Contenidos",
-    avatar: avatarAuri,
+    avatar: avatarAuri2,
     description:
       "¡Hey! soy Auri un joven con interés en la redacción de contenidos y el desarrollo de soluciones tecnológicas.",
     matricula: "2022-SISN-2-048",
@@ -71,7 +71,7 @@ export const teamMembers = [
     id: 7,
     name: "Yoselin Pérez Padilla",
     title: "Community Manager",
-    avatar: avatarYoselin,
+    avatar: avatarYoselin2,
     description:
       "Soy Yoselin una joven trabajadora con buen desempeño en trabajo en equipo , estudiante le gusta salir a relajarse en su tiempo libre.",
     matricula: "2022-SISN-2-001",

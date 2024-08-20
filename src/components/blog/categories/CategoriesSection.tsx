@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 
 const CategoriesSection = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 md:p-8 lg:p-2 lg:pt-10">
+    <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 md:p-8 lg:p-2 lg:pt-6">
       <Card className="w-full max-w-7xl border-none bg-lightMode p-4 dark:border-none dark:bg-darkMode sm:p-6 md:p-8">
         <motion.div
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -31,18 +31,18 @@ const CategoriesSection = () => {
                   <span className="sr-only">Ver Categoría</span>
                 </Link>
                 <motion.div
-                  className="flex h-full flex-col items-center justify-center gap-4 bg-white p-6 text-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:bg-gray-800 dark:text-lightMode/80 dark:group-hover:bg-primary-dark"
+                  className="flex h-full flex-col items-center justify-center gap-3 bg-white p-4 text-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:bg-gray-800 dark:text-lightMode/80 dark:group-hover:bg-primary-dark"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover:bg-blue-500 dark:bg-gray-700 dark:group-hover:bg-blue-600"
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 transition-all duration-300 group-hover:bg-blue-500 dark:bg-gray-700 dark:group-hover:bg-blue-600"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <category.icon className="h-8 w-8 text-gray-600 transition-all duration-300 group-hover:text-white dark:text-gray-300 dark:group-hover:text-white" />
+                    <category.icon className="h-7 w-7 text-gray-600 transition-all duration-300 group-hover:text-white dark:text-gray-300 dark:group-hover:text-white" />
                   </motion.div>
-                  <h3 className="text-xl font-medium tracking-tight">
+                  <h3 className="text-lg font-medium tracking-tight">
                     {category.name}
                   </h3>
                   <p className="text-sm text-gray-600 transition-all duration-300 group-hover:text-lightMode/80 dark:text-gray-300 dark:group-hover:text-white">

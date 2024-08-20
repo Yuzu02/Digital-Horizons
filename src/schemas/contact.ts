@@ -4,6 +4,7 @@ import { z } from "zod";
 const motivos = ["consulta", "sugerencia", "colab", "report"] as const;
 export type Motivos = (typeof motivos)[number];
 
+// eslint-disable-next-line no-unused-vars
 export const mappedMotivos: { [key in Motivos]: string } = {
   consulta: "Consulta general",
   sugerencia: "Sugerencia de contenido",

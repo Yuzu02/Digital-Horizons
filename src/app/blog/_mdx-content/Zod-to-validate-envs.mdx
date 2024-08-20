@@ -1,83 +1,207 @@
 ---
-title: "Zod to validate env variables"
+title: "Zod para validar variables de entorno"
 author: "Yuzu Kaufman"
 avatar: "/assets/Avatars/yuzu-roze.jpg"
 category: "Desarrollo-Web-y-Aplicaciones"
-publishDate: "5/12/2024"
-description: "Learn how to use Zod to validate environment variables in Next.js."
+publishDate: "7/12/2024"
+description: "Aprende a usar Zod para validar variables de entorno en Next.js para mejorar la seguridad y la confiabilidad de tu aplicación."
+image: "/post/Zod/Zod-Principal.webp"
 ---
 
 <Indice
   items={[
     {
-      title: "Step 1: Install Zod",
-      link: "#step-1-install-zod",
+      title: "Introducción a Zod",
+      link: "#introduccion",
     },
     {
-      title: "Step 2: Create a schema for environment variables",
-      link: "#step-2-create-a-schema-for-environment-variables",
+      title: "Paso 1: Instalar Zod",
+      link: "#paso-1-instalar-zod",
     },
     {
-      title: "Step 3: Validate environment variables",
-      link: "#step-3-validate-environment-variables",
+      title: "Paso 2: Crear un esquema para las variables de entorno",
+      link: "#paso-2-crear-esquema",
+    },
+    {
+      title: "Paso 3: Validar las variables de entorno",
+      link: "#paso-3-validar-variables",
+    },
+    {
+      title: "Paso 4: Usar las variables de entorno validadas",
+      link: "#paso-4-usar-variables",
+    },
+    {
+      title: "Ventajas y desventajas de usar Zod",
+      link: "#pros-y-contras",
+    },
+    {
+      title: "Conclusión",
+      link: "#conclusion",
     },
   ]}
 />
 
-<SubTitulo id="step-1-install-zod">How to use Zod to validate environment variables in Next.js</SubTitulo>
+<SubTitulo id="introduccion">Introducción a Zod para validar variables de entorno en Next.js</SubTitulo>
 
-In this article, we will learn how to use Zod to validate environment variables in Next.js.
+<Parrafo>
+  En el desarrollo de aplicaciones modernas, la gestión segura de las variables de entorno es crucial. Zod, una biblioteca de
+  declaración y validación de esquemas TypeScript-first, ofrece una solución robusta para este desafío. En este artículo,
+  exploraremos cómo implementar Zod para validar variables de entorno en una aplicación Next.js, mejorando así la seguridad y
+  confiabilidad de tu proyecto.
+</Parrafo>
 
-### Step 1: Install Zod
+<Alert type="info">
+  Zod no solo es útil para variables de entorno, sino que también puede utilizarse para validar datos de formularios, respuestas
+  de API y más. ¡Es una herramienta versátil para cualquier desarrollador de TypeScript!
+</Alert>
 
-First, we need to install Zod.
+<SubSeccion id="paso-1-instalar-zod">Paso 1: Instalar Zod</SubSeccion>
+
+<Parrafo>Comencemos instalando Zod en nuestro proyecto Next.js.</Parrafo>
 
 ```bash
 npm install zod
 ```
 
-### Step 2: Create a schema for environment variables
+<Parrafo>
+  Este comando añadirá Zod a tus dependencias del proyecto. Asegúrate de tener Node.js y npm instalados en tu sistema antes de ejecutar este comando.
+</Parrafo>
 
-Next, we need to create a schema for environment variables using Zod.
+<SubSeccion id="paso-2-crear-esquema">Paso 2: Crear un esquema para las variables de entorno</SubSeccion>
+
+<Parrafo> Ahora, vamos a crear un esquema que defina la estructura y los tipos de nuestras variables de entorno. </Parrafo>
+
 
 ```typescript
 import { z } from "zod";
 
-const schema = z.object({
-  PORT: z.string(),
-  DATABASE_URL: z.string(),
+const envSchema = z.object({
+PORT: z.string().transform(Number),
+DATABASE_URL: z.string().url(),
+API_KEY: z.string().min(1),
 });
+
+type EnvSchema = z.infer<typeof envSchema>;
 ```
 
-### Step 3: Validate environment variables
+<Parrafo>
+  En este ejemplo, hemos definido un esquema para tres variables de entorno comunes. Observa cómo podemos aplicar transformaciones y validaciones específicas a cada variable.
+</Parrafo>
 
-Next, we need to validate environment variables using the schema.
+<SubSeccion id="paso-3-validar-variables">Paso 3: Validar las variables de entorno</SubSeccion>
+
+<Parrafo> Con nuestro esquema definido, ahora podemos usarlo para validar las variables de entorno reales. </Parrafo>
 
 ```typescript
-import { validateEnv } from "./validateEnv";
+const env = envSchema.parse(process.env);
 
-const env = process.env;
-
-const result = schema.safeParse(env);
-
-if (!result.success) {
-  console.error(result.error.errors);
-  process.exit(1);
+if (!env) {
+throw new Error("❌ Variables de entorno inválidas");
 }
+
+console.log("✅ Variables de entorno validadas correctamente");
 ```
 
-### Step 4: Use validated environment variables
+<Alert type="warning">
+  Es una buena práctica validar las variables de entorno al inicio de tu aplicación. Esto te permite detectar problemas de configuración temprano en el ciclo de vida de tu app.
+</Alert>
+<SubSeccion id="paso-4-usar-variables">Paso 4: Usar las variables de entorno validadas</SubSeccion>
 
-Finally, we can use the validated environment variables in our Next.js application.
+<Parrafo>
+  Una vez validadas, podemos usar nuestras variables de entorno con confianza en toda nuestra aplicación Next.js.
+</Parrafo>
+
 
 ```typescript
 import { createConnection } from "typeorm";
 
 createConnection({
-  type: "postgres",
-  url: env.DATABASE_URL,
-  port: parseInt(env.PORT),
+type: "postgres",
+url: env.DATABASE_URL,
+port: env.PORT,
 });
+
+console.log(`Servidor corriendo en el puerto ${env.PORT}`);
 ```
 
-That's it! Now you have successfully used Zod to validate environment variables in Next.js.
+<Parrafo>
+  Al usar las variables validadas, obtenemos seguridad de tipos y la certeza de que los valores son válidos según nuestro esquema.
+</Parrafo>
+
+<SubSeccion id="pros-y-contras">Ventajas y desventajas de usar Zod</SubSeccion>
+
+<ProsCons
+  pros={[
+    "Validación de tipos en tiempo de ejecución",
+    "Integración perfecta con TypeScript",
+    "Esquemas altamente personalizables",
+    "Mejor manejo de errores y depuración",
+  ]}
+  cons={[
+    "Curva de aprendizaje inicial",
+    "Puede aumentar ligeramente el tamaño del bundle",
+    "Requiere configuración adicional en el proyecto",
+  ]}
+/>
+
+<SubSeccion id="conclusion">Conclusión</SubSeccion>
+
+<Parrafo>
+  La implementación de Zod para validar variables de entorno en Next.js ofrece una capa adicional de seguridad y confiabilidad a tu aplicación. Al detectar problemas de configuración temprano y proporcionar seguridad de tipos, Zod te ayuda a construir aplicaciones más robustas y fáciles de mantener.
+</Parrafo> 
+
+<BlockQuote>
+  "La validación de datos no es solo una buena práctica, es una necesidad en el desarrollo de software moderno." - Yuzu Kaufman.
+</BlockQuote> 
+
+<Divider />
+
+<CarruselCitas
+  quotes={[
+    {
+      text: "Zod ha revolucionado la forma en que manejamos la validación de datos en nuestros proyectos Next.js.",
+      author: "Sarah Developer",
+    },
+    {
+      text: "La combinación de Zod y TypeScript es imbatible para crear aplicaciones robustas y type-safe.",
+      author: "John Coder",
+    },
+    {
+      text: "Desde que empezamos a usar Zod, nuestros errores relacionados con tipos de datos han disminuido drásticamente.",
+      author: "Emma Engineer",
+    },
+  ]}
+/>
+
+<Timeline
+  events={[
+    {
+      date: "2020",
+      title: "Lanzamiento de Zod",
+      description: "Zod se lanza como una biblioteca de validación de esquemas TypeScript-first.",
+    },
+    {
+      date: "2021",
+      title: "Adopción creciente",
+      description: "La comunidad de desarrolladores comienza a adoptar Zod en proyectos Next.js y React.",
+    },
+    {
+      date: "2022",
+      title: "Integración con frameworks",
+      description: "Surgen integraciones oficiales con varios frameworks, incluyendo Next.js.",
+    },
+    {
+      date: "2023",
+      title: "Zod se vuelve estándar",
+      description: "Zod se convierte en una elección estándar para la validación de datos en el ecosistema TypeScript.",
+    },
+  ]}
+/>
+
+<Alert type="success">
+  ¡Felicidades! Has aprendido cómo implementar Zod para validar variables de entorno en tu aplicación Next.js. Esta habilidad te ayudará a construir aplicaciones más seguras y confiables
+</Alert>
+
+<Parrafo>
+  Recuerda, la configuración que hemos discutido aquí es solo un punto de partida. No dudes en ajustar las reglas de Zod según las necesidades específicas de tu proyecto o equipo. ¡Feliz codificación!
+</Parrafo>

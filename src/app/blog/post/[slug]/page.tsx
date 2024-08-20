@@ -28,6 +28,7 @@ export default async function BlogPage({
             avatar={blog.frontmatter.avatar}
             publishDate={blog.frontmatter.publishDate}
             category={blog.frontmatter.category}
+            slug={params.slug}
           />
           <section
             className="prose mx-auto max-w-6xl dark:prose-invert"
