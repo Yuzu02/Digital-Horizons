@@ -28,9 +28,6 @@ const envVars = z.object({
   NEXT_PUBLIC_FIREBASE_APP_ID: z.string(),
   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: z.string().optional(),
 
-  // ReCaptcha
-  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
-
   //? Add more environment variables here
 });
 
