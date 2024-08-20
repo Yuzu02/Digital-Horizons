@@ -1,8 +1,8 @@
 import avatarAuri2 from "@/private/assets/Team/avatarAuri2.jpg";
 import avatarLetty from "@/private/assets/Team/avatarLetty.jpg";
-import avatarPamela from "@/private/assets/Team/avatarPamela.jpg";
+import avatarPamela2 from "@/private/assets/Team/avatarPamela2.jpg";
 import avatarYoselin2 from "@/private/assets/Team/avatarYoselin2.jpg";
-import avatarJulio from "@/private/assets/Team/avatarJulio.jpg";
+import avatarJulio2 from "@/private/assets/Team/avatarJulio2.jpg";
 import avatarJuan from "@/private/assets/Team/avatarJuan.png";
 import avatarFrederick from "@/private/assets/Team/avatarFrederick.jpg";
 
@@ -44,7 +44,7 @@ export const teamMembers = [
     id: 4,
     name: "Julio Antonio Solís",
     title: "Especialista en SEO",
-    avatar: avatarJulio,
+    avatar: avatarJulio2,
     description:
       "Mi nombre es Julio soy un estudiante de Ingeniería en Sistemas, con un fuerte interés en el SEO y la mejora de la visibilidad en línea",
     matricula: "2022-SISN-2-027",
@@ -53,7 +53,7 @@ export const teamMembers = [
     id: 5,
     name: "Pamela Michael Javier",
     title: "Diseñadora Gráfica",
-    avatar: avatarPamela,
+    avatar: avatarPamela2,
     description:
       "¡Hola! Mi nombre es Pamela Michael, soy una joven de 20 años motivada por la esperanza de un futuro mejor y en busca de crecer sanamente como persona en mi ámbito laboral",
     matricula: "2022-SISN-2-010",
