@@ -36,7 +36,7 @@ export default function Dashboard() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto p-6"
+      className="container mx-auto max-h-full overflow-y-auto p-6"
     >
       <motion.div
         initial={{ y: 20, opacity: 0 }}
