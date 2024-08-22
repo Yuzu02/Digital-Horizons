@@ -18,10 +18,10 @@ export default function Post() {
 
   return (
     <section className="md:p-[15px]">
-      <h2 className="mb-4 text-center text-5xl font-medium tracking-tighter md:text-6xl">
+      <h2 className="mb-0 text-center text-5xl font-medium tracking-tighter md:text-6xl lg:mb-6">
         Posts más recientes
       </h2>
-      <div className="grid grid-cols-1 gap-8 p-12 sm:p-12 sm:px-16 md:grid-cols-2 md:gap-10 md:p-6 md:px-16 lg:grid-cols-3 lg:px-28 lg:pb-12 xl:p-4">
+      <div className="grid grid-cols-1 gap-8 p-12 sm:p-12 sm:px-16 md:grid-cols-2 md:gap-10 md:p-6 md:px-16 lg:grid-cols-2 lg:px-28 lg:pb-12 xl:p-4">
         {posts.slice(0, visiblePosts).map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

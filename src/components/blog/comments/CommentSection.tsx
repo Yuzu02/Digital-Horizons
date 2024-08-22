@@ -15,7 +15,19 @@ import {
   LoginPrompt,
 } from "@/components/blog/comments/extra";
 import { CommentList, CommentSectionHeader } from "@/components/blog/comments";
-import { CommentSectionProps } from "@/schemas/components/comments-props";
+
+export interface CommentProps {
+  content: string;
+  id: string;
+  author: string;
+  authorImage: string;
+  createdAt: string;
+  email: string;
+}
+
+export interface CommentSectionProps {
+  slug: string;
+}
 
 export default function CommentSection({
   slug,

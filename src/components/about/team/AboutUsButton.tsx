@@ -10,7 +10,7 @@ const AboutUsButton = () => {
         size="lg"
         className="mt-4 dark:border-white dark:text-white"
       >
-        Acerca de nosotros
+        Acerca de...
         <ArrowRightIcon className="ml-2 h-4 w-4" />
       </Button>
     </Link>

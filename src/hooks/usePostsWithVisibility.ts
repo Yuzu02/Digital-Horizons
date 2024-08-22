@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Blog } from "@/schemas/blog";
 
-export function usePostsWithVisibility(limit: number = 6) {
+export function usePostsWithVisibility(limit: number = 4) {
   const [posts, setPosts] = useState<Blog[]>([]);
   const [visiblePosts, setVisiblePosts] = useState(3);
   const [isLoading, setIsLoading] = useState(true);

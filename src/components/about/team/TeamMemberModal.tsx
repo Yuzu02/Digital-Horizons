@@ -45,12 +45,11 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
         >
           <Image
             src={member.avatar}
-            alt={member.name}
-            layout="responsive"
-            width={160}
-            height={160}
-            objectFit="cover"
-            className="rounded-full"
+            alt={member.name} // El alt ahora es requerido
+            width={160} // Mantén el ancho
+            height={160} // Mantén la altura
+            className="rounded-full" // Usa className para estilos
+            style={{ objectFit: "cover" }} // Usa style para objectFit
           />
         </motion.div>
 
@@ -89,7 +88,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
           animate={{ y: 0, opacity: 1 }} // Move to original position and become visible
           exit={{ y: 20, opacity: 0 }} // Exit with the same animation
           transition={{ duration: 0.3, delay: 0.5 }} // Delay for the entrance
-          className="text-center text-xs text-gray-400 dark:text-gray-500"
+          className="text-ellipsis rounded text-center font-semibold text-accent-hover dark:text-purple-300"
         >
           {member.matricula}
         </motion.p>

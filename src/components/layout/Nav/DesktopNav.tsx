@@ -20,7 +20,7 @@ export const DesktopNav: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mb-24 bg-lightMode/10 shadow-lg backdrop-blur-md transition-all duration-300 dark:bg-darkMode/10">
+      <div className="bg-lightMode/10 shadow-lg backdrop-blur-md transition-all duration-300 dark:bg-darkMode/10">
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
             <motion.div
@@ -45,7 +45,7 @@ export const DesktopNav: React.FC = () => {
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className="text-darkMode transition-all duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
               >
-                <FaSearch className="text-xl" />
+                <FaSearch className="text-xl" aria-label="Search" />
               </motion.button>
               <ThemeModeToggle
                 className="focus:ring-bg-transparent bg-transparent focus:bg-transparent dark:bg-transparent"
@@ -72,7 +72,6 @@ export const DesktopNav: React.FC = () => {
       <AnimatePresence>
         {isSearchOpen && <SearchBar onClose={() => setIsSearchOpen(false)} />}
       </AnimatePresence>
-      <div className="h-4"></div>
     </motion.div>
   );
 };

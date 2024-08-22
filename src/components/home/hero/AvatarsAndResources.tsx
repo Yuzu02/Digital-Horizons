@@ -22,7 +22,11 @@ const AvatarAndResources = ({ avatarUrls }: AvatarAndResourcesProps) => {
         transition={{ delay: 1, duration: 0.5, type: "spring" }}
         className="flex items-center space-x-4"
       >
-        <AvatarCircles avatarUrls={avatarUrls} numPeople={3} />
+        <AvatarCircles
+          avatarUrls={avatarUrls}
+          numPeople={3}
+          className="my-3 md:my-0"
+        />
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.05 }}

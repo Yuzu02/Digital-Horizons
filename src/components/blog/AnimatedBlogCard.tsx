@@ -50,8 +50,9 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
           src={blog.frontmatter.image}
           alt={blog.frontmatter.title}
           fill
+          style={{ objectFit: "cover" }}
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="transition-transform duration-500 group-hover:scale-110"
         />
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -137,9 +138,9 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
       <AnimatePresence>
         {isHovered && (
           <>
-            {[...Array(10)].map((_, i) => (
+            {[...Array(10)].map((post, i) => (
               <motion.div
-                key={_}
+                key={post + i}
                 className="absolute h-2 w-2 rounded-full bg-blue-500"
                 initial="hidden"
                 animate="visible"

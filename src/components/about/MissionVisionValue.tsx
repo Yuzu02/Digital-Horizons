@@ -35,7 +35,7 @@ export const MissionVisionValues = () => {
           <CarouselContent className="select-none">
             {data.map((item) => (
               <MotionCarouselItem
-                key={item.title}
+                key={item.title + 1}
                 variants={mvvContainerVariants}
                 initial="hidden"
                 animate="visible"

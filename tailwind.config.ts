@@ -94,6 +94,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         backgroundPositionSpin:
           "background-position-spin 3000ms infinite alternate",
+        gradient: "gradient 8s linear infinite",
       },
       keyframes: {
         "background-position-spin": {
@@ -125,6 +126,11 @@ const config = {
         slide: {
           to: {
             transform: "translate(calc(100cqw - 100%), 0)",
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
           },
         },
       },

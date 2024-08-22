@@ -6,6 +6,7 @@ import Image, { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { teamData, teamMembers } from "@/utils/data/aboutUs/team";
 import TeamMemberModal from "./TeamMemberModal";
+import BlurFade from "@/components/magicui/blur-fade";
 
 export interface TeamMember {
   id: number;
@@ -46,29 +47,31 @@ const TeamSection: React.FC = () => {
 
         <div className="grid grid-cols-2 gap-6 px-2 sm:px-0 md:flex md:flex-wrap md:justify-center">
           {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="cursor-pointer"
-              onClick={() => openModal(member)}
-            >
-              <div className="group relative aspect-square overflow-hidden rounded-full transition-all duration-300 ease-in-out hover:shadow-xl dark:hover:shadow-gray-700 sm:h-48 sm:w-48 md:h-60 md:w-60">
-                <Image
-                  src={member.avatar}
-                  alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-lg font-semibold text-white sm:text-xl md:text-xl">
-                    {member.name}
-                  </p>
+            <BlurFade key={member.id} delay={0.25 + index * 0.05} inView>
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="cursor-pointer"
+                onClick={() => openModal(member)}
+              >
+                <div className="group relative aspect-square overflow-hidden rounded-full transition-all duration-300 ease-in-out hover:shadow-xl dark:hover:shadow-gray-700 sm:h-48 sm:w-48 md:h-60 md:w-60">
+                  <Image
+                    src={member.avatar}
+                    alt={member.name}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <p className="px-2 text-center text-lg font-semibold text-white sm:text-xl md:text-xl">
+                      {member.name}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </BlurFade>
           ))}
         </div>
       </div>

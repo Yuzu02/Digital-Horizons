@@ -11,12 +11,12 @@ export const headerData = {
 export const headerLinks = {
   navLinks: [
     {
-      name: "Home",
+      name: "Inicio",
       href: "/",
       icon: <FaHome />,
     },
     {
-      name: "About",
+      name: "Acerca",
       href: "/about",
       icon: <BsPeopleFill />,
     },
@@ -26,7 +26,7 @@ export const headerLinks = {
       icon: <FaBlog />,
     },
     {
-      name: "Contact",
+      name: "Contacto",
       href: "/contact",
       icon: <FaEnvelope />,
     },
@@ -36,12 +36,12 @@ export const headerLinks = {
 export const mobileNavLinks = {
   navLinks: [
     {
-      name: "Home",
+      name: "Inicio",
       href: "/",
       icon: <Home className="h-[1.2rem] w-[1.2rem]" />,
     },
     {
-      name: "About",
+      name: "Acerca",
       href: "/about",
       icon: <Users className="h-[1.2rem] w-[1.2rem]" />,
     },
@@ -51,7 +51,7 @@ export const mobileNavLinks = {
       icon: <Pencil className="h-[1.2rem] w-[1.2rem]" />,
     },
     {
-      name: "Contact",
+      name: "Contacto",
       href: "/contact",
       icon: <Mail className="h-[1.2rem] w-[1.2rem]" />,
     },
@@ -66,11 +66,11 @@ export const footerData = {
 
 export const footerItems = [
   {
-    name: "Home",
+    name: "Inicio",
     href: "/",
   },
   {
-    name: "About",
+    name: "Acerca",
     href: "/about",
   },
   {
@@ -78,7 +78,7 @@ export const footerItems = [
     href: "/blog",
   },
   {
-    name: "Contact",
+    name: "Contacto",
     href: "/contact",
   },
 ] as const;

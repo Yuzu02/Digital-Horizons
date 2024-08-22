@@ -3,6 +3,10 @@ import { Comment } from "@/schemas/comment";
 import { cleanString } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  userCommentItemVariants,
+  userCommentVariants,
+} from "@/utils/animations/DashBoardVariants";
 
 interface UserCommentsProps {
   email: string;
@@ -67,26 +71,12 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
       ) : (
         <motion.div
           className="space-y-4"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
+          variants={userCommentVariants}
           initial="hidden"
           animate="show"
         >
           {comments.map((comment) => (
-            <motion.div
-              key={comment.id}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
+            <motion.div key={comment.id} variants={userCommentItemVariants}>
               <Link href={`/blog/post/${comment.postSlug}`}>
                 <div className="cursor-pointer rounded-lg bg-gray-100 p-4 shadow transition-shadow duration-300 hover:shadow-md dark:bg-gray-700 dark:hover:bg-gray-600">
                   <div className="mb-2 flex items-start justify-between">

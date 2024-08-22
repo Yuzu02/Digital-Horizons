@@ -5,7 +5,7 @@ import { Contact, contactResolver, mappedMotivos } from "@/schemas/contact";
 import { Button } from "../ui/button";
 import { FormInputs } from "./FormInputs";
 import { useEffect } from "react";
-import { submitForm } from "@/services/emailAction";
+import { submitForm } from "@/lib/emailAction";
 import { toastMessages } from "@/utils/data/Extra/constants";
 
 export default function ContactForm() {

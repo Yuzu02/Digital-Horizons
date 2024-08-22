@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { commentVariants } from "@/utils/animations/CommentsVariants";
-import { CommentProps } from "@/schemas/components/comments-props";
+import { CommentProps } from "@/components/blog/comments";
 
 export const CommentItem = ({
   comment,

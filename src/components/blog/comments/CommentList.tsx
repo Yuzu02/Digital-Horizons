@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CommentProps } from "@/schemas/components/comments-props";
-import { CommentItem } from "@/components/blog/comments";
+import { CommentProps, CommentItem } from "@/components/blog/comments";
 
 export const CommentList = (comments: CommentProps[]) => {
   if (comments.length > 0) {

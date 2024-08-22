@@ -6,6 +6,7 @@ import {
 } from "@/utils/data/features/constants";
 import { FeatureItem } from "@/components/home/Features/FeaturesItem";
 import { motion } from "framer-motion";
+import BlurFade from "@/components/magicui/blur-fade";
 
 // Todo : @Nova034 - Mejorar con la paleta de colores de la página
 
@@ -34,7 +35,9 @@ const Features = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-10 blur-3xl" />
         <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2">
           {featureData.map((feature, index) => (
-            <FeatureItem key={feature.title} {...feature} index={index} />
+            <BlurFade key={feature.title} delay={0.25 + index * 0.05} inView>
+              <FeatureItem key={feature.title} {...feature} index={index} />
+            </BlurFade>
           ))}
         </div>
       </motion.div>

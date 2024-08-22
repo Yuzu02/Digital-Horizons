@@ -7,45 +7,19 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Frontmatter } from "@/schemas/blog";
 import { truncateText } from "@/lib/utils";
+import {
+  postCardContainerVariants,
+  postCardContentVariants,
+  postCardOverlayVariants,
+  postImageVariants,
+} from "@/utils/animations/BlogVariants";
 
 const PostCard: React.FC<Frontmatter> = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-    hover: {
-      scale: 1.05,
-      y: -10,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-  };
-
-  const imageVariants = {
-    hover: { scale: 1.1, transition: { duration: 0.3 } },
-  };
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    hover: { opacity: 1, transition: { duration: 0.3 } },
-  };
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
   return (
     <motion.div
-      variants={containerVariants}
+      variants={postCardContainerVariants}
       initial="hidden"
       animate="visible"
       whileHover="hover"
@@ -62,17 +36,17 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
           <span className="sr-only">Leer mas acerca de {post.title}</span>
         </Link>
         <div className="relative h-60 w-full overflow-hidden">
-          <motion.div variants={imageVariants} className="h-full w-full">
+          <motion.div variants={postImageVariants} className="h-full w-full">
             <Image
               src={post.image}
               alt={`${post.title} - Blog post image`}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="transition-transform duration-300 ease-in-out"
             />
           </motion.div>
           <motion.div
-            variants={overlayVariants}
+            variants={postCardOverlayVariants}
             className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
           />
           <motion.div
@@ -95,24 +69,24 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
         </div>
         <div className="relative z-20 bg-white p-6 dark:bg-gray-800">
           <motion.h3
-            variants={contentVariants}
+            variants={postCardContentVariants}
             className="mb-2 text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
           >
             {post.title}
           </motion.h3>
           <motion.p
-            variants={contentVariants}
+            variants={postCardContentVariants}
             className="mb-4 text-sm text-gray-600 dark:text-gray-400"
           >
             Fecha de publicación:{" "}
             {new Date(post.publishDate).toLocaleDateString()}
           </motion.p>
           <motion.div
-            variants={contentVariants}
+            variants={postCardContentVariants}
             className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700"
           />
           <motion.p
-            variants={contentVariants}
+            variants={postCardContentVariants}
             className="text-sm text-gray-700 dark:text-gray-300"
           >
             {truncateText(post.description, 150)}

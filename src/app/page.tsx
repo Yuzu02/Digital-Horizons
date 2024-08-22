@@ -1,9 +1,8 @@
-// Components: Home
 import Features from "@/components/home/Features/Features";
 import Hero from "@/components/home/hero/Hero";
 import Post from "@/components/home/post/Post";
 import { Testimonials } from "@/components/home/testimonial/Testimonials";
-import Banner from "@/components/common/Banner";
+import { TrendingCategoryBanner } from "@/components/common/TrendingCategoryBanner";
 
 export default function Home() {
   return (
@@ -15,10 +14,14 @@ export default function Home() {
         <Features />
         {/* <Testimonials /> */}
         <Testimonials />
-        {/* <Post /> */}
-        <Post />
-        {/* <Banner /> */}
-        <Banner />
+        <div className="grid grid-cols-1 gap-12">
+          <article className="mx-auto max-w-6xl">
+            {/* <Post /> */}
+            <Post />
+          </article>
+          {/* <TrendingCategoryBanner /> */}
+          <TrendingCategoryBanner />
+        </div>
       </div>
     </main>
   );

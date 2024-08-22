@@ -148,7 +148,7 @@ export const ImageMDX = ({
         width={width}
         height={height}
         // Opcional
-        className={cn("object-cover", className)}
+        className={cn("", className)}
         quality={quality}
       />
     </div>

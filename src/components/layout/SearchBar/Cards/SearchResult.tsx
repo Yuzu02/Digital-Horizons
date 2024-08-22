@@ -38,8 +38,8 @@ export const SearchResult = ({ filteredBlogs, onClick }: SearchResultProps) => {
                   <Image
                     src={blog.avatar}
                     alt={`${blog.author}'s avatar`}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: "cover" }}
                     className="transition-transform duration-300 group-hover:scale-110"
                   />
                 )}

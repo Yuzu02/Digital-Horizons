@@ -7,6 +7,7 @@ import SessionButton from "@/components/auth/SessionButton";
 import AboutUsButton from "@/components/about/team/AboutUsButton";
 import { HeroCards } from "./HeroCards";
 import AvatarAndResources from "./AvatarsAndResources";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
 
 export default function Hero() {
   return (
@@ -25,14 +26,11 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="space-y-4 text-center lg:text-left"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="font-medium text-gray-600 dark:text-gray-300 lg:text-lg"
-            >
-              {HomePageData.heroTitleSmall}
-            </motion.p>
+            <GradualSpacing
+              text={HomePageData.heroTitleSmall}
+              className="items-center text-center font-medium text-gray-600 dark:text-gray-300 md:items-start md:text-center lg:text-lg"
+            />
+
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

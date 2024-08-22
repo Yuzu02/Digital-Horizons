@@ -45,7 +45,7 @@ export function MobileNav() {
                       {item.icon}
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-gray-800 text-white dark:bg-gray-700">
+                  <TooltipContent className="bg-gray-800 text-white dark:bg-gray-900">
                     <p>{item.name}</p>
                   </TooltipContent>
                 </Tooltip>
@@ -64,7 +64,7 @@ export function MobileNav() {
                     <SearchIcon className="size-4" />
                   </button>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-800 text-white dark:bg-gray-700">
+                <TooltipContent className="bg-gray-800 text-white dark:bg-gray-900">
                   <p>Buscar</p>
                 </TooltipContent>
               </Tooltip>
@@ -80,7 +80,7 @@ export function MobileNav() {
                     <ThemeModeToggle className="bg-transparent dark:bg-transparent" />
                   </div>
                 </TooltipTrigger>
-                <TooltipContent className="bg-gray-800 text-white dark:bg-gray-700">
+                <TooltipContent className="bg-gray-800 text-white dark:bg-gray-900">
                   <p>Tema</p>
                 </TooltipContent>
               </Tooltip>

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Like } from "@/schemas/likes";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  userLikesItemVariants,
+  userLikesVariants,
+} from "@/utils/animations/DashBoardVariants";
 
 interface UserLikesProps {
   email: string;
@@ -62,26 +66,12 @@ const UserLikes: React.FC<UserLikesProps> = ({ email }) => {
       ) : (
         <motion.div
           className="space-y-4"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
+          variants={userLikesVariants}
           initial="hidden"
           animate="show"
         >
           {likes.map((like) => (
-            <motion.div
-              key={like.id}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
+            <motion.div key={like.id} variants={userLikesItemVariants}>
               <Link href={`/blog/post/${like.postSlug}`}>
                 <div className="cursor-pointer rounded-lg bg-gray-100 p-4 shadow transition-shadow duration-300 hover:shadow-md dark:bg-gray-700 dark:hover:bg-gray-600">
                   <div className="mb-2 flex items-start justify-between">
