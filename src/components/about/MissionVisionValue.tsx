@@ -12,27 +12,14 @@ import {
   visionData,
   valuesData,
 } from "@/utils/data/aboutUs/constants";
+import {
+  mvvContainerVariants,
+  mvvItemVariants,
+} from "@/utils/animations/MisionVisionValueVariants";
 
 const MotionCarouselItem = motion(CarouselItem);
 
 export const MissionVisionValues = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.3 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100 },
-    },
-  };
-
   const data = [misionData, visionData, valuesData];
 
   return (
@@ -49,14 +36,14 @@ export const MissionVisionValues = () => {
             {data.map((item) => (
               <MotionCarouselItem
                 key={item.title}
-                variants={containerVariants}
+                variants={mvvContainerVariants}
                 initial="hidden"
                 animate="visible"
                 className="w-full"
               >
                 <motion.div
                   className="space-y-4 text-center md:space-y-6"
-                  variants={itemVariants}
+                  variants={mvvItemVariants}
                 >
                   <motion.div
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-3 py-1 text-sm text-white"
@@ -68,13 +55,13 @@ export const MissionVisionValues = () => {
                   </motion.div>
                   <motion.h2
                     className="text-xl tracking-tight sm:text-2xl md:text-3xl lg:text-4xl"
-                    variants={itemVariants}
+                    variants={mvvItemVariants}
                   >
                     {item.title}
                   </motion.h2>
                   <motion.p
                     className="mx-auto max-w-full text-lg text-gray-600 dark:text-lightMode/60 sm:max-w-[700px] md:text-base lg:text-lg"
-                    variants={itemVariants}
+                    variants={mvvItemVariants}
                   >
                     {item.description}
                   </motion.p>

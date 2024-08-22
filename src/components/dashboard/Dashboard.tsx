@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import { UserSchema } from "@/schemas/user";
 import Loader from "../common/Loader";

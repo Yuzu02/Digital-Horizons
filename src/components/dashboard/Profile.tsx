@@ -1,5 +1,5 @@
 // components/Profile.tsx
-import React from "react";
+
 import { User } from "@/schemas/user";
 import UserComments from "./UserComments";
 import UserLikes from "./UserLikes";

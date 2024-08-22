@@ -20,7 +20,7 @@ import {
   SubSeccionProps,
   SubTituloProps,
   YouTubeVideoProps,
-} from "@/schemas/BlogComponents/mdx-props";
+} from "@/schemas/components/mdx-props";
 
 // Extra Components
 import { icons, AlertIconType } from "@/components/blog/mdx/extra/AlertIcon";

@@ -1,7 +1,6 @@
 import { ArrowRightIcon } from "@/components/home/hero/svg/HeroIcons";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
 
 const AboutUsButton = () => {
   return (

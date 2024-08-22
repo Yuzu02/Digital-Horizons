@@ -1,4 +1,3 @@
-import React from "react";
 import { getBlogs } from "../../lib/fetchers";
 import AnimatedBlogCard from "@/components/blog/AnimatedBlogCard";
 

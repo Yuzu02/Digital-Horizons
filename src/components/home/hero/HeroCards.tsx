@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+
 import { GlobeIcon, NewspaperIcon, StarIcon } from "./svg/HeroIcons";
 import NumberTicker from "@/components/magicui/number-ticker";
 import { stats } from "@/utils/data/home/constants";

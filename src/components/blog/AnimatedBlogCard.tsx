@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { cleanString } from "@/lib/utils";
+import { blogCardParticleVariants } from "@/utils/animations/BlogVariants";
 
 interface BlogPost {
   slug: string;
@@ -28,11 +29,6 @@ interface AnimatedBlogCardProps {
 
 const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const particleVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: { opacity: 1, scale: 1 },
-  };
 
   return (
     <motion.article
@@ -148,7 +144,7 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                variants={particleVariants}
+                variants={blogCardParticleVariants}
                 transition={{
                   delay: i * 0.02,
                   duration: 0.5,

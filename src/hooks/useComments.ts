@@ -8,6 +8,9 @@ export function useComments(slug: string) {
   const [comments, setComments] = useState<Comment[]>([]);
   const [visibleComments, setVisibleComments] = useState<Comment[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const COMMENTS_PER_PAGE = 2;
 
   const fetchComments = useCallback(async () => {
     try {
@@ -17,7 +20,8 @@ export function useComments(slug: string) {
       if (parsedComments.success) {
         const sortedComments = sortComments(parsedComments.data);
         setComments(sortedComments);
-        setVisibleComments(sortedComments.slice(0, 2));
+        setVisibleComments(sortedComments.slice(0, COMMENTS_PER_PAGE));
+        setHasMore(sortedComments.length > COMMENTS_PER_PAGE);
       } else {
         console.error("Error parsing comments:", parsedComments.error);
       }
@@ -51,9 +55,9 @@ export function useComments(slug: string) {
         throw new Error("Failed to add comment");
       }
 
+      // newComment es el comentario recién creado
       const newComment = await response.json();
 
-      // Asegúrate de que el nuevo comentario tiene toda la información necesaria.
       const fullComment = {
         ...newComment,
         author: session.user.name, // Nombre del autor desde la sesión
@@ -62,10 +66,11 @@ export function useComments(slug: string) {
         content, // Contenido del comentario
       };
 
-      const updatedComments = [fullComment, ...comments]; // Añadir el nuevo comentario al inicio
+      const updatedComments = [fullComment, ...comments];
       const sortedComments = sortComments(updatedComments);
       setComments(sortedComments);
-      setVisibleComments([fullComment, ...visibleComments]); // Añadir el nuevo comentario a los comentarios visibles
+      setVisibleComments(sortedComments.slice(0, COMMENTS_PER_PAGE));
+      setHasMore(sortedComments.length > COMMENTS_PER_PAGE);
     } catch (error) {
       console.error("Error adding comment:", error);
     }
@@ -73,8 +78,21 @@ export function useComments(slug: string) {
 
   const loadMoreComments = () => {
     const currentLength = visibleComments.length;
-    const nextComments = comments.slice(currentLength, currentLength + 2);
+    const nextComments = comments.slice(
+      currentLength,
+      currentLength + COMMENTS_PER_PAGE,
+    );
     setVisibleComments([...visibleComments, ...nextComments]);
+    setHasMore(currentLength + COMMENTS_PER_PAGE < comments.length);
+    if (currentLength + COMMENTS_PER_PAGE >= comments.length) {
+      setIsExpanded(true);
+    }
+  };
+
+  const collapseComments = () => {
+    setVisibleComments(comments.slice(0, COMMENTS_PER_PAGE));
+    setHasMore(comments.length > COMMENTS_PER_PAGE);
+    setIsExpanded(false);
   };
 
   const sortComments = (commentsToSort: Comment[]) => {
@@ -88,6 +106,9 @@ export function useComments(slug: string) {
     comments,
     visibleComments,
     isLoading,
+    hasMore,
+    isExpanded,
+    collapseComments,
     handleAddComment,
     loadMoreComments,
   };
