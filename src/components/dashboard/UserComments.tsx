@@ -44,7 +44,7 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center text-gray-600 dark:text-gray-400"
+        className="text-center text-sm text-gray-600 dark:text-gray-400 sm:text-base"
       >
         Cargando comentarios...
       </motion.p>
@@ -56,16 +56,16 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="scrollbar max-h-[452px] overflow-y-auto"
+      className="scrollbar max-h-[400px] overflow-y-auto sm:max-h-[452px]"
     >
-      <h2 className="mb-4 text-xl font-semibold dark:text-white">
+      <h2 className="mb-4 text-center text-xl font-medium tracking-tighter md:text-left md:text-2xl">
         Tus Comentarios
       </h2>
       {comments.length === 0 ? (
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center text-gray-600 dark:text-gray-400"
+          className="text-center text-sm text-gray-600 dark:text-gray-400 sm:text-base"
         >
           Aún no has hecho ningún comentario.
         </motion.p>
@@ -79,16 +79,16 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
           {comments.map((comment) => (
             <motion.div key={comment.id} variants={userCommentItemVariants}>
               <Link href={`/blog/post/${comment.postSlug}`}>
-                <div className="cursor-pointer rounded-lg bg-gray-100 p-4 shadow transition-shadow duration-300 hover:shadow-md dark:bg-gray-700 dark:hover:bg-gray-600">
+                <div className="cursor-pointer rounded-lg bg-gray-100 p-3 shadow transition-shadow duration-300 hover:shadow-md dark:bg-gray-700 dark:hover:bg-gray-600 sm:p-4">
                   <div className="mb-2 flex items-start justify-between">
-                    <h3 className="text-lg font-semibold dark:text-white">
+                    <h3 className="text-base font-semibold dark:text-white sm:text-lg">
                       {cleanString(comment.postSlug)}
                     </h3>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                       {new Date(comment.createdAt).toLocaleString()}
                     </span>
                   </div>
-                  <p className="max-h-24 overflow-hidden text-gray-700 dark:text-gray-300">
+                  <p className="max-h-24 overflow-hidden text-sm text-gray-700 dark:text-gray-300 sm:text-base">
                     {comment.content}
                   </p>
                 </div>
