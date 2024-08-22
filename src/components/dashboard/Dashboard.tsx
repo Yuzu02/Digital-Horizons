@@ -42,7 +42,7 @@ export default function Dashboard() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="rounded-lg bg-white p-6 shadow-lg transition-colors duration-300 dark:bg-gray-800"
+        className="rounded-lg bg-white p-8 shadow-lg transition-colors duration-300 dark:bg-gray-800"
       >
         <motion.h2
           initial={{ y: -20, opacity: 0 }}
@@ -52,7 +52,7 @@ export default function Dashboard() {
         >
           Bienvenido a tu Dashboard
         </motion.h2>
-        <div className="mb-6 flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
+        <div className="my-8 flex flex-col items-center gap-8 space-y-4 sm:flex-row sm:space-y-0">
           <motion.div
             className="flex items-center space-x-4"
             initial={{ x: -20, opacity: 0 }}

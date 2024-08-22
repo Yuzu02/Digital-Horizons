@@ -51,6 +51,7 @@ const UserLikes: React.FC<UserLikesProps> = ({ email }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="scrollbar max-h-[452px] overflow-y-auto"
     >
       <h2 className="mb-4 text-xl font-semibold dark:text-white">
         Posts que te han gustado

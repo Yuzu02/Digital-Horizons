@@ -56,6 +56,7 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="scrollbar max-h-[452px] overflow-y-auto"
     >
       <h2 className="mb-4 text-xl font-semibold dark:text-white">
         Tus Comentarios
@@ -87,7 +88,7 @@ const UserComments: React.FC<UserCommentsProps> = ({ email }) => {
                       {new Date(comment.createdAt).toLocaleString()}
                     </span>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="max-h-24 overflow-hidden text-gray-700 dark:text-gray-300">
                     {comment.content}
                   </p>
                 </div>

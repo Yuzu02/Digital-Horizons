@@ -10,7 +10,7 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = ({ user }) => {
   return (
-    <div className="flex flex-col space-y-8">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <UserComments email={user.email} />
       <UserLikes email={user.email} />
     </div>

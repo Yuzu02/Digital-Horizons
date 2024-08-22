@@ -34,7 +34,8 @@
 
 /* Yuzu Classes */
 
-:root {
+:root,
+.scrollbar {
   scrollbar-width: none;
 }
 

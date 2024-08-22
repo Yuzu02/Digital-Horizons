@@ -23,7 +23,7 @@ export const NavItem: React.FC<NavItemProps> = ({ href, icon, text }) => {
         className={`group flex items-center space-x-2 transition-transform duration-500 ${
           isActive
             ? ""
-            : "text-darkMode hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
+            : "text-darkMode hover:text-accent dark:text-lightMode dark:hover:text-accent-dark"
         }`}
       >
         <motion.div
