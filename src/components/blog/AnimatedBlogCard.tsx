@@ -46,22 +46,24 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
         whileHover={{ opacity: 1 }}
       />
       <div className="relative h-64 w-full overflow-hidden sm:h-72 md:h-80">
-        <Image
-          src={blog.frontmatter.image}
-          alt={blog.frontmatter.title}
-          fill
-          style={{ objectFit: "cover" }}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-          className="transition-transform duration-500 group-hover:scale-110"
-        />
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-          className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-lg"
-        >
-          {cleanString(blog.frontmatter.category)}
-        </motion.div>
+        <Link href={`/blog/post/${blog.slug}`}>
+          <Image
+            src={blog.frontmatter.image}
+            alt={blog.frontmatter.title}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+            className="transition-transform duration-500 group-hover:scale-110"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+            className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-lg"
+          >
+            {cleanString(blog.frontmatter.category)}
+          </motion.div>
+        </Link>
       </div>
       <div className="p-6">
         <motion.h2
@@ -78,26 +80,30 @@ const AnimatedBlogCard: React.FC<AnimatedBlogCardProps> = ({ blog, index }) => {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="mb-4 flex items-center text-sm text-gray-600 dark:text-gray-400"
         >
-          <Image
-            src={blog.frontmatter.avatar}
-            alt={blog.frontmatter.author}
-            width={32}
-            height={32}
-            className="mr-3 rounded-full"
-          />
+          <Link href={`/blog/post/${blog.slug}`}>
+            <Image
+              src={blog.frontmatter.avatar}
+              alt={blog.frontmatter.author}
+              width={32}
+              height={32}
+              className="mr-3 rounded-full"
+            />
+          </Link>
           <span className="mr-4 font-medium">{blog.frontmatter.author}</span>
           <span className="text-gray-500 dark:text-gray-400">
             {new Date(blog.frontmatter.publishDate).toLocaleDateString()}
           </span>
         </motion.div>
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mb-4 line-clamp-3 text-sm text-gray-600 dark:text-gray-300"
-        >
-          {blog.frontmatter.description}
-        </motion.p>
+        <Link href={`/blog/post/${blog.slug}`}>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mb-4 line-clamp-3 text-sm text-gray-600 dark:text-gray-300"
+          >
+            {blog.frontmatter.description}
+          </motion.p>
+        </Link>
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
