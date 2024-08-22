@@ -77,7 +77,10 @@ export function MobileNav() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div className="flex size-12 items-center justify-center">
-                    <ThemeModeToggle className="bg-transparent dark:bg-transparent" />
+                    <ThemeModeToggle
+                      className="bg-transparent dark:bg-transparent"
+                      icon="hover:text-yellow-500 hover:dark:text-sky-600 transition-colors duration-200"
+                    />
                   </div>
                 </TooltipTrigger>
                 <TooltipContent className="bg-gray-800 text-white dark:bg-gray-900">

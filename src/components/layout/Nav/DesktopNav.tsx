@@ -43,29 +43,15 @@ export const DesktopNav: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="text-darkMode transition-all duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
+                className="text-darkMode transition-transform duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
               >
                 <FaSearch className="text-xl" aria-label="Search" />
               </motion.button>
               <ThemeModeToggle
-                className="focus:ring-bg-transparent bg-transparent focus:bg-transparent dark:bg-transparent"
-                icon="text-yellow-500 dark:text-primary"
+                className="focus:ring-bg-transparent dark:focus:ring-bg-transparent border-none bg-transparent focus:bg-transparent dark:bg-transparent dark:focus:bg-transparent"
+                icon="text-yellow-500 dark:text-sky-600"
               />
             </nav>
-            <div className="flex items-center md:hidden">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="mr-4 text-darkMode transition-all duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
-              >
-                <FaSearch className="text-xl" />
-              </motion.button>
-              <ThemeModeToggle
-                className="focus:ring-bg-transparent bg-transparent focus:bg-transparent dark:bg-transparent"
-                icon="text-yellow-500 dark:text-primary"
-              />
-            </div>
           </div>
         </div>
       </div>

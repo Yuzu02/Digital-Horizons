@@ -20,9 +20,9 @@ export const NavItem: React.FC<NavItemProps> = ({ href, icon, text }) => {
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <Link
         href={href}
-        className={`group flex items-center space-x-2 transition-all duration-200 ${
+        className={`group flex items-center space-x-2 transition-transform duration-500 ${
           isActive
-            ? "font-bold text-primary"
+            ? ""
             : "text-darkMode hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
         }`}
       >
@@ -41,7 +41,7 @@ export const NavItem: React.FC<NavItemProps> = ({ href, icon, text }) => {
             animate={isActive ? "active" : "inactive"}
             whileHover={isActive ? "active" : "hover"}
             className="absolute bottom-0 left-0 h-0.5 bg-current"
-          ></motion.span>
+          />
         </span>
       </Link>
     </motion.div>
