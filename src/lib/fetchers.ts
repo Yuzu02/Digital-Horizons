@@ -96,6 +96,12 @@ export async function getBlogbyCategory(category: string) {
   return blogs.filter((blog) => blog.frontmatter.category === category);
 }
 
+export async function getAllCategories() {
+  const blogs = await getBlogs();
+  const categories = new Set(blogs.map((blog) => blog.frontmatter.category));
+  return Array.from(categories);
+}
+
 // ? Esta función busca blogs por título o contenido
 export async function searchBlogs(query: string) {
   const files = fs.readdirSync(contentDir);

@@ -1,4 +1,6 @@
-import { getBlogbyCategory } from "@/lib/fetchers";
+// /app/blog/categories/[category]/page.tsx
+
+import { getAllCategories, getBlogbyCategory } from "@/lib/fetchers";
 import CategoryPageContent from "@/components/blog/categories/CategoryPage";
 
 export default async function CategoryPage({
@@ -14,9 +16,8 @@ export default async function CategoryPage({
 }
 
 export async function generateStaticParams() {
-  const { getAllBlogSlug } = await import("@/lib/fetchers");
-  const categories = getAllBlogSlug();
+  const categories = await getAllCategories();
   return categories.map((category) => ({
-    category: category.slug,
+    category,
   }));
 }
