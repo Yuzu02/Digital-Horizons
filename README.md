@@ -41,14 +41,6 @@ pnpm prepare
 bun run prepare
 ```
 
-## Get the environment variables
-
-```ts
-const url = "https://pastebin.com/4aEHVDJP";
-
-const password = "51VBxt7YQd";
-```
-
 ## Environment Variables setup
 
 ```bash
