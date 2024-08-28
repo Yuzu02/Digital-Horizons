@@ -8,13 +8,16 @@ A tech blog using Next.js, TypeScript & Tailwind CSS. This project is a work in 
 
 - Light and dark mode
 - Next Auth for authentication
+- Comments
+- Reactions
+- Responsive Design
 
 ## How to use
 
 - Clone the repository
 
 ```bash
-git clone https://github.com/Yuzu02/tech-blog.git
+git clone https://github.com/Yuzu02/Digital-Horizons
 ```
 
 - Install the dependencies
