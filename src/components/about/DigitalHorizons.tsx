@@ -7,7 +7,7 @@ const DigitalHorizons = () => {
   return (
     <section className="flex items-center justify-center py-8 sm:mt-14 md:py-16 lg:py-20">
       <div className="w-full">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-(--breakpoint-xl) px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ const DigitalHorizons = () => {
                 initial={{ scale: 0.8 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.6 }}
-                className="text-6xl text-primary dark:text-primary-dark"
+                className="text-primary dark:text-primary-dark text-6xl"
               >
                 {DigitalHorizonsData.icon}
               </motion.div>

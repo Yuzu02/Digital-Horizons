@@ -43,7 +43,7 @@ export const Testimonials = () => {
         <h2 className="text-center text-5xl font-medium tracking-tighter md:text-6xl">
           {testimonialSectionData.title}
         </h2>
-        <p className="mx-auto mt-5 max-w-sm text-center text-lg tracking-tight text-darkMode/70 dark:text-white/70 md:text-xl">
+        <p className="text-darkMode/70 mx-auto mt-5 max-w-sm text-center text-lg tracking-tight md:text-xl dark:text-white/70">
           {testimonialSectionData.description}
         </p>
         {/* Testimonials */}
@@ -72,7 +72,7 @@ export const Testimonials = () => {
                     visibleTestimonials.includes(index)
                       ? ""
                       : "hidden sm:block",
-                    "max-w-xs flex-none rounded-xl border border-white/15 p-6 dark:border-darkMode/15 md:max-w-md md:p-10",
+                    "dark:border-darkMode/15 max-w-xs flex-none rounded-xl border border-white/15 p-6 md:max-w-md md:p-10",
                     `${theme === "dark" ? gradients.darkMode : gradients.lightMode}`,
                   )}
                 >
@@ -80,11 +80,11 @@ export const Testimonials = () => {
                     {testimonial.text}
                   </div>
                   <div className="mt-5 flex items-center gap-3">
-                    <div className="relative before:absolute before:inset-0 before:z-10 before:rounded-lg before:border before:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light after:content-[''] before:dark:border-white/30">
+                    <div className="relative before:absolute before:inset-0 before:z-10 before:rounded-lg before:border before:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light after:content-[''] dark:before:border-white/30">
                       <Image
                         src={testimonial.avatar}
                         alt={`Avatar de ${testimonial.name}`}
-                        className="size-11 rounded-lg border border-r-darkMode/30 grayscale dark:border-white/30"
+                        className="border-r-darkMode/30 size-11 rounded-lg border grayscale dark:border-white/30"
                       />
                     </div>
                     <div>

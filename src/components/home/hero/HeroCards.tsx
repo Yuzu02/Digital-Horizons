@@ -18,7 +18,7 @@ export const HeroCards = () => {
             key={stat.label}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="rounded-lg border border-gray-200 bg-gradient-to-br from-white to-gray-100 p-4 text-center shadow-md dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 dark:text-white sm:p-6"
+            className="rounded-lg border border-gray-200 bg-linear-to-br from-white to-gray-100 p-4 text-center shadow-md sm:p-6 dark:border-gray-700 dark:bg-linear-to-br dark:from-gray-800 dark:to-gray-900 dark:text-white"
           >
             <motion.div
               initial={{ y: 20, opacity: 0 }}
@@ -27,18 +27,18 @@ export const HeroCards = () => {
               className="flex flex-col items-center"
             >
               {index === 0 && (
-                <GlobeIcon className="mb-2 h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                <GlobeIcon className="text-primary mb-2 h-8 w-8 sm:h-10 sm:w-10" />
               )}
               {index === 1 && (
-                <NewspaperIcon className="mb-2 h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                <NewspaperIcon className="text-primary mb-2 h-8 w-8 sm:h-10 sm:w-10" />
               )}
               {index === 2 && (
-                <StarIcon className="mb-2 h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                <StarIcon className="text-primary mb-2 h-8 w-8 sm:h-10 sm:w-10" />
               )}
-              <h3 className="mb-1 bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
+              <h3 className="from-primary to-secondary mb-1 bg-linear-to-r bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
                 <NumberTicker value={stat.number} />
               </h3>
-              <p className="text-sm dark:text-gray-300 sm:text-base">
+              <p className="text-sm sm:text-base dark:text-gray-300">
                 {stat.label}
               </p>
             </motion.div>

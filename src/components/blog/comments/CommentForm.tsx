@@ -38,7 +38,7 @@ export default function CommentForm({ onSubmit }: Readonly<CommentFormProps>) {
         whileTap={{ scale: 0.98 }}
       >
         <textarea
-          className="w-full resize-none rounded-lg border border-gray-300 p-2 pr-16 text-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          className="w-full resize-none rounded-lg border border-gray-300 p-2 pr-16 text-sm focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden dark:border-gray-600 dark:bg-gray-700 dark:text-white"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Escribe tu comentario..."
@@ -46,7 +46,7 @@ export default function CommentForm({ onSubmit }: Readonly<CommentFormProps>) {
           required
         />
         <motion.div
-          className="absolute bottom-2 right-2 h-1 bg-blue-500"
+          className="absolute right-2 bottom-2 h-1 bg-blue-500"
           initial={{ width: 0 }}
           animate={{ width: `${(content.length / 500) * 100}%` }}
           transition={{ duration: 0.3 }}

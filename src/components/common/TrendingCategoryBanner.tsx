@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 export const TrendingCategoryBanner: React.FC = () => {
   return (
     <aside className="mb-8">
-      <div className="max-w-7xl rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 p-4 shadow-lg dark:from-purple-900 dark:to-indigo-900 md:p-6">
+      <div className="max-w-7xl rounded-lg bg-linear-to-r from-purple-500 to-indigo-600 p-4 shadow-lg md:p-6 dark:from-purple-900 dark:to-indigo-900">
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
           <motion.h2
             className="mb-4 text-center text-2xl font-bold text-white md:mb-0 md:text-left md:text-3xl"
@@ -19,7 +19,7 @@ export const TrendingCategoryBanner: React.FC = () => {
           </motion.h2>
           <motion.a
             href="/blog/categories"
-            className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-purple-600 shadow-md transition-all duration-300 hover:bg-purple-100 hover:shadow-lg dark:bg-gray-800 dark:text-purple-400 dark:hover:bg-gray-700 md:justify-start md:text-base"
+            className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-purple-600 shadow-md transition-all duration-300 hover:bg-purple-100 hover:shadow-lg md:justify-start md:text-base dark:bg-gray-800 dark:text-purple-400 dark:hover:bg-gray-700"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}

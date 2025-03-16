@@ -12,7 +12,7 @@ const SessionButton: React.FC = () => {
   if (status === "loading") {
     return (
       <motion.div
-        className="inline-block h-8 w-32 rounded bg-gray-200 dark:bg-gray-700"
+        className="inline-block h-8 w-32 rounded-sm bg-gray-200 dark:bg-gray-700"
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
       />
@@ -29,7 +29,7 @@ const SessionButton: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <Link href={buttonHref}>
-        <Button size="lg" className="mr-4 mt-4">
+        <Button size="lg" className="mt-4 mr-4">
           {buttonText}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </Button>

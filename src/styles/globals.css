@@ -1,19 +1,156 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 968px;
+  --breakpoint-xl: 1200px;
+  --font-*: initial;
+  --font-primary: var(--font-poppins);
+
+  --color-light-mode: #fbfbfb;
+  --color-dark-mode: #1c1c22;
+  --color-primary: #8800ff;
+  --color-primary-dark: #6f00ff;
+  --color-primary-hover: #55aaff;
+  --color-secondary: #ff00c3;
+  --color-secondary-dark: #a14ff3;
+  --color-secondary-hover: #55aaff;
+  --color-accent: #ff0095;
+  --color-accent-dark: #ff00c3;
+  --color-accent-hover: #55aaff;
+
+  --color-list: ;
+  --color-list-dark: #2e2e35;
+
+  --color-scroll-area: #d1d1d1;
+  --color-scroll-area-dark: #3a3a42;
+
+  --background-image-gradient-custom: linear-gradient(
+    to right,
+    #8800ff 0%,
+    #ff0095 50%,
+    #ff0095 50%,
+    #8800ff 100%
+  );
+  --background-image-list-gradient: linear-gradient(
+    to left,
+    rgb(236 254 255 / 0),
+    #ecfeff,
+    rgb(255 0 149 / 0.05)
+  );
+  --background-image-testimonial-gradient-dark: linear-gradient(
+    to bottom left,
+    rgb(140, 69, 255, 0.3),
+    black
+  );
+  --background-image-testimonial-gradient-light: linear-gradient(
+    to bottom left,
+    rgb(140, 69, 255, 0.3),
+    #ecfeff
+  );
+
+  --background-size-200: 200% 100%;
+  --background-position-right-center: right center;
+  --background-position-left-center: left center;
+  --transition-property-bg-position: background-position;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  --animate-slide: slide var(--speed) ease-in-out infinite alternate;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-background-position-spin: background-position-spin 3000ms infinite
+    alternate;
+  --animate-gradient: gradient 8s linear infinite;
+
+  @keyframes background-position-spin {
+    0% {
+      background-position: top center;
+    }
+    100% {
+      background-position: bottom center;
+    }
+  }
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes gradient {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   body {
-    @apply bg-lightMode font-primary leading-loose text-darkMode dark:bg-darkMode dark:text-lightMode;
+    @apply font-primary bg-[--color-light-mode] leading-loose text-[--color-dark-mode] dark:bg-[--color-dark-mode] dark:text-[--color-light-mode];
   }
   .h1 {
-    @apply text-[36px] font-semibold leading-[1.1] xl:text-[80px];
+    @apply text-[36px] leading-[1.1] font-semibold xl:text-[80px];
   }
   .h2 {
-    @apply text-[48px] font-semibold leading-[1.1] xl:text-[48px];
+    @apply text-[48px] leading-[1.1] font-semibold xl:text-[48px];
   }
   .h3 {
-    @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
+    @apply text-[20px] leading-[1.1] font-semibold xl:text-[24px];
   }
 }
 

@@ -40,7 +40,7 @@ const UserLikes: React.FC<UserLikesProps> = ({ email }) => {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center text-sm text-gray-600 dark:text-gray-400 sm:text-base"
+        className="text-center text-sm text-gray-600 sm:text-base dark:text-gray-400"
       >
         Cargando posts que te han gustado...
       </motion.p>
@@ -61,7 +61,7 @@ const UserLikes: React.FC<UserLikesProps> = ({ email }) => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center text-sm text-gray-600 dark:text-gray-400 sm:text-base"
+          className="text-center text-sm text-gray-600 sm:text-base dark:text-gray-400"
         >
           Aún no te han gustado posts.
         </motion.p>
@@ -75,12 +75,12 @@ const UserLikes: React.FC<UserLikesProps> = ({ email }) => {
           {likes.map((like) => (
             <motion.div key={like.id} variants={userLikesItemVariants}>
               <Link href={`/blog/post/${like.postSlug}`}>
-                <div className="cursor-pointer rounded-lg bg-gray-100 p-3 shadow transition-shadow duration-300 hover:shadow-md dark:bg-gray-700 dark:hover:bg-gray-600 sm:p-4">
+                <div className="cursor-pointer rounded-lg bg-gray-100 p-3 shadow-sm transition-shadow duration-300 hover:shadow-md sm:p-4 dark:bg-gray-700 dark:hover:bg-gray-600">
                   <div className="mb-2 flex items-start justify-between">
-                    <h3 className="text-base font-semibold dark:text-white sm:text-lg">
+                    <h3 className="text-base font-semibold sm:text-lg dark:text-white">
                       {cleanString(like.postSlug)}
                     </h3>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
+                    <span className="text-xs text-gray-500 sm:text-sm dark:text-gray-400">
                       {new Date(like.createdAt).toLocaleString()}
                     </span>
                   </div>

@@ -29,7 +29,7 @@ export function MobileNav() {
         {isSearchOpen && <SearchBar onClose={() => setIsSearchOpen(false)} />}
       </AnimatePresence>
       <TooltipProvider>
-        <div className="fixed -top-2 left-0 right-0 z-50 bg-transparent">
+        <div className="fixed -top-2 right-0 left-0 z-50 bg-transparent">
           <Dock direction="middle" className="py-2">
             {mobileNavLinks.navLinks.map((item) => (
               <DockIcon key={item.name}>
@@ -79,7 +79,7 @@ export function MobileNav() {
                   <div className="flex size-12 items-center justify-center">
                     <ThemeModeToggle
                       className="bg-transparent dark:bg-transparent"
-                      icon="hover:text-yellow-500 hover:dark:text-sky-600 transition-colors duration-200"
+                      icon="hover:text-yellow-500 dark:hover:text-sky-600 transition-colors duration-200"
                     />
                   </div>
                 </TooltipTrigger>

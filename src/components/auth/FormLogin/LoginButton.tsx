@@ -37,7 +37,7 @@ const LoginButton = ({ provider, icon, returnUrl }: LoginButtonProps) => {
       <Button
         type="button"
         size="lg"
-        className="rounded bg-secondary px-4 py-2 hover:bg-secondary-hover dark:bg-secondary-dark dark:hover:bg-secondary-hover"
+        className="bg-secondary hover:bg-secondary-hover dark:bg-secondary-dark dark:hover:bg-secondary-hover rounded-sm px-4 py-2"
         onClick={handleLogin}
       >
         <p>{icon}</p>

@@ -13,7 +13,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -27,7 +27,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             transition={{ duration: 0.3 }}
           >
             <button
-              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
               onClick={onClose}
             >
               <FaTimes className="text-xl" />
@@ -43,7 +43,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               <Link href="/login">
                 <button
                   onClick={onClose}
-                  className="rounded bg-blue-500 px-6 py-2 text-white transition duration-200 hover:bg-blue-600"
+                  className="rounded-sm bg-blue-500 px-6 py-2 text-white transition duration-200 hover:bg-blue-600"
                 >
                   Iniciar sesión
                 </button>

@@ -21,7 +21,7 @@ export const CommentItem = ({
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="flex-shrink-0 self-center"
+          className="shrink-0 self-center"
         >
           <Image
             src={comment.authorImage}
@@ -31,7 +31,7 @@ export const CommentItem = ({
             className="h-10 w-10 rounded-full"
           />
         </motion.div>
-        <div className="flex-grow">
+        <div className="grow">
           <p className="mb-2 text-sm font-semibold text-gray-600 dark:text-gray-200">
             {comment.author}
           </p>

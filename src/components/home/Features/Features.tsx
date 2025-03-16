@@ -13,7 +13,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 const Features = () => {
   return (
     <motion.div
-      className="container mx-auto py-8 pl-8 pr-4 md:px-4"
+      className="container mx-auto py-8 pr-4 pl-8 md:px-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -32,7 +32,7 @@ const Features = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-10 blur-3xl" />
+        <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 opacity-10 blur-3xl" />
         <div className="relative grid grid-cols-1 gap-4 md:grid-cols-2">
           {featureData.map((feature, index) => (
             <BlurFade key={feature.title} delay={0.25 + index * 0.05} inView>

@@ -10,13 +10,13 @@ export default function Footer() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="rounded-lg bg-gradient-to-r from-purple-500/10 to-indigo-500/10 shadow-lg backdrop-blur-md dark:from-indigo-900/60 dark:via-sky-900/50 dark:to-indigo-900/60"
+      className="rounded-lg bg-linear-to-r from-purple-500/10 to-indigo-500/10 shadow-lg backdrop-blur-md dark:from-indigo-900/60 dark:via-sky-900/50 dark:to-indigo-900/60"
     >
-      <div className="mx-auto w-full max-w-screen-xl p-4 sm:p-6">
+      <div className="mx-auto w-full max-w-(--breakpoint-xl) p-4 sm:p-6">
         <div className="flex flex-col items-center justify-between text-sm sm:flex-row">
           <motion.span
             whileHover={{ scale: 1.05 }}
-            className="mb-2 text-center text-gray-700 dark:text-gray-200 sm:mb-0"
+            className="mb-2 text-center text-gray-700 sm:mb-0 dark:text-gray-200"
           >
             © {footerData.year}{" "}
             <Link

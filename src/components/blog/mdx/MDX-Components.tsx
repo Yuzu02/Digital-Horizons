@@ -100,7 +100,7 @@ export const Parrafo = ({ children, className }: ParrafoProps) => {
     <div
       suppressHydrationWarning={true}
       className={cn(
-        "text-lg text-darkMode/70 antialiased dark:text-lightMode/70 sm:text-justify",
+        "text-darkMode/70 dark:text-lightMode/70 text-lg antialiased sm:text-justify",
         className,
       )}
     >
@@ -114,7 +114,7 @@ export const BlockQuote = ({ children, className }: BlockQuoteProps) => {
   return (
     <blockquote
       className={cn(
-        "border-l-4 border-accent pl-4 text-sm italic dark:border-accent-dark",
+        "border-accent dark:border-accent-dark border-l-4 pl-4 text-sm italic",
         className,
       )}
     >
@@ -187,7 +187,7 @@ export const Alert = ({ children, type = "info", className }: AlertProps) => {
         className,
       )}
     >
-      <Icon className="mr-4 h-6 w-6 flex-shrink-0" />
+      <Icon className="mr-4 h-6 w-6 shrink-0" />
       <div>{children}</div>
     </div>
   );
@@ -210,7 +210,7 @@ export const YouTubeVideo = ({ url }: YouTubeVideoProps) => {
 };
 
 // bg-gray-100 dark:bg-gray-800 //? Por si se me olvida
-// gradient //*  bg-gradient-to-l from-cyan-50 to-accent/5 // ? bg-list-gradient
+// gradient //*  bg-linear-to-l from-cyan-50 to-accent/5 // ? bg-list-gradient
 
 // Accordion // ? Está en preview, dependiendo del feedback se pueden cambiar o mejorar.
 export const Accordion = ({ title, children }: AccordionProps) => {
@@ -256,7 +256,7 @@ export const Indice = ({
   items: { title: string; link: string }[];
 }) => {
   return (
-    <div className="my-8 rounded-lg bg-gradient-to-r from-blue-50 via-cyan-50 to-accent/35 p-6 shadow-lg dark:from-gray-800 dark:to-indigo-900">
+    <div className="to-accent/35 my-8 rounded-lg bg-linear-to-r from-blue-50 via-cyan-50 p-6 shadow-lg dark:from-gray-800 dark:to-indigo-900">
       <h3 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">
         Contenido
       </h3>
@@ -346,7 +346,7 @@ export const ProsCons = ({ pros, cons }: ProsConsProps) => {
               key={pro.toString()}
               className="flex items-start text-green-700 dark:text-green-300"
             >
-              <ProsConIcons.CheckCircle className="mr-2 mt-1 flex-shrink-0 text-sm" />
+              <ProsConIcons.CheckCircle className="mt-1 mr-2 shrink-0 text-sm" />
               <span className="text-sm sm:text-base">{pro}</span>
             </li>
           ))}
@@ -363,7 +363,7 @@ export const ProsCons = ({ pros, cons }: ProsConsProps) => {
               key={con.toString()}
               className="flex items-start text-red-700 dark:text-red-300"
             >
-              <ProsConIcons.TimesCircle className="mr-2 mt-1 flex-shrink-0 text-sm" />
+              <ProsConIcons.TimesCircle className="mt-1 mr-2 shrink-0 text-sm" />
               <span className="text-sm sm:text-base">{con}</span>
             </li>
           ))}
@@ -390,7 +390,7 @@ export const CarruselCitas = ({
   };
 
   return (
-    <div className="my-8 rounded-lg bg-white p-6 shadow-lg transition-all duration-300 dark:bg-gray-800 sm:p-8 md:p-10">
+    <div className="my-8 rounded-lg bg-white p-6 shadow-lg transition-all duration-300 sm:p-8 md:p-10 dark:bg-gray-800">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentQuote}
@@ -401,7 +401,7 @@ export const CarruselCitas = ({
           className="mb-6 flex flex-col items-center"
         >
           <motion.blockquote
-            className="mb-4 text-center text-lg italic text-gray-700 dark:text-gray-300 sm:text-xl md:text-2xl"
+            className="mb-4 text-center text-lg text-gray-700 italic sm:text-xl md:text-2xl dark:text-gray-300"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.3 }}
@@ -452,7 +452,7 @@ export const Timeline = ({
         <div key={event.description} className="mb-8 flex items-center">
           <div className="mr-4 flex flex-col items-center justify-center">
             <div className="h-full w-px bg-gray-300 dark:bg-gray-600"></div>
-            <div className="h-4 w-4 rounded-full bg-primary dark:bg-primary-dark"></div>
+            <div className="bg-primary dark:bg-primary-dark h-4 w-4 rounded-full"></div>
           </div>
           <div>
             <span className="text-sm text-gray-500 dark:text-gray-400">

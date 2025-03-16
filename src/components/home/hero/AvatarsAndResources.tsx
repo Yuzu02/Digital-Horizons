@@ -30,9 +30,9 @@ const AvatarAndResources = ({ avatarUrls }: AvatarAndResourcesProps) => {
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.05 }}
-        className="mb-0 rounded-lg border border-gray-200 p-4 text-center shadow-lg dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 dark:text-white sm:mb-7"
+        className="mb-0 rounded-lg border border-gray-200 p-4 text-center shadow-lg sm:mb-7 dark:border-gray-700 dark:bg-linear-to-br dark:from-gray-800 dark:to-gray-900 dark:text-white"
       >
-        <h2 className="mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-lg font-bold text-transparent">
+        <h2 className="from-primary to-secondary mb-2 bg-linear-to-r bg-clip-text text-lg font-bold text-transparent">
           {HomePageData.resourcesTitle}
         </h2>
         <p className="text-muted-foreground mb-3 text-sm dark:text-gray-300">

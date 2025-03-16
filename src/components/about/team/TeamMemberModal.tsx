@@ -25,7 +25,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+      className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black p-4"
       onClick={onClose}
     >
       <motion.div
@@ -33,7 +33,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.3 }} // Smooth transition for the modal
-        className="relative w-full max-w-2xl overflow-hidden rounded-lg bg-white p-6 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900" // Added gradient for dark mode
+        className="relative w-full max-w-2xl overflow-hidden rounded-lg bg-white p-6 dark:bg-linear-to-br dark:from-gray-800 dark:to-gray-900" // Added gradient for dark mode
         onClick={(e) => e.stopPropagation()}
       >
         <motion.div
@@ -88,7 +88,7 @@ const TeamMemberModal: React.FC<TeamMemberModalProps> = ({
           animate={{ y: 0, opacity: 1 }} // Move to original position and become visible
           exit={{ y: 20, opacity: 0 }} // Exit with the same animation
           transition={{ duration: 0.3, delay: 0.5 }} // Delay for the entrance
-          className="text-ellipsis rounded text-center font-semibold text-accent-hover dark:text-purple-300"
+          className="text-accent-hover rounded-sm text-center font-semibold text-ellipsis dark:text-purple-300"
         >
           {member.matricula}
         </motion.p>

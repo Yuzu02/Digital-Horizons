@@ -28,29 +28,29 @@ export default function Hero() {
           >
             <GradualSpacing
               text={HomePageData.heroTitleSmall}
-              className="items-center text-center font-medium text-gray-600 dark:text-gray-300 md:items-start md:text-center lg:text-lg"
+              className="items-center text-center font-medium text-gray-600 md:items-start md:text-center lg:text-lg dark:text-gray-300"
             />
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-center text-2xl font-bold leading-tight text-transparent dark:from-gray-100 dark:to-gray-400 md:text-left md:text-4xl lg:text-5xl"
+              className="bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-center text-2xl leading-tight font-bold text-transparent md:text-left md:text-4xl lg:text-5xl dark:from-gray-100 dark:to-gray-400"
             >
               <h2 className="text-2xl font-bold md:text-4xl lg:text-5xl">
                 Explora las fronteras de la{" "}
-                <span className="inline-block whitespace-nowrap align-middle">
+                <span className="inline-block align-middle whitespace-nowrap">
                   <WordRotate
                     words={HomePageData.heroWords}
-                    className="relative -top-[0.06em] inline bg-gradient-to-r from-primary to-secondary bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-5xl"
+                    className="from-primary to-secondary relative -top-[0.06em] inline bg-linear-to-r bg-clip-text text-2xl font-bold text-transparent md:text-4xl lg:text-5xl"
                   />
                 </span>
               </h2>
             </motion.div>
 
             <TextEffect
-              className="text-gray-700 dark:text-gray-300 sm:text-base lg:text-lg"
-              preset="blur"
+              className="text-gray-700 sm:text-base lg:text-lg dark:text-gray-300"
+              preset="blur-sm"
               per="char"
             >
               {HomePageData.heroDescription}
@@ -67,7 +67,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Divider */}
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-gradient-to-b from-gray-200 via-gray-400 to-gray-200 dark:from-gray-700 dark:via-gray-500 dark:to-gray-700 lg:block"></div>
+          <div className="absolute top-0 bottom-0 left-1/2 hidden w-px bg-linear-to-b from-gray-200 via-gray-400 to-gray-200 lg:block dark:from-gray-700 dark:via-gray-500 dark:to-gray-700"></div>
 
           {/* Avatar y Recursos */}
           <AvatarAndResources avatarUrls={avatarUrls} />

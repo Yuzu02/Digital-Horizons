@@ -32,7 +32,7 @@ export const SearchResult = ({ filteredBlogs, onClick }: SearchResultProps) => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full shadow-lg"
+                className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full shadow-lg"
               >
                 {blog.avatar && (
                   <Image
@@ -49,7 +49,7 @@ export const SearchResult = ({ filteredBlogs, onClick }: SearchResultProps) => {
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="text-xl font-bold text-gray-900 group-hover:text-primary-hover dark:text-white"
+                  className="group-hover:text-primary-hover text-xl font-bold text-gray-900 dark:text-white"
                 >
                   {blog.title}
                 </motion.h3>
@@ -67,7 +67,7 @@ export const SearchResult = ({ filteredBlogs, onClick }: SearchResultProps) => {
                   transition={{ delay: 0.4 }}
                   className="flex items-center justify-between"
                 >
-                  <span className="flex items-center text-sm font-semibold text-primary dark:text-primary-dark">
+                  <span className="text-primary dark:text-primary-dark flex items-center text-sm font-semibold">
                     <FaUser className="mr-2" />
                     {blog.author}
                   </span>
@@ -82,7 +82,7 @@ export const SearchResult = ({ filteredBlogs, onClick }: SearchResultProps) => {
           <motion.div
             initial={{ opacity: 0, x: "100%" }}
             whileHover={{ opacity: 1, x: 0 }}
-            className="absolute bottom-0 right-0 top-0 w-16 bg-gradient-to-l from-primary to-transparent"
+            className="from-primary absolute top-0 right-0 bottom-0 w-16 bg-linear-to-l to-transparent"
           />
         </motion.li>
       ))}

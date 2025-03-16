@@ -39,7 +39,7 @@ export default function SearchBar({ onClose }: Readonly<SearchBarProps>) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 pt-24 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 pt-24 backdrop-blur-xs"
     >
       <motion.div
         initial={{ y: -50, opacity: 0 }}
@@ -57,13 +57,13 @@ export default function SearchBar({ onClose }: Readonly<SearchBarProps>) {
             onChange={(e) => setSearchTerm(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-            className="w-full rounded-full border-2 border-primary bg-white py-3 pl-12 pr-12 text-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-800 dark:text-white"
+            className="border-primary focus:ring-primary w-full rounded-full border-2 bg-white py-3 pr-12 pl-12 text-lg shadow-lg focus:ring-2 focus:outline-hidden dark:bg-gray-800 dark:text-white"
           />
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="absolute right-4 top-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            className="absolute top-1/2 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
           >
             <FaTimes className="text-xl" />
           </motion.button>

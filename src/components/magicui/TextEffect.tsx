@@ -2,7 +2,7 @@
 import { motion, Variants } from "framer-motion";
 import React from "react";
 
-type PresetType = "blur" | "shake" | "scale" | "fade" | "slide";
+type PresetType = "blur-sm" | "shake" | "scale" | "fade" | "slide";
 
 type TextEffectProps = {
   children: string;
@@ -37,7 +37,7 @@ const presetVariants: Record<
   PresetType,
   { container: Variants; item: Variants }
 > = {
-  blur: {
+  "blur-sm": {
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: "blur(12px)" },
@@ -116,7 +116,7 @@ export function TextEffect({
   variants,
   className,
   preset,
-}: TextEffectProps) {
+}: Readonly<TextEffectProps>) {
   const words = children.split(/(\S+)/);
   const MotionTag = motion[as as keyof typeof motion];
   const selectedVariants = preset

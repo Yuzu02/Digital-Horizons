@@ -47,7 +47,7 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
           </motion.div>
           <motion.div
             variants={postCardOverlayVariants}
-            className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+            className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"
           />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
           </motion.p>
           <motion.div
             variants={postCardContentVariants}
-            className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700"
+            className="mb-4 h-px w-full bg-linear-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700"
           />
           <motion.p
             variants={postCardContentVariants}
@@ -99,7 +99,7 @@ const PostCard: React.FC<Frontmatter> = ({ post }) => {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.5, rotate: 45 }}
               transition={{ duration: 0.3 }}
-              className="absolute bottom-4 right-4 rounded-full bg-blue-600 p-3 text-white shadow-lg"
+              className="absolute right-4 bottom-4 rounded-full bg-blue-600 p-3 text-white shadow-lg"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

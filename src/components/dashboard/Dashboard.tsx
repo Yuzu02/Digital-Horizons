@@ -42,7 +42,7 @@ export default function Dashboard() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="rounded-lg border border-gray-200 bg-gradient-to-br from-white to-gray-100 p-6 shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900"
+        className="rounded-lg border border-gray-200 bg-linear-to-br from-white to-gray-100 p-6 shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-linear-to-br dark:from-gray-800 dark:to-gray-900"
       >
         <motion.h2
           initial={{ y: -20, opacity: 0 }}
@@ -67,10 +67,10 @@ export default function Dashboard() {
               className="rounded-full"
             />
             <div>
-              <h1 className="text-lg font-bold dark:text-white sm:text-2xl">
+              <h1 className="text-lg font-bold sm:text-2xl dark:text-white">
                 {user.name}
               </h1>
-              <p className="text-sm text-gray-600 dark:text-gray-300 sm:text-base">
+              <p className="text-sm text-gray-600 sm:text-base dark:text-gray-300">
                 {user.email}
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function Dashboard() {
           >
             <Button
               onClick={() => signOut()}
-              className="w-full rounded bg-red-500 px-8 py-4 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-600 sm:w-auto"
+              className="w-full rounded-sm bg-red-500 px-8 py-4 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-600 sm:w-auto"
             >
               Cerrar sesión
             </Button>
