@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { JSX } from "react";
 
 // Todo : @Nova034 - Mejorar con la paleta de colores de la página
 

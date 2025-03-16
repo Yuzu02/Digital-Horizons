@@ -5,16 +5,18 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } },
+  props: { params: Promise<{ slug: string }> },
 ) {
+  const params = await props.params;
   const comments = await getCommentsForPost(params.slug);
   return NextResponse.json(comments);
 }
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { slug: string } },
+  props: { params: Promise<{ slug: string }> },
 ) {
+  const params = await props.params;
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

@@ -29,6 +29,8 @@ export async function submitForm(formData: FormData) {
     const data = await response.json();
     return data;
   } catch (e) {
-    throw new Error("Failed to create task");
+    throw new Error(
+      `Error en la solicitud: ${e instanceof Error ? e.message : "Error desconocido"}`,
+    );
   }
 }

@@ -3,16 +3,17 @@
 import { getAllCategories, getBlogbyCategory } from "@/lib/fetchers";
 import CategoryPageContent from "@/components/blog/categories/CategoryPage";
 
+type CategoryParams = Promise<{ category: string }>;
+
 export default async function CategoryPage({
   params,
 }: Readonly<{
-  params: { category: string };
+  params: CategoryParams;
 }>) {
-  const categoryPosts = await getBlogbyCategory(params.category);
+  const { category } = await params;
+  const categoryPosts = await getBlogbyCategory(category);
 
-  return (
-    <CategoryPageContent category={params.category} posts={categoryPosts} />
-  );
+  return <CategoryPageContent category={category} posts={categoryPosts} />;
 }
 
 export async function generateStaticParams() {

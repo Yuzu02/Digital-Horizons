@@ -7,8 +7,11 @@ const buildEslintCommand = (filenames) =>
 
 module.exports = {
   // Type check TypeScript files
-  "*/.(ts|tsx)": () => "yarn tsc --noEmit",
-  "*.{js,jsx,ts,tsx,json,md,prettierrc,css,scss}":
-    "prettier --write --config .prettierrc --ignore-path .gitignore .",
+  "**/*.{ts,tsx}": () => "npx tsc --noEmit",
+  // Format files with prettier
+  "*.{js,jsx,ts,tsx,json,md,prettierrc,css,scss}": [
+    "npx prettier --write --config .prettierrc --ignore-path .gitignore",
+  ],
+  // Lint JS/TS files
   "*.{js,jsx,ts,tsx}": [buildEslintCommand],
 };

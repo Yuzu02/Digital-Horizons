@@ -67,7 +67,7 @@ type Posts = {
   post: BlogExtended[];
 };
 
-export { BlogSchema, BlogSchemaExtended };
+export { BlogSchema, BlogSchemaExtended, FrontmatterSchema, PostHeaderSchema };
 export type {
   Blog,
   BlogExtended,

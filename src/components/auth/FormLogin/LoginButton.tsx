@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { JSX } from "react";
 
 interface LoginButtonProps {
   provider: string;
@@ -28,7 +29,9 @@ const LoginButton = ({ provider, icon, returnUrl }: LoginButtonProps) => {
         router.push(result.url);
       }
     } catch (error) {
-      toast.error("Ocurrió un error inesperado");
+      toast.error(
+        `${error instanceof Error ? error.message : "Error desconocido"}`,
+      );
     }
   };
 

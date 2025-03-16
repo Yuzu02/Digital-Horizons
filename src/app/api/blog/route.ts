@@ -5,8 +5,9 @@ import { getBlogbyCategory } from "@/lib/fetchers";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { category: string } },
+  props: { params: Promise<{ category: string }> },
 ) {
+  const params = await props.params;
   try {
     const categoryPosts = await getBlogbyCategory(params.category);
     return NextResponse.json(categoryPosts);

@@ -3,8 +3,9 @@ import { getLikesForUser } from "@/lib/likes";
 
 export async function GET(
   request: Request,
-  { params }: { params: { email: string } },
+  props: { params: Promise<{ email: string }> },
 ) {
+  const params = await props.params;
   const { email } = params;
 
   try {

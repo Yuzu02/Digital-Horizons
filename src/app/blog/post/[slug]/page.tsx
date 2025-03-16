@@ -7,12 +7,15 @@ export async function generateStaticParams() {
   return getAllBlogSlug();
 }
 
+type SlugParams = Promise<{ slug: string }>;
+
 export default async function BlogPage({
   params,
 }: Readonly<{
-  params: { slug: string };
+  params: SlugParams;
 }>) {
-  const blog = await getBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogBySlug(slug);
 
   if (!blog) {
     return notFound();
@@ -28,7 +31,7 @@ export default async function BlogPage({
             avatar={blog.frontmatter.avatar}
             publishDate={blog.frontmatter.publishDate}
             category={blog.frontmatter.category}
-            slug={params.slug}
+            slug={slug}
           />
           <section
             className="prose dark:prose-invert mx-auto max-w-6xl"
@@ -39,7 +42,7 @@ export default async function BlogPage({
         </article>
       </div>
       <div className="-mt-5 mb-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <CommentSection slug={params.slug} />
+        <CommentSection slug={slug} />
       </div>
     </section>
   );
