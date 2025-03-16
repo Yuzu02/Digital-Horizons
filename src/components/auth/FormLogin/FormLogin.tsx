@@ -111,7 +111,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
           </div>
           <button
             type="submit"
-            className="w-5/6 rounded-full bg-gradient-custom bg-200 bg-right-center p-1 text-neutral-50 transition-all duration-500 ease-in-out hover:bg-left-center hover:text-neutral-900"
+            className="bg-gradient-custom bg-200 bg-right-center hover:bg-left-center w-5/6 rounded-full p-1 text-neutral-50 transition-all duration-500 ease-in-out hover:text-neutral-900"
           >
             {isRegister ? "Registrarse" : "Iniciar Seccion"}
           </button>
@@ -136,7 +136,7 @@ export const FormLogin: React.FC<FormLoginProps> = ({ isRegister }) => {
             <p>{isRegister ? "Tienes una cuenta?" : "No tienes cuenta?"}</p>
             <Link
               href={`${isRegister ? "/login" : "/register"}`}
-              className="m-0 text-sm text-secondary dark:text-secondary-dark"
+              className="text-secondary dark:text-secondary-dark m-0 text-sm"
             >
               <span className="hover:text-secondary-hover hover:underline">
                 {isRegister ? "Iniciar Sesión aquí" : "Regístrate Ahora"}

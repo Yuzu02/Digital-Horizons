@@ -15,12 +15,12 @@ export const DesktopNav: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed left-0 right-0 top-0 z-50"
+      className="fixed top-0 right-0 left-0 z-50"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-lightMode/10 shadow-lg backdrop-blur-md transition-all duration-300 dark:bg-darkMode/10">
+      <div className="bg-lightMode/10 dark:bg-darkMode/10 shadow-lg backdrop-blur-md transition-all duration-300">
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
             <motion.div
@@ -43,7 +43,7 @@ export const DesktopNav: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="text-darkMode transition-transform duration-200 hover:text-gray-900 dark:text-lightMode dark:hover:text-white"
+                className="text-darkMode dark:text-lightMode transition-transform duration-200 hover:text-gray-900 dark:hover:text-white"
               >
                 <FaSearch className="text-xl" aria-label="Search" />
               </motion.button>

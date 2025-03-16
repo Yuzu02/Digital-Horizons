@@ -99,7 +99,7 @@ export default function ContactForm() {
       <div className="mt-6 flex flex-wrap items-center justify-around gap-6">
         <Button
           type="submit"
-          className="bg-primary-dark/90 px-12 py-2 hover:bg-primary-hover dark:bg-primary/90 dark:text-lightMode dark:hover:bg-primary-hover"
+          className="bg-primary-dark/90 hover:bg-primary-hover dark:bg-primary/90 dark:text-lightMode dark:hover:bg-primary-hover px-12 py-2"
         >
           Enviar
         </Button>

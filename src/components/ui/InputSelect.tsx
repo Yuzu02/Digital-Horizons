@@ -57,7 +57,7 @@ export const InputSelect = React.forwardRef<
         ))}
       </select>
       {label && (
-        <Label className="absolute left-0 top-0 py-1 text-xs font-medium text-gray-500 transition-all duration-500 ease-in-out peer-invalid:text-red-600 peer-focus:text-secondary dark:text-gray-400 dark:peer-focus:text-secondary-dark">
+        <Label className="peer-focus:text-secondary dark:peer-focus:text-secondary-dark absolute top-0 left-0 py-1 text-xs font-medium text-gray-500 transition-all duration-500 ease-in-out peer-invalid:text-red-600 dark:text-gray-400">
           {label}
         </Label>
       )}

@@ -32,7 +32,7 @@ const PostHeader: React.FC<PostHeaderProps & { slug: string }> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl md:text-5xl"
+        className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-5xl dark:text-gray-100"
       >
         {title}
       </motion.h1>

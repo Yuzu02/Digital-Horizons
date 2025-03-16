@@ -40,7 +40,7 @@ const TeamSection: React.FC = () => {
           <h2 className="mb-6 text-center text-4xl font-medium tracking-tighter md:text-5xl">
             {teamData.title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 md:text-xl">
+          <p className="text-lg text-gray-600 md:text-xl dark:text-gray-300">
             {teamData.description}
           </p>
         </motion.div>
@@ -56,7 +56,7 @@ const TeamSection: React.FC = () => {
                 className="cursor-pointer"
                 onClick={() => openModal(member)}
               >
-                <div className="group relative aspect-square overflow-hidden rounded-full transition-all duration-300 ease-in-out hover:shadow-xl dark:hover:shadow-gray-700 sm:h-48 sm:w-48 md:h-60 md:w-60">
+                <div className="group relative aspect-square overflow-hidden rounded-full transition-all duration-300 ease-in-out hover:shadow-xl sm:h-48 sm:w-48 md:h-60 md:w-60 dark:hover:shadow-gray-700">
                   <Image
                     src={member.avatar}
                     alt={member.name}
@@ -64,7 +64,7 @@ const TeamSection: React.FC = () => {
                     style={{ objectFit: "cover" }}
                     className="transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="bg-opacity-50 absolute inset-0 flex items-center justify-center bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <p className="px-2 text-center text-lg font-semibold text-white sm:text-xl md:text-xl">
                       {member.name}
                     </p>

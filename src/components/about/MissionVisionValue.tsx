@@ -46,7 +46,7 @@ export const MissionVisionValues = () => {
                   variants={mvvItemVariants}
                 >
                   <motion.div
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-3 py-1 text-sm text-white"
+                    className="bg-accent inline-flex items-center justify-center gap-2 rounded-lg px-3 py-1 text-sm text-white"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -60,7 +60,7 @@ export const MissionVisionValues = () => {
                     {item.title}
                   </motion.h2>
                   <motion.p
-                    className="mx-auto max-w-full text-lg text-gray-600 dark:text-lightMode/60 sm:max-w-[700px] md:text-base lg:text-lg"
+                    className="dark:text-lightMode/60 mx-auto max-w-full text-lg text-gray-600 sm:max-w-[700px] md:text-base lg:text-lg"
                     variants={mvvItemVariants}
                   >
                     {item.description}

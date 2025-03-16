@@ -10,7 +10,7 @@ export default function DHLogo({ className }: Readonly<DHLogoProps>) {
     <div className="Master3 flex justify-items-center">
       <Link
         className={cn(
-          "space-x-1 self-center justify-self-start whitespace-nowrap text-2xl font-semibold",
+          "space-x-1 self-center justify-self-start text-2xl font-semibold whitespace-nowrap",
           className,
         )}
         href="/"

@@ -31,7 +31,7 @@ export default async function BlogPage({
             slug={params.slug}
           />
           <section
-            className="prose mx-auto max-w-6xl dark:prose-invert"
+            className="prose dark:prose-invert mx-auto max-w-6xl"
             suppressHydrationWarning={true}
           >
             {blog.content}

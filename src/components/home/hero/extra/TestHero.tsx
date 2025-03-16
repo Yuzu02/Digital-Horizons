@@ -35,7 +35,7 @@ export default function TestHero() {
           </p>
           <Link href={HomePageData.viewBlogLink} className="w-full">
             <ShimmerButton className="w-full shadow-2xl">
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-lg dark:from-white dark:to-slate-900/10">
                 {HomePageData.viewBlogLabel}
               </span>
             </ShimmerButton>
@@ -46,7 +46,7 @@ export default function TestHero() {
               background="#ffffff"
               shimmerColor="#000000"
             >
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-black dark:from-slate-900/10 dark:to-white lg:text-lg">
+              <span className="text-center text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-black lg:text-lg dark:from-slate-900/10 dark:to-white">
                 {HomePageData.viewCategoriesLabel}
               </span>
             </ShimmerButton>

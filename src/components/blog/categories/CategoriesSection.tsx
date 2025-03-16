@@ -10,7 +10,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 const CategoriesSection = () => {
   return (
     <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 md:p-8 lg:p-2 lg:pt-6">
-      <Card className="w-full max-w-7xl border-none bg-lightMode p-4 dark:border-none dark:bg-darkMode sm:p-6 md:p-8">
+      <Card className="bg-lightMode dark:bg-darkMode w-full max-w-7xl border-none p-4 sm:p-6 md:p-8 dark:border-none">
         <motion.div
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3"
           initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const CategoriesSection = () => {
                     <span className="sr-only">Ver Categoría</span>
                   </Link>
                   <motion.div
-                    className="flex h-full flex-col items-center justify-center gap-3 bg-white p-4 text-center transition-all duration-300 group-hover:bg-primary group-hover:text-white dark:bg-gray-800 dark:text-lightMode/80 dark:group-hover:bg-primary-dark"
+                    className="group-hover:bg-primary dark:text-lightMode/80 dark:group-hover:bg-primary-dark flex h-full flex-col items-center justify-center gap-3 bg-white p-4 text-center transition-all duration-300 group-hover:text-white dark:bg-gray-800"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
@@ -47,7 +47,7 @@ const CategoriesSection = () => {
                     <h3 className="text-lg font-medium tracking-tight">
                       {category.name}
                     </h3>
-                    <p className="text-sm text-gray-600 transition-all duration-300 group-hover:text-lightMode/80 dark:text-gray-300 dark:group-hover:text-white">
+                    <p className="group-hover:text-lightMode/80 text-sm text-gray-600 transition-all duration-300 dark:text-gray-300 dark:group-hover:text-white">
                       {category.description}
                     </p>
                   </motion.div>

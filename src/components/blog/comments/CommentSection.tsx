@@ -53,7 +53,7 @@ export default function CommentSection({
       variants={containerCommentsVariants}
       initial="hidden"
       animate="visible"
-      className="mx-auto mt-8 max-w-2xl rounded-lg bg-white p-4 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800 sm:mt-12 sm:p-6 md:p-8"
+      className="mx-auto mt-8 max-w-2xl rounded-lg bg-white p-4 shadow-lg transition-all duration-300 hover:shadow-xl sm:mt-12 sm:p-6 md:p-8 dark:bg-gray-800"
     >
       <CommentSectionHeader />
       <AnimatePresence>

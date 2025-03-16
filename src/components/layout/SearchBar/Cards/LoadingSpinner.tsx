@@ -15,7 +15,7 @@ export const LoadingSpinner = () => (
         duration: 1,
         ease: "linear",
       }}
-      className="h-8 w-8 rounded-full border-t-2 border-primary"
+      className="border-primary h-8 w-8 rounded-full border-t-2"
     />
   </motion.div>
 );

@@ -15,7 +15,7 @@ export default function CategoryPageContent({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-100 p-4 dark:bg-gray-900 sm:p-6 md:p-8 lg:p-10"
+      className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8 lg:p-10 dark:bg-gray-900"
     >
       <div className="mx-auto mt-12 max-w-7xl">
         <motion.h1

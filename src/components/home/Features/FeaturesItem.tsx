@@ -39,7 +39,7 @@ export const FeatureItem = ({
           {title}
         </motion.h3>
         <motion.p
-          className="text-sm text-darkMode/80 dark:text-lightMode/80"
+          className="text-darkMode/80 dark:text-lightMode/80 text-sm"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 + 0.4 }}
